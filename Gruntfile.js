@@ -38,7 +38,7 @@ module.exports = function(grunt) {
             options: {
               port: 8080,
               hostname: '*',
-              protocol: 'http'
+              protocol: 'https'
             }
           }
         }

@@ -385,7 +385,9 @@ Vue.component('text-frame', {
       
       var axes = this.fontSettings.variableOptions.axes;
 
-      var axesClone = axes.map(a => ({...a}));
+      // var axesClone = axes.map(a => ({...a}));
+      var axesClone = JSON.parse(JSON.stringify(axes));
+
       var widthAxis;
       for (var i = 0; i < axesClone.length; i++) {
         if (axesClone[i].tag == this.supportedTags.width) widthAxis = axesClone[i];
