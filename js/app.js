@@ -2565,6 +2565,66 @@ var app = new Vue({
         }
       },
       {
+        "fontFamilyName": "dT Jakob",
+        "isActive": false,
+        "fontFileName": "dTJakobVariableConceptGX.woff2",
+        "cssCodeName": "dT Jakob",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": 10,
+              "defaultValue": 10,
+              "maxValue": 40,
+              "isSelected": 1
+            }
+          ],
+          "instances": [
+            {
+              "name": "Weight 40",
+              "isActive": false,
+              "coordinates": {
+                "wght": 40
+              }
+            },
+            {
+              "name": "Weight 30",
+              "isActive": false,
+              "coordinates": {
+                "wght": 30
+              }
+            },
+            {
+              "name": "Weight 20",
+              "isActive": false,
+              "coordinates": {
+                "wght": 20
+              }
+            },
+            {
+              "name": "Weight 10",
+              "isActive": false,
+              "coordinates": {
+                "wght": 10
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Eduilson Coan & Gustavo Soares",
+          "publisher": "http://www.dootype.com",
+          "urlText": "dootype.com",
+          "url": "http://www.dootype.com",
+          "license": "Paid/commercial"
+        }
+      },
+      {
         "fontFamilyName": "Decovar",
         "isActive": false,
         "fontFileName": "DecovarAlpha-VF.woff2",
@@ -9126,66 +9186,6 @@ var app = new Vue({
           "publisher": "",
           "urlText": "ndiscovered.com",
           "url": "www.ndiscovered.com",
-          "license": "Paid/commercial"
-        }
-      },
-      {
-        "fontFamilyName": "dT Jakob",
-        "isActive": false,
-        "fontFileName": "dTJakobVariableConceptGX.woff2",
-        "cssCodeName": "dT Jakob",
-        "previewText": {
-          "isCustom": false,
-          "customText": ""
-        },
-        "isVariableFont": true,
-        "variableOptions": {
-          "axes": [
-            {
-              "tag": "wght",
-              "name": "Weight",
-              "minValue": 10,
-              "defaultValue": 10,
-              "maxValue": 40,
-              "isSelected": 1
-            }
-          ],
-          "instances": [
-            {
-              "name": "Weight 40",
-              "isActive": false,
-              "coordinates": {
-                "wght": 40
-              }
-            },
-            {
-              "name": "Weight 30",
-              "isActive": false,
-              "coordinates": {
-                "wght": 30
-              }
-            },
-            {
-              "name": "Weight 20",
-              "isActive": false,
-              "coordinates": {
-                "wght": 20
-              }
-            },
-            {
-              "name": "Weight 10",
-              "isActive": false,
-              "coordinates": {
-                "wght": 10
-              }
-            }
-          ]
-        },
-        "fontInfo": {
-          "designer": "Eduilson Coan & Gustavo Soares",
-          "publisher": "http://www.dootype.com",
-          "urlText": "dootype.com",
-          "url": "http://www.dootype.com",
           "license": "Paid/commercial"
         }
       }

@@ -14,7 +14,7 @@ module.exports = function(grunt) {
         },
         autoprefixer: {
             options: {
-                map: true
+                map: false
             },
             dist: {
                 files: {
