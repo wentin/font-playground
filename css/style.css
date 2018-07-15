@@ -1,17 +1,262 @@
 @import url("https://use.typekit.net/uqw8dxw.css");
 @font-face {
-  src: url("../fonts/CompressaPRO-GX.woff2");
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/AdobeVFPrototype.woff2");
+  font-family: 'Adobe Prototype';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/AmstelvarAlpha-VF.woff2");
+  font-family: 'Amstelvar';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/AvenirNext_Variable.woff2");
+  font-family: 'Avenir Next';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/Bahnschrift.woff2");
+  font-family: 'Bahnschrift';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/BarlowGX.woff2");
+  font-family: 'Barlow';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/BuffaloGals_Var.woff2");
+  font-family: 'Buffalo Gals';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/Cabin_V.woff2");
+  font-family: 'Cabin';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/Cabin-Italic_V.woff2");
+  font-family: 'Cabin Italic';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/Cheee_Variable.woff2");
+  font-family: 'Cheee';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/CompressaPRO-GX.woff2");
   font-family: 'Compressa';
   font-style: normal;
 }
 @font-face {
-  src: url("../fonts/Dunbar_Series-VF.woff2");
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/DecovarAlpha-VF.woff2");
+  font-family: 'Decovar';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/Dunbar_Series-VF.woff2");
   font-family: 'Dunbar';
   font-style: normal;
 }
 @font-face {
-  src: url("../fonts/AmstelvarAlpha-VF.woff2");
-  font-family: 'Amstelvar';
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/ExtraordinaireVariable-VF.woff2");
+  font-family: 'Extraordinaire';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/ExtraordinaireVariableShade-VF.woff2");
+  font-family: 'Extraordinaire Shade';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/Fit-Variable.woff2");
+  font-family: 'Fit';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/Gimlet_Romans-VF.woff2");
+  font-family: 'Gimlet';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/Gimlet_Italics-VF.woff2");
+  font-family: 'Gimlet Italic';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/Gingham.woff2");
+  font-family: 'Gingham';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/Gnomon-Web.woff2");
+  font-family: 'Gnomon';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/Input_Mono-VF.woff2");
+  font-family: 'Input Mono';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/Jabin-VF.woff2");
+  font-family: 'Jabin';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/KairosSans_Variable.woff2");
+  font-family: 'Kairos Sans';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/LabDJR-VF.woff2");
+  font-family: 'Lab';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/LeagueMonoVariable.woff2");
+  font-family: 'League Mono';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/LibreFranklinGX-Romans.woff2");
+  font-family: 'Libre Franklin';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/LibreFranklinGX-Italics.woff2");
+  font-family: 'Libre Franklin Italic';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/LouvetteBETA-VF.woff2");
+  font-family: 'Louvette Beta';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/LouvetteBETA_Italic-VF.woff2");
+  font-family: 'Louvette Italic Beta';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/MarkaziText-VF.woff2");
+  font-family: 'Markazi Text';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/MeritBadge-VF.woff2");
+  font-family: 'Merit Badge';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/MetaVariableDemo-Set.woff2");
+  font-family: 'Meta';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/NunitoVFBeta.woff2");
+  font-family: 'Nunito Beta';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/Output_Sans-VF.woff2");
+  font-family: 'Output Sans';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/Output_Sans_Hairlines-VF.woff2");
+  font-family: 'Output Sans Hairlines';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/Pappardelle-VF.woff2");
+  font-family: 'Pappardelle';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/renner-VF.woff2");
+  font-family: 'Renner';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/RhodyVariable-VF.woff2");
+  font-family: 'Rhody';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/RoslindaleVariableBeta-VF.woff2");
+  font-family: 'Roslindale Beta';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/SFNSDisplay.woff2");
+  font-family: 'San Francisco Display';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/SFNSText.woff2");
+  font-family: 'San Francisco Text';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/SFNSTextItalic.woff2");
+  font-family: 'San Francisco Text Italic';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/Selawik-variable.woff2");
+  font-family: 'Selawik';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/Slovic_Demo_VarGX.woff2");
+  font-family: 'Slovic';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/SourceCodeVariable-Roman.woff2");
+  font-family: 'Source Code Variable';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/SourceCodeVariable-Italic.woff2");
+  font-family: 'Source Code Italic Variable';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/SourceSansVariable-Roman.woff2");
+  font-family: 'Source Sans Variable';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/SourceSansVariable-Italic.woff2");
+  font-family: 'Source Sans Italic Variable';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/SourceSerifVariable-Roman.woff2");
+  font-family: 'Source Serif Variable';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/VennVF.woff2");
+  font-family: 'Venn';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/VotoSerifGX.woff2");
+  font-family: 'Voto Serif';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/ZinzinVF.woff2");
+  font-family: 'Zinzin';
+  font-style: normal;
+}
+@font-face {
+  src: url("https://s3.us-east-2.amazonaws.com/font-playground/dTJakobVariableConceptGX.woff2");
+  font-family: 'dT Jakob';
   font-style: normal;
 }
 input[type="range"] {
@@ -570,7 +815,7 @@ body {
 .label-text {
   font-family: "omnes-pro", sans-serif;
   font-weight: 500;
-  color: #A3A3A3;
+  color: #BBBBBB;
   font-size: 12px;
   letter-spacing: 0.03em;
 }
@@ -578,7 +823,7 @@ body {
 .value-text {
   font-family: "omnes-pro", sans-serif;
   font-weight: 500;
-  color: #CACACA;
+  color: #FFFFFF;
   font-size: 12px;
   letter-spacing: 0.03em;
 }
@@ -744,7 +989,7 @@ body {
 }
 .panel .section.section-preset-variations .variations {
   margin-top: 15px;
-  max-height: 125px;
+  max-height: 90px;
   overflow-y: auto;
   margin-right: -12px;
   padding-right: 12px;
@@ -824,7 +1069,7 @@ body {
   white-space: nowrap;
   margin-bottom: 2px;
   font-family: "omnes-pro", sans-serif;
-  color: #FFFFFF;
+  color: #BBBBBB;
 }
 .font-card .label-text {
   line-height: 15px;
@@ -832,6 +1077,7 @@ body {
   white-space: nowrap;
   overflow: hidden;
   margin-right: 30px;
+  color: #FFFFFF;
 }
 .font-card .badge-text {
   line-height: 15px;
@@ -853,7 +1099,7 @@ body {
 
 .variation-card {
   background-color: #000000;
-  color: #A3A3A3;
+  color: #FFFFFF;
   border: 1px solid #333333;
   font-size: 12px;
   line-height: 28px;
@@ -873,7 +1119,7 @@ body {
   float: right;
   margin-right: 5px;
   line-height: 26px;
-  color: #FFFFFF;
+  color: #BBBBBB;
 }
 
 .slider-2d {

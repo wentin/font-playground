@@ -1,0 +1,444 @@
+[
+  {
+    "fontFamilyName": "Dunbar",
+    "isActive": true,
+    "fontFileName": "Dunbar_Series-VF.woff2",
+    "cssCodeName": "Dunbar",
+    "previewText": {
+      "isCustom": false,
+      "customText": ""
+    },
+    "isVariableFont": true,
+    "variableOptions": {
+      "axes": [
+        {
+          "tag": "wght",
+          "name": "Weight",
+          "minValue": 100,
+          "defaultValue": 500,
+          "maxValue": 900,
+          "isSelected": 1
+        },
+        {
+          "tag": "XHGT",
+          "name": "x Height",
+          "minValue": 353,
+          "defaultValue": 500,
+          "maxValue": 574,
+          "minPositionY": 0.571,
+          "maxPositionY": 0.35,
+          "baselinePostionY": 0.924,
+          "isSelected": 2
+        },
+        {
+          "tag": "opsz",
+          "name": "Optical Size",
+          "minValue": 10,
+          "defaultValue": 36,
+          "maxValue": 36,
+          "isSelected": 0
+        }
+      ],
+      "instances": [
+        {
+          "name": "Tall Ultra",
+          "isActive": false,
+          "coordinates": {
+            "wght": 900,
+            "XHGT": 574,
+            "opsz": 36
+          }
+        },
+        {
+          "name": "Tall Extra Bold",
+          "isActive": false,
+          "coordinates": {
+            "wght": 800,
+            "XHGT": 574,
+            "opsz": 36
+          }
+        },
+        {
+          "name": "Tall Bold",
+          "isActive": false,
+          "coordinates": {
+            "wght": 700,
+            "XHGT": 574,
+            "opsz": 36
+          }
+        },
+        {
+          "name": "Tall Medium",
+          "isActive": false,
+          "coordinates": {
+            "wght": 500,
+            "XHGT": 574,
+            "opsz": 36
+          }
+        },
+        {
+          "name": "Tall Regular",
+          "isActive": false,
+          "coordinates": {
+            "wght": 400,
+            "XHGT": 574,
+            "opsz": 36
+          }
+        },
+        {
+          "name": "Tall Book",
+          "isActive": false,
+          "coordinates": {
+            "wght": 350,
+            "XHGT": 574,
+            "opsz": 36
+          }
+        },
+        {
+          "name": "Tall Light",
+          "isActive": false,
+          "coordinates": {
+            "wght": 300,
+            "XHGT": 574,
+            "opsz": 36
+          }
+        },
+        {
+          "name": "Tall Extra Light",
+          "isActive": false,
+          "coordinates": {
+            "wght": 200,
+            "XHGT": 574,
+            "opsz": 36
+          }
+        },
+        {
+          "name": "Tall Hairline",
+          "isActive": false,
+          "coordinates": {
+            "wght": 100,
+            "XHGT": 574,
+            "opsz": 36
+          }
+        },
+        {
+          "name": "Low Bold",
+          "isActive": false,
+          "coordinates": {
+            "wght": 700,
+            "XHGT": 378,
+            "opsz": 36
+          }
+        },
+        {
+          "name": "Low Medium",
+          "isActive": false,
+          "coordinates": {
+            "wght": 492.59259033203125,
+            "XHGT": 363,
+            "opsz": 36
+          }
+        },
+        {
+          "name": "Low Regular",
+          "isActive": false,
+          "coordinates": {
+            "wght": 400,
+            "XHGT": 358,
+            "opsz": 36
+          }
+        },
+        {
+          "name": "Low Book",
+          "isActive": false,
+          "coordinates": {
+            "wght": 350,
+            "XHGT": 353,
+            "opsz": 36
+          }
+        },
+        {
+          "name": "Low Light",
+          "isActive": false,
+          "coordinates": {
+            "wght": 300,
+            "XHGT": 353,
+            "opsz": 36
+          }
+        },
+        {
+          "name": "Low Extra Light",
+          "isActive": false,
+          "coordinates": {
+            "wght": 200,
+            "XHGT": 353,
+            "opsz": 36
+          }
+        },
+        {
+          "name": "Low Hairline",
+          "isActive": false,
+          "coordinates": {
+            "wght": 100,
+            "XHGT": 353,
+            "opsz": 36
+          }
+        },
+        {
+          "name": "Text Regular",
+          "isActive": false,
+          "coordinates": {
+            "wght": 369.23077392578125,
+            "XHGT": 500,
+            "opsz": 10
+          }
+        },
+        {
+          "name": "Text Bold",
+          "isActive": false,
+          "coordinates": {
+            "wght": 651.5151519775391,
+            "XHGT": 500,
+            "opsz": 10
+          }
+        },
+        {
+          "name": "Text Medium",
+          "isActive": false,
+          "coordinates": {
+            "wght": 500,
+            "XHGT": 500,
+            "opsz": 10
+          }
+        },
+        {
+          "name": "Text Extra Bold",
+          "isActive": false,
+          "coordinates": {
+            "wght": 738.9082489013672,
+            "XHGT": 500,
+            "opsz": 10
+          }
+        }
+      ]
+    },
+    "fontInfo": {
+      "designer": "CJ Dunn",
+      "publisher": "CJ Type",
+      "urlText": "cjtype.com",
+      "url": "cjtype.com",
+      "license": "Paid/commercial",
+      "description": ""
+    }
+  },
+  {
+    "fontFamilyName": "Compressa",
+    "isActive": false,
+    "fontFileName": "CompressaPRO-GX.woff2",
+    "cssCodeName": "Compressa",
+    "previewText": {
+      "isCustom": false,
+      "customText": ""
+    },
+    "isVariableFont": true,
+    "variableOptions": {
+      "axes": [
+        {
+          "tag": "wght",
+          "name": "Weight",
+          "minValue": 100,
+          "defaultValue": 100,
+          "maxValue": 1000,
+          "isSelected": 1
+        },
+        {
+          "tag": "wdth",
+          "name": "Width",
+          "minValue": 10,
+          "defaultValue": 10,
+          "maxValue": 200,
+          "isSelected": 2
+        },
+        {
+          "tag": "ital",
+          "name": "Italic",
+          "minValue": 0,
+          "defaultValue": 0,
+          "maxValue": 1,
+          "minAngle": 0,
+          "maxAngle": 10,
+          "isSelected": 0
+        }
+      ],
+      "instances": []
+    },
+    "fontInfo": {
+      "designer": "Ingo Preuß",
+      "publisher": "PreussType",
+      "urlText": "preusstype.com",
+      "url": "preusstype.com",
+      "license": "Paid/commercial, Trial",
+      "description": ""
+    }
+  },
+  {
+    "fontFamilyName": "Amstelvar",
+    "isActive": false,
+    "fontFileName": "AmstelvarAlpha-VF.woff2",
+    "cssCodeName": "Amstelvar",
+    "previewText": {
+      "isCustom": false,
+      "customText": ""
+    },
+    "isVariableFont": true,
+    "variableOptions": {
+      "axes": [
+        {
+          "tag": "wght",
+          "name": "Weight",
+          "minValue": 100,
+          "defaultValue": 400,
+          "maxValue": 900,
+          "isSelected": 1
+        },
+        {
+          "tag": "wdth",
+          "name": "Width",
+          "minValue": 35,
+          "defaultValue": 100,
+          "maxValue": 100,
+          "isSelected": 2
+        },
+        {
+          "tag": "opsz",
+          "name": "Optical Size",
+          "minValue": 10,
+          "defaultValue": 14,
+          "maxValue": 72,
+          "isSelected": 0
+        },
+        {
+          "tag": "XOPQ",
+          "name": "x opaque",
+          "minValue": 5,
+          "defaultValue": 88,
+          "maxValue": 500,
+          "isSelected": 0
+        },
+        {
+          "tag": "XTRA",
+          "name": "x transparent",
+          "minValue": 42,
+          "defaultValue": 402,
+          "maxValue": 402,
+          "isSelected": 0
+        },
+        {
+          "tag": "YOPQ",
+          "name": "y opaque",
+          "minValue": 4,
+          "defaultValue": 50,
+          "maxValue": 85,
+          "isSelected": 0
+        },
+        {
+          "tag": "YTLC",
+          "name": "lc y transparent",
+          "minValue": 445,
+          "defaultValue": 500,
+          "maxValue": 600,
+          "isSelected": 0
+        },
+        {
+          "tag": "YTSE",
+          "name": "Serif height",
+          "minValue": 0,
+          "defaultValue": 18,
+          "maxValue": 48,
+          "isSelected": 0
+        },
+        {
+          "tag": "GRAD",
+          "name": "Grade",
+          "minValue": 25,
+          "defaultValue": 88,
+          "maxValue": 150,
+          "isSelected": 0
+        },
+        {
+          "tag": "XTCH",
+          "name": "x transparent Chinese",
+          "minValue": 800,
+          "defaultValue": 1000,
+          "maxValue": 1200,
+          "isSelected": 0
+        },
+        {
+          "tag": "YTCH",
+          "name": "y transparent Chinese",
+          "minValue": 800,
+          "defaultValue": 1000,
+          "maxValue": 1200,
+          "isSelected": 0
+        },
+        {
+          "tag": "YTAS",
+          "name": "y transparent ascender",
+          "minValue": 650,
+          "defaultValue": 750,
+          "maxValue": 850,
+          "isSelected": 0
+        },
+        {
+          "tag": "YTDE",
+          "name": "y transparent descender",
+          "minValue": 150,
+          "defaultValue": 250,
+          "maxValue": 350,
+          "isSelected": 0
+        },
+        {
+          "tag": "YTUC",
+          "name": "y transparent uppercase",
+          "minValue": 650,
+          "defaultValue": 750,
+          "maxValue": 950,
+          "isSelected": 0
+        },
+        {
+          "tag": "YTRA",
+          "name": "y transparent",
+          "minValue": 800,
+          "defaultValue": 1000,
+          "maxValue": 1200,
+          "isSelected": 0
+        },
+        {
+          "tag": "PWGT",
+          "name": "Para Weight",
+          "minValue": 38,
+          "defaultValue": 88,
+          "maxValue": 250,
+          "isSelected": 0
+        },
+        {
+          "tag": "PWDT",
+          "name": "Para Width",
+          "minValue": 60,
+          "defaultValue": 402,
+          "maxValue": 402,
+          "isSelected": 0
+        }
+      ],
+      "instances": []
+    },
+    "fontInfo": {
+      "designer": "David Berlow",
+      "publisher": "Font Bureau",
+      "urlText": "Github Repo",
+      "url": "https://github.com/TypeNetwork/Amstelvar/releases",
+      "license": "Open source",
+      "description": ""
+    }
+  }
+]
