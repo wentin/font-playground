@@ -1652,24 +1652,24 @@ var app = new Vue({
               "name": "Test1\n",
               "isActive": false,
               "coordinates": {
-                "CK ": 1,
-                "FR ": 1,
-                "HV ": 0,
-                "CN ": 0,
-                "BR ": 0,
-                "TC ": 1
+                "CK  ": 1,
+                "FR  ": 1,
+                "HV  ": 0,
+                "CN  ": 0,
+                "BR  ": 0,
+                "TC  ": 1
               }
             },
             {
               "name": "Cookies-1\n",
               "isActive": false,
               "coordinates": {
-                "CK ": 0,
-                "FR ": 0,
-                "HV ": 0,
-                "CN ": 0,
-                "BR ": 0,
-                "TC ": 1
+                "CK  ": 0,
+                "FR  ": 0,
+                "HV  ": 0,
+                "CN  ": 0,
+                "BR  ": 0,
+                "TC  ": 1
               }
             }
           ]
