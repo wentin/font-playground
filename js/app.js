@@ -588,7 +588,7 @@ var app = new Vue({
   data: {
     fontFamilies: [
       {
-        "fontFamilyName": "Adobe Prototype",
+        "fontFamilyName": "Adobe VF Prototype",
         "isActive": true,
         "fontFileName": "AdobeVFPrototype.woff2",
         "cssCodeName": "Adobe Prototype",
@@ -685,7 +685,7 @@ var app = new Vue({
         },
         "fontInfo": {
           "designer": "Frank Grießhammer",
-          "publisher": "Adobe Systems Incorporated",
+          "publisher": "Adobe",
           "urlText": "github.com",
           "url": "https://github.com/adobe-fonts/adobe-variable-font-prototype",
           "license": "Open source"
@@ -948,7 +948,7 @@ var app = new Vue({
         },
         "fontInfo": {
           "designer": "Adrian Frutiger, Akira Kobayashi",
-          "publisher": "Linotype GmbH",
+          "publisher": "Monotype",
           "urlText": "github.com",
           "url": "https://github.com/Monotype/Monotype_prototype_variable_fonts/tree/master/AvenirNext",
           "license": "Free for non-commercial use"
@@ -1675,11 +1675,11 @@ var app = new Vue({
           ]
         },
         "fontInfo": {
-          "designer": "",
-          "publisher": "Thomas Rickner",
-          "urlText": "ricknertype.com",
-          "url": "www.ricknertype.com",
-          "license": "Paid/commercial"
+          "designer": "Thomas Rickner",
+          "publisher": "Rickner Type",
+          "urlText": "github.com",
+          "url": "https://github.com/TrueTyper/BuffaloGals",
+          "license": "Free for non-commercial use"
         }
       },
       {
@@ -1787,10 +1787,10 @@ var app = new Vue({
           ]
         },
         "fontInfo": {
-          "designer": "",
-          "publisher": "",
-          "urlText": "",
-          "url": "",
+          "designer": "James T. Edmondson",
+          "publisher": "OH no Type Co.",
+          "urlText": "futurefonts.xyz",
+          "url": "https://www.futurefonts.xyz/ohno/cheee",
           "license": "Paid/commercial"
         }
       },
@@ -2560,8 +2560,8 @@ var app = new Vue({
           "designer": "Ingo Preuss",
           "publisher": "Ingo Preuss",
           "urlText": "preusstype.com",
-          "url": "http://www.preusstype.com",
-          "license": "Paid/commercial"
+          "url": "https://compressa.preusstype.com/",
+          "license": "Paid/commercial, Trial"
         }
       },
       {
@@ -2617,11 +2617,11 @@ var app = new Vue({
           ]
         },
         "fontInfo": {
-          "designer": "Eduilson Coan & Gustavo Soares",
-          "publisher": "http://www.dootype.com",
+          "designer": "Eduilson Coan, Gustavo Soares",
+          "publisher": "dooType",
           "urlText": "dootype.com",
-          "url": "http://www.dootype.com",
-          "license": "Paid/commercial"
+          "url": "http://home.dootype.com/dt-jakob-variable-concept",
+          "license": "Free for personal and commercial use"
         }
       },
       {
@@ -3118,11 +3118,11 @@ var app = new Vue({
           ]
         },
         "fontInfo": {
-          "designer": "",
-          "publisher": "",
-          "urlText": "",
-          "url": "",
-          "license": "Paid/commercial"
+          "designer": "David Berlow",
+          "publisher": "Font Bureau",
+          "urlText": "github.com",
+          "url": "https://github.com/TypeNetwork/Decovar",
+          "license": "Open source"
         }
       },
       {
@@ -3352,7 +3352,7 @@ var app = new Vue({
           "designer": "CJ Dunn",
           "publisher": "CJ Type",
           "urlText": "cjtype.com",
-          "url": "http://cjtype.com",
+          "url": "http://cjtype.com/dunbar/variablefonts/info.html",
           "license": "Paid/commercial"
         }
       },
@@ -3433,7 +3433,7 @@ var app = new Vue({
           "designer": "David Jonathan Ross",
           "publisher": "DJR",
           "urlText": "djr.com",
-          "url": "http://www.djr.com",
+          "url": "https://djr.com/notes/extraordinaire-font-of-the-month/",
           "license": "Paid/commercial"
         }
       },
@@ -3537,7 +3537,7 @@ var app = new Vue({
           "designer": "David Jonathan Ross",
           "publisher": "DJR",
           "urlText": "djr.com",
-          "url": "http://www.djr.com",
+          "url": "https://djr.com/notes/extraordinaire-font-of-the-month/",
           "license": "Paid/commercial"
         }
       },
@@ -3637,17 +3637,17 @@ var app = new Vue({
         },
         "fontInfo": {
           "designer": "David Jonathan Ross, Oded Ezer",
-          "publisher": "David Jonathan Ross",
-          "urlText": "djr.com http",
-          "url": "https://djr.com http://hebrewtypography.com",
+          "publisher": "DJR",
+          "urlText": "djr.com",
+          "url": "https://djr.com/fit/",
           "license": "Paid/commercial"
         }
       },
       {
-        "fontFamilyName": "Gimlet",
+        "fontFamilyName": "Gimlet Beta",
         "isActive": false,
         "fontFileName": "Gimlet_Romans-VF.woff2",
-        "cssCodeName": "Gimlet",
+        "cssCodeName": "Gimlet Beta",
         "previewText": {
           "isCustom": false,
           "customText": ""
@@ -4189,17 +4189,17 @@ var app = new Vue({
         },
         "fontInfo": {
           "designer": "David Jonathan Ross",
-          "publisher": "David Jonathan Ross",
+          "publisher": "DJR",
           "urlText": "djr.com",
-          "url": "http://www.djr.com",
+          "url": "https://djr.com/gimlet/",
           "license": "Paid/commercial"
         }
       },
       {
-        "fontFamilyName": "Gimlet Italic",
+        "fontFamilyName": "Gimlet Italic Beta",
         "isActive": false,
         "fontFileName": "Gimlet_Italics-VF.woff2",
-        "cssCodeName": "Gimlet Italic",
+        "cssCodeName": "Gimlet Italic Beta",
         "previewText": {
           "isCustom": false,
           "customText": ""
@@ -4741,9 +4741,9 @@ var app = new Vue({
         },
         "fontInfo": {
           "designer": "David Jonathan Ross",
-          "publisher": "David Jonathan Ross",
+          "publisher": "DJR",
           "urlText": "djr.com",
-          "url": "http://www.djr.com",
+          "url": "https://djr.com/gimlet/",
           "license": "Paid/commercial"
         }
       },
@@ -4855,12 +4855,12 @@ var app = new Vue({
           "designer": "Christoph Koeberlin",
           "publisher": "Christoph Koeberlin",
           "urlText": "koe.berlin",
-          "url": "http://christoph.koe.berlin",
-          "license": "Paid/commercial"
+          "url": "http://koe.berlin/variablefont/",
+          "license": "Free for non-commercial use"
         }
       },
       {
-        "fontFamilyName": "Gnomon",
+        "fontFamilyName": "Gnomon*",
         "isActive": false,
         "fontFileName": "Gnomon-Web.woff2",
         "cssCodeName": "Gnomon",
@@ -4891,18 +4891,18 @@ var app = new Vue({
           "instances": []
         },
         "fontInfo": {
-          "designer": "",
-          "publisher": "",
-          "urlText": "",
-          "url": "",
-          "license": "Paid/commercial"
+          "designer": "Owen Earl",
+          "publisher": "indestructible type*",
+          "urlText": "indestructibletype.com",
+          "url": "http://indestructibletype.com/Gnomon.html",
+          "license": "Open source"
         }
       },
       {
-        "fontFamilyName": "Input Mono",
+        "fontFamilyName": "Input Mono Beta",
         "isActive": false,
         "fontFileName": "Input_Mono-VF.woff2",
-        "cssCodeName": "Input Mono",
+        "cssCodeName": "Input Mono Beta",
         "previewText": {
           "isCustom": false,
           "customText": ""
@@ -5446,10 +5446,10 @@ var app = new Vue({
         },
         "fontInfo": {
           "designer": "David Jonathan Ross",
-          "publisher": "David Jonathan Ross and The Font Bureau",
+          "publisher": "DJR, Font Bureau",
           "urlText": "djr.com",
-          "url": "http://www.djr.com",
-          "license": "Paid/commercial"
+          "url": "https://djr.com/input/",
+          "license": "Free for private use in code editors, Paid/commercial"
         }
       },
       {
@@ -5602,10 +5602,10 @@ var app = new Vue({
         },
         "fontInfo": {
           "designer": "Frida Medrano",
-          "publisher": "",
+          "publisher": "Frida Medrano",
           "urlText": "fridamedrano.com",
-          "url": "fridamedrano.com",
-          "license": "Paid/commercial"
+          "url": "http://www.fridamedrano.com/jabin.html",
+          "license": "Free for non-commercial use, Paid/commercial"
         }
       },
       {
@@ -6085,9 +6085,9 @@ var app = new Vue({
         "fontInfo": {
           "designer": "Terrance Weinzierl",
           "publisher": "Monotype",
-          "urlText": "monotype.com",
-          "url": "www.monotype.com/studio",
-          "license": "Paid/commercial"
+          "urlText": "github.com",
+          "url": "https://github.com/Monotype/Monotype_prototype_variable_fonts/tree/master/KairosSans",
+          "license": "Free for non-commercial use"
         }
       },
       {
@@ -6200,10 +6200,10 @@ var app = new Vue({
         },
         "fontInfo": {
           "designer": "David Jonathan Ross",
-          "publisher": "David Jonathan Ross",
+          "publisher": "DJR",
           "urlText": "djr.com",
-          "url": "http://www.djr.com",
-          "license": "Paid/commercial"
+          "url": "https://djr.com/lab-variable/",
+          "license": "By request"
         }
       },
       {
@@ -6560,10 +6560,10 @@ var app = new Vue({
         },
         "fontInfo": {
           "designer": "Tyler Finck",
-          "publisher": "The League of Moveable Type / Tyler Finck",
-          "urlText": "finck.co",
-          "url": "http://www.finck.co",
-          "license": "Paid/commercial"
+          "publisher": "The League of Moveable Type, Tyler Finck",
+          "urlText": "tylerfinck.com",
+          "url": "http://tylerfinck.com/leaguemonovariable/",
+          "license": "Open source"
         }
       },
       {
@@ -6656,9 +6656,9 @@ var app = new Vue({
         "fontInfo": {
           "designer": "Pablo Impallari, Rodrigo Fuenzalida, Nhung Nguyen",
           "publisher": "Impallari Type",
-          "urlText": "impallari.com",
-          "url": "http://www.impallari.com/",
-          "license": "Paid/commercial"
+          "urlText": "github.com",
+          "url": "https://github.com/impallari/Libre-Franklin",
+          "license": "Open source"
         }
       },
       {
@@ -6751,9 +6751,9 @@ var app = new Vue({
         "fontInfo": {
           "designer": "Pablo Impallari, Rodrigo Fuenzalida, Nhung Nguyen",
           "publisher": "Impallari Type",
-          "urlText": "impallari.com",
-          "url": "http://www.impallari.com/",
-          "license": "Paid/commercial"
+          "urlText": "github.com",
+          "url": "https://github.com/impallari/Libre-Franklin",
+          "license": "Open source"
         }
       },
       {
@@ -6981,7 +6981,7 @@ var app = new Vue({
           "publisher": "CJ Type",
           "urlText": "CJType.com",
           "url": "http://CJType.com",
-          "license": "Paid/commercial"
+          "license": "Not released yet."
         }
       },
       {
@@ -7209,7 +7209,7 @@ var app = new Vue({
           "publisher": "CJ Type",
           "urlText": "CJType.com",
           "url": "http://CJType.com",
-          "license": "Paid/commercial"
+          "license": "Not released yet."
         }
       },
       {
@@ -7266,10 +7266,10 @@ var app = new Vue({
         },
         "fontInfo": {
           "designer": "Borna Izadpanah (Arabic designer), Fiona Ross (Arabic design director) and Florian Runge (Latin designer)",
-          "publisher": "Borna Izadpanah and Florian Runge",
-          "urlText": "borna.design, http",
-          "url": "http://www.borna.design, http://www.florianrunge.com",
-          "license": "Paid/commercial"
+          "publisher": "Borna Izadpanah, Florian Runge, Google",
+          "urlText": "github.com",
+          "url": "https://github.com/BornaIz/markazitext",
+          "license": "Open source"
         }
       },
       {
@@ -7372,12 +7372,12 @@ var app = new Vue({
           "designer": "David Jonathan Ross",
           "publisher": "DJR",
           "urlText": "djr.com",
-          "url": "https://djr.com",
+          "url": "https://djr.com/merit-badge/",
           "license": "Paid/commercial"
         }
       },
       {
-        "fontFamilyName": "Meta",
+        "fontFamilyName": "FF Meta",
         "isActive": false,
         "fontFileName": "MetaVariableDemo-Set.woff2",
         "cssCodeName": "Meta",
@@ -7556,10 +7556,10 @@ var app = new Vue({
         },
         "fontInfo": {
           "designer": "Erik Spiekermann",
-          "publisher": "Monotype GmbH",
+          "publisher": "Monotype",
           "urlText": "monotype.com",
-          "url": "http://www.monotype.com",
-          "license": "Paid/commercial"
+          "url": "https://www.monotype.com/fonts/variable-fonts/",
+          "license": "Free for personal and commercial use"
         }
       },
       {
@@ -7644,17 +7644,17 @@ var app = new Vue({
         },
         "fontInfo": {
           "designer": "Vernon Adams",
-          "publisher": "newtypography",
-          "urlText": "newtypography.co.uk",
-          "url": "http://newtypography.co.uk",
-          "license": "Paid/commercial"
+          "publisher": "Google",
+          "urlText": "fonts.google.com",
+          "url": "https://fonts.google.com/earlyaccess#Nunito+VF+Beta",
+          "license": "Open source"
         }
       },
       {
-        "fontFamilyName": "Output Sans",
+        "fontFamilyName": "Output Sans Beta",
         "isActive": false,
         "fontFileName": "Output_Sans-VF.woff2",
-        "cssCodeName": "Output Sans",
+        "cssCodeName": "Output Sans Beta",
         "previewText": {
           "isCustom": false,
           "customText": ""
@@ -7816,8 +7816,8 @@ var app = new Vue({
           "designer": "David Jonathan Ross",
           "publisher": "DJR",
           "urlText": "djr.com",
-          "url": "http://www.djr.com",
-          "license": "Paid/commercial"
+          "url": "https://djr.com/output/",
+          "license": "By request"
         }
       },
       {
@@ -7869,8 +7869,8 @@ var app = new Vue({
           "designer": "David Jonathan Ross",
           "publisher": "DJR",
           "urlText": "djr.com",
-          "url": "https://www.djr.com",
-          "license": "Paid/commercial"
+          "url": "https://djr.com/output/",
+          "license": "By request"
         }
       },
       {
@@ -7933,12 +7933,12 @@ var app = new Vue({
           "designer": "David Jonathan Ross",
           "publisher": "DJR",
           "urlText": "djr.com",
-          "url": "https://djr.com",
+          "url": "https://djr.com/notes/pappardelle-font-of-the-month/",
           "license": "Paid/commercial"
         }
       },
       {
-        "fontFamilyName": "Renner",
+        "fontFamilyName": "Renner*",
         "isActive": false,
         "fontFileName": "renner-VF.woff2",
         "cssCodeName": "Renner",
@@ -7971,11 +7971,11 @@ var app = new Vue({
           "instances": []
         },
         "fontInfo": {
-          "designer": "",
-          "publisher": "",
-          "urlText": "",
-          "url": "",
-          "license": "Paid/commercial"
+          "designer": "Owen Earl",
+          "publisher": "indestructible type*",
+          "urlText": "indestructibletype.com",
+          "url": "http://indestructibletype.com/Renner.html",
+          "license": "Open source, Paid/commercial"
         }
       },
       {
@@ -8067,7 +8067,7 @@ var app = new Vue({
           "designer": "David Jonathan Ross",
           "publisher": "DJR",
           "urlText": "djr.com",
-          "url": "https://djr.com",
+          "url": "https://djr.com/notes/rhody-font-of-the-month/",
           "license": "Paid/commercial"
         }
       },
@@ -8106,7 +8106,7 @@ var app = new Vue({
           "designer": "David Jonathan Ross",
           "publisher": "DJR",
           "urlText": "djr.com",
-          "url": "http://www.djr.com",
+          "url": "https://djr.com/notes/roslindale-font-of-the-month/",
           "license": "Paid/commercial"
         }
       },
@@ -8198,11 +8198,11 @@ var app = new Vue({
           ]
         },
         "fontInfo": {
-          "designer": "Apple Inc.",
-          "publisher": "Apple Inc.",
-          "urlText": "apple.com",
-          "url": "http://www.apple.com/",
-          "license": "Paid/commercial"
+          "designer": "Apple",
+          "publisher": "Apple",
+          "urlText": "developer.apple.com",
+          "url": "https://developer.apple.com/fonts/",
+          "license": "Bundled"
         }
       },
       {
@@ -8272,11 +8272,11 @@ var app = new Vue({
           ]
         },
         "fontInfo": {
-          "designer": "Apple Inc.",
-          "publisher": "Apple Inc.",
-          "urlText": "apple.com",
-          "url": "http://www.apple.com/",
-          "license": "Paid/commercial"
+          "designer": "Apple",
+          "publisher": "Apple",
+          "urlText": "developer.apple.com",
+          "url": "https://developer.apple.com/fonts/",
+          "license": "Bundled"
         }
       },
       {
@@ -8346,11 +8346,11 @@ var app = new Vue({
           ]
         },
         "fontInfo": {
-          "designer": "Apple Inc.",
-          "publisher": "Apple Inc.",
-          "urlText": "apple.com",
-          "url": "http://www.apple.com/",
-          "license": "Paid/commercial"
+          "designer": "Apple",
+          "publisher": "Apple",
+          "urlText": "developer.apple.com",
+          "url": "https://developer.apple.com/fonts/",
+          "license": "Bundled"
         }
       },
       {
@@ -8414,10 +8414,10 @@ var app = new Vue({
         },
         "fontInfo": {
           "designer": "Aaron Bell",
-          "publisher": "Microsoft Corporation",
-          "urlText": "microsoft.com",
-          "url": "http://www.microsoft.com/typography",
-          "license": "Paid/commercial"
+          "publisher": "Microsoft",
+          "urlText": "github.com",
+          "url": "https://github.com/unicode-org/text-rendering-tests/blob/master/fonts/Selawik-README.md",
+          "license": "Open source"
         }
       },
       {
@@ -8481,10 +8481,10 @@ var app = new Vue({
         },
         "fontInfo": {
           "designer": "Plamen Motev",
-          "publisher": "",
-          "urlText": "",
-          "url": "",
-          "license": "Paid/commercial"
+          "publisher": "Fontfabric",
+          "urlText": "fontfabric.com",
+          "url": "https://www.fontfabric.com/slovic/",
+          "license": "Free for personal and commercial use"
         }
       },
       {
@@ -8562,10 +8562,10 @@ var app = new Vue({
         },
         "fontInfo": {
           "designer": "Paul D. Hunt, Teo Tuominen",
-          "publisher": "Adobe Systems Incorporated",
-          "urlText": "adobe.com",
-          "url": "http://www.adobe.com/type",
-          "license": "Paid/commercial"
+          "publisher": "Adobe",
+          "urlText": "github.com",
+          "url": "https://github.com/adobe-fonts/source-code-pro/releases/tag/variable-fonts",
+          "license": "Open source"
         }
       },
       {
@@ -8643,10 +8643,10 @@ var app = new Vue({
         },
         "fontInfo": {
           "designer": "Paul D. Hunt, Teo Tuominen",
-          "publisher": "Adobe Systems Incorporated",
-          "urlText": "adobe.com",
-          "url": "http://www.adobe.com/type",
-          "license": "Paid/commercial"
+          "publisher": "Adobe",
+          "urlText": "github.com",
+          "url": "https://github.com/adobe-fonts/source-code-pro/releases/tag/variable-fonts",
+          "license": "Open source"
         }
       },
       {
@@ -8717,10 +8717,10 @@ var app = new Vue({
         },
         "fontInfo": {
           "designer": "Paul D. Hunt",
-          "publisher": "Adobe Systems Incorporated",
-          "urlText": "adobe.com",
-          "url": "http://www.adobe.com/type",
-          "license": "Paid/commercial"
+          "publisher": "Adobe",
+          "urlText": "github.com",
+          "url": "https://github.com/adobe-fonts/source-sans-pro/releases/tag/variable-fonts",
+          "license": "Open source"
         }
       },
       {
@@ -8791,10 +8791,10 @@ var app = new Vue({
         },
         "fontInfo": {
           "designer": "Paul D. Hunt",
-          "publisher": "Adobe Systems Incorporated",
-          "urlText": "adobe.com",
-          "url": "http://www.adobe.com/type",
-          "license": "Paid/commercial"
+          "publisher": "Adobe",
+          "urlText": "github.com",
+          "url": "https://github.com/adobe-fonts/source-sans-pro/releases/tag/variable-fonts",
+          "license": "Open source"
         }
       },
       {
@@ -8865,10 +8865,10 @@ var app = new Vue({
         },
         "fontInfo": {
           "designer": "Frank Grießhammer",
-          "publisher": "Adobe Systems Incorporated",
-          "urlText": "adobe.com",
-          "url": "http://www.adobe.com/type",
-          "license": "Paid/commercial"
+          "publisher": "Adobe",
+          "urlText": "github.com",
+          "url": "https://github.com/adobe-fonts/source-serif-pro/releases/tag/variable-fonts",
+          "license": "Open source"
         }
       },
       {
@@ -9104,11 +9104,11 @@ var app = new Vue({
           ]
         },
         "fontInfo": {
-          "designer": "Dalton Maag Ltd",
-          "publisher": "Dalton Maag Ltd",
+          "designer": "Dalton Maag",
+          "publisher": "Dalton Maag",
           "urlText": "daltonmaag.com",
-          "url": "http://www.daltonmaag.com/",
-          "license": "Paid/commercial"
+          "url": "https://daltonmaag.com/library/venn",
+          "license": "Free for personal and commercial use"
         }
       },
       {
@@ -9151,11 +9151,11 @@ var app = new Vue({
           "instances": []
         },
         "fontInfo": {
-          "designer": "Monotype Design Team & Adam Twardoch",
-          "publisher": "Monotype Imaging Inc.",
-          "urlText": "monotype.com",
-          "url": "http://www.monotype.com/studio",
-          "license": "Paid/commercial"
+          "designer": "Monotype Design Team, Adam Twardoch",
+          "publisher": "Monotype",
+          "urlText": "github.com",
+          "url": "https://github.com/twardoch/varfonts-ofl/tree/master/VotoSerifGX-OFL",
+          "license": "Open source"
         }
       },
       {
@@ -9182,11 +9182,11 @@ var app = new Vue({
           "instances": []
         },
         "fontInfo": {
-          "designer": "Natanael Gama",
-          "publisher": "",
-          "urlText": "ndiscovered.com",
-          "url": "www.ndiscovered.com",
-          "license": "Paid/commercial"
+          "designer": "Natanael Gama, Adam Twardoch",
+          "publisher": "Adam Twardoch",
+          "urlText": "github.com",
+          "url": "https://github.com/twardoch/varfonts-ofl/tree/master/ZinzinVF-OFL",
+          "license": "Open source"
         }
       }
     ],
