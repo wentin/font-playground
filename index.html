@@ -27,12 +27,15 @@
     </div>
     <div class="tool point-type">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><title>point-type</title><path d="M6.5,16a.5.5,0,0,1-.5-.5v-1a.5.5,0,0,1,.5-.5H8V4H4V5.5a.5.5,0,0,1-.5.5h-1A.5.5,0,0,1,2,5.5v-3A.5.5,0,0,1,2.5,2h13a.5.5,0,0,1,.5.5v3a.5.5,0,0,1-.5.5h-1a.5.5,0,0,1-.5-.5V4H10V14h1.5a.5.5,0,0,1,.5.5v1a.5.5,0,0,1-.5.5Z"/></svg>
+      <div class="tip-text">Feature coming soon</div>
     </div>
     <div class="tool area-type">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><title>area-type</title><path d="M12.5,16a.5.5,0,0,1-.5-.5V4H10V15.5a.5.5,0,0,1-.5.5h-1a.5.5,0,0,1-.5-.5V11H6.5a4.5,4.5,0,0,1,0-9h7a.5.5,0,0,1,.5.5v13a.5.5,0,0,1-.5.5Z"/></svg>
+      <div class="tip-text">Feature coming soon</div>
     </div>
     <div class="tool fit-type">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><title>fit-type</title><path d="M4,9.051v-3.1A2.5,2.5,0,0,0,5.949,4h6.1a2.5,2.5,0,1,0,0-1h-6.1A2.5,2.5,0,1,0,3,5.949v3.1A2.5,2.5,0,1,0,5.949,12H7V11H5.949A2.505,2.505,0,0,0,4,9.051ZM14.5,2A1.5,1.5,0,1,1,13,3.5,1.5,1.5,0,0,1,14.5,2ZM2,3.5A1.5,1.5,0,1,1,3.5,5,1.5,1.5,0,0,1,2,3.5ZM3.5,13A1.5,1.5,0,1,1,5,11.5,1.5,1.5,0,0,1,3.5,13Z"/><path d="M16.5,7h-9a.5.5,0,0,0-.5.5v3a.5.5,0,0,0,.5.5h1a.5.5,0,0,0,.5-.5V9h2v5h-.5a.5.5,0,0,0-.5.5v1a.5.5,0,0,0,.5.5h3a.5.5,0,0,0,.5-.5v-1a.5.5,0,0,0-.5-.5H13V9h2v1.5a.5.5,0,0,0,.5.5h1a.5.5,0,0,0,.5-.5v-3A.5.5,0,0,0,16.5,7Z"/></svg>
+      <div class="tip-text">Feature coming soon</div>
     </div>
     <div class="tool font-menu" :class="{ active: appStates.drawer.fontMenu.isActive }" v-on:click="toggleDrawer(appStates.drawer.fontMenu)">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><title>font-menu</title><path d="M13.93,1.253C12.515,1.253,11.608,1,10.151,1c-4.708,0-6.9,2.681-6.9,5.4,0,1.6.76,2.132,2.259,2.132a2.949,2.949,0,0,1-.3-1.626c0-3.188,1.2-4.116,2.745-4.18,0,0-1.265,12.4-4.934,13.884V17H7.969L9.657,9h3.094l.689-2H10.079l.811-3.846a14.012,14.012,0,0,0,2.617.38c.971,0,1.858-.3,2.343-2.533a6.239,6.239,0,0,1-1.921.253Z" fill="#666"/></svg>
@@ -85,24 +88,34 @@
       <div class="text-frame point-type selected" 
            :class="{ 'vf-optical-size-on': isVFOpticalSizeSupported, 'vf-width-on': isVFWidthSupported, 'vf-slant-on': isVFSlantSupported, 'vf-xheight-on': isVFXHeightSupported }">
         <div class="controls--vf-opsz" @mousedown="controlVFOpticalSizeInitDrag">
-          <div class="vf-opsz-handle"></div>
+          <div class="vf-opsz-handle">
+            <div class="tip-text">optical size</div>
+          </div>
           <div class="vf-opsz-line"></div>
         </div>
         <div class="controls--vf-slantness" @mousedown="controlVFSlantInitDrag">
-          <div class="vf-slantness-handle" :style="{left: slantnessControlStyles.left}"></div>
+          <div class="vf-slantness-handle" :style="{left: slantnessControlStyles.left}">
+            <div class="tip-text">font slantness</div>
+          </div>
           <div class="vf-slantness-line" :style="{transform: slantnessControlStyles.skew}"></div>
         </div>
         <div class="controls--vf-width-x" @mousedown="controlVFWidthXInitDrag">
           <div class="vf-width-x-line"></div>
-          <div class="vf-width-x-handle"></div>
+          <div class="vf-width-x-handle">
+            <div class="tip-text">font width</div>
+          </div>
         </div>
         <div class="controls--vf-width-y" @mousedown="controlVFWidthYInitDrag">
           <div class="vf-width-y-line"></div>
-          <div class="vf-width-y-handle"></div>
+          <div class="vf-width-y-handle">
+            <div class="tip-text">font width</div>
+          </div>
         </div>
         <div class="controls--vf-width" @mousedown="controlVFWidthInitDrag">
           <div class="vf-width-line"></div>
-          <div class="vf-width-handle"></div>
+          <div class="vf-width-handle">
+            <div class="tip-text">font width</div>
+          </div>
         </div>
         <div class="controls--size">
           <div class="handle top left"></div>
@@ -115,7 +128,9 @@
           <div class="handle bottom right"></div>
         </div>
         <div class="controls--font-size" @mousedown="controlFontSizeInitDrag" @touchstart="controlFontSizeInitDrag">
-          <div class="round-handle font-size-handle"></div>
+          <div class="round-handle font-size-handle">
+            <div class="tip-text">font size</div>
+          </div>
         </div>
         <div class="controls--contrast"> 
           <div class="contrast-value">2.0</div>
@@ -123,7 +138,9 @@
         </div>
         <div class="text select-disabled" contenteditable :style="css">
           <div class="controls--vf-xheight" contenteditable=false>
-            <div class="vf-xheight-line" :style="{top: xHeightControlStyles.xHeightTop}" @mousedown="controlVFxHeightInitDrag"></div>
+            <div class="vf-xheight-line" :style="{top: xHeightControlStyles.xHeightTop}" @mousedown="controlVFxHeightInitDrag">
+              <div class="tip-text">x height</div>
+            </div>
             <div class="vf-base-line" :style="{top: xHeightControlStyles.baselineTop}"></div>
           </div>
           Heading One
@@ -175,7 +192,27 @@
     </div>
   </div>
   <div class="about select-enabled">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, eligendi assumenda excepturi a ut voluptatum minima perferendis eius quam eaque saepe fuga magnam, mollitia aperiam reiciendis animi odio optio quod sunt iusto sapiente culpa, rem dolorem quasi! Est eaque, iure impedit iusto iste ea explicabo aliquid veniam, ratione, at ipsam sunt praesentium magni quidem voluptatibus odit obcaecati ut tenetur voluptas saepe vitae dicta et quas. Aliquid sint illo nostrum ratione dolore veritatis ipsam, enim odio praesentium aperiam temporibus odit aliquam, est itaque magnam adipisci optio maxime et, quas! Quia labore amet sed consectetur ad sunt suscipit perferendis molestiae saepe consequatur.
+    <h1>About Font Playground</h1>
+    <p>Font Playground is built for three groups of audiences.</p>
+    <p>The first group of audience is typographers and designer, who would like to play with fonts that are built with the latest font technologies, such as variable font. It is a playground to fully explore what these new font technologies can offer and how they can be beneficial to your creative workflow.</p>
+    <p>The second group of audience is me, as a Type Tool’s UI/UX designer. This is a playground for me to test UI experiments for variable fonts and other new upcoming font technologies. One of the key points to the success of new font technology is adoption by design tools, and furthermore, designers. How can design tool present variable fonts in a way that is useful but not too complicated to handle? I hope to find the answers with this playground.</p>
+    <p>The third group of audience is the type designers and foundries. This is a place to showcase the work-in-progress, cutting-edge font creations. It is a playground to see how fonts are being presented and used in future design tools. How fonts are used can also inform how fonts are made, and what standard should be defined.</p>
+    <h1>Credits</h1>
+    <p>Font Playground is an ongoing personal project of Wenting Zhang (<a href="https://twitter.com/DesignJokes" target="_blank">@DesignJokes</a>), inspired by Nick Sherman’s <a href="https://v-fonts.com/" target="_blank">v-fonts.com</a> and Laurence Penney’s <a href="https://www.axis-praxis.org/" target="_blank">axis-praxis.org</a>, and Andrew Johnson's <a href="http://alistapart.com/article/user-interfaces-for-variable-fonts" target="_blank">article about User Interfaces for Variable Fonts</a>.</p>
+    <p>Many thanks to the tool makers of <a href="https://wakamaifondue.com/" target="_blank">wakamaifondue.com</a>, <a href="https://github.com/Monotype/variableFont.js" target="_blank">variableFont.js</a>, and <a href="https://vuejs.org/" target="_blank">vue.js</a>. Font Playground would not be developed as easily (or at all) without the generosity of them who shared their genius work with the world.</p>
+    <p>I would like to thanks type designers who are generous to grant me licenses to their commercial fonts, <a href="https://djr.com/" target="_blank">David Jonathan Ross</a>, <a href="http://cjtype.com/" target="_blank">CJ Dunn</a>,  <a href="http://www.ohnotype.co/" target="_blank">James T. Edmondson</a>, and type designers and foundries who are generous to grant free usage or even open source their fonts. Only with such generosity, our community can have so many variable fonts to play with and to learn from. </p>
+    <h1>Contact</h1>
+    <ul>
+      <li>Twitter: <a href="https://twitter.com/DesignJokes" target="_blank">@DesignJokes</a></li>
+      <li>Email: zhangwenting111 [at] gmail.com</li>
+      <li>Github: <a href="https://github.com/wentin/font-playground" target="_blank">https://github.com/wentin/font-playground</li></a>
+    </ul>
+    <p>
+    If you have any feedback or suggestions, chat with me on twitter or email me.
+    If you find issues on Font Playground, please file an issue report on <a href="https://github.com/wentin/font-playground/issues" target="_blank">Github</a>, or contact me via Email.</p>
+    <p>
+    Font playground is actively looking to add more variable fonts to its font menu. If you could share your fonts with Font Playground, I thank your generosity in advance, and please get in touch with me via Email.
+    </p>
   </div>
   <!-- <code v-html="fontFaces"></code> -->
 </div>

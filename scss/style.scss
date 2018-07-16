@@ -896,6 +896,46 @@ body {
   font-size: 12px;
   letter-spacing: 0.03em;
 }
+.tip-text {
+  font-family: $sans;
+  font-size: 10px;
+  white-space: nowrap;
+  position: absolute;
+  pointer-events: none;
+  display: none;
+  z-index: 9;
+  color: $vfColor;
+
+  [class$="-handle"] & {
+    top: 10px;
+    left: 10px;
+  }
+
+  .tool & {
+    top: 13px;
+    left: 30px;
+    color: $textColor;
+    background-color: $textBackgroundColor;
+  }
+
+  .vf-xheight-line &{
+    left: calc(100% + 5px);
+    top: -5px;
+  }
+  
+  .vf-xheight-line:hover &,
+  .tool:hover &,
+  [class$="-handle"]:hover & {
+    display: block;
+  }
+
+  .vf-xheight-line:active &,
+  .tool:active &,
+  [class$="-handle"]:active & {
+    display: none;
+  }
+}
+
 
 .tabs {
   width: 100vw;
@@ -960,6 +1000,7 @@ body {
   .tool {
     padding: 9px;
     cursor: pointer;
+    position: relative;
     path {
       fill: $G500;
       transition: fill 0.2s ease;
@@ -1086,7 +1127,7 @@ body {
       font-family: $mono;
       font-size: 12px;
       font-weight: 400;
-      letter-spacing: 0.3;
+      letter-spacing: 0.03em;
       line-height: 1.2;
       margin-top: 15px;
       padding: 10px 6px;
@@ -1096,17 +1137,33 @@ body {
   }
 }
 .about {
-  // background-color: $G100;
-  // width: 100%;
-  // height: calc(100vh - 39px);
-  // position: absolute;
-  // left: 0;
-  // top: 39px;
-  // overflow: auto;
   background-color: $textBackgroundColor;
-  color: $textColor;
   width: 600px;
-  margin: 100px auto;
+  margin: 80px auto;
+  font-family: $sans;
+  color: $textColor;
+  font-size: 16px;
+  line-height: 24px;
+  h1 {
+    margin: 22px 0 0 0;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+  }
+  p {
+    font-weight: 500;
+    margin: 11px 0;
+    letter-spacing: 0.026em;
+  }
+  ul {
+    margin: 11px 0;
+    li {
+      font-weight: 500;
+      letter-spacing: 0.026em;
+    }
+  }
+  a {
+    color: $textColor;
+  }
 }
 
 .section {
