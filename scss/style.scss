@@ -742,6 +742,8 @@ input[type="range"] {
     font-family:'Dunbar';
     font-variation-settings: "wght" 400, "opsz" 72;
     white-space: nowrap;
+    -webkit-user-select: text;
+    user-select: text;
 
     .controls--vf-xheight {
       .vf-xheight-line {
