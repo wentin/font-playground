@@ -9263,8 +9263,9 @@ var app = new Vue({
     },
     fontFaces: function() {
       var fontFamilies = this.fontFamilies;
-      var assetAddress = 'https://s3.us-east-2.amazonaws.com/font-playground/'
-      // var assetAddress = '../fonts/'
+      // var assetAddress = 'https://s3.us-east-2.amazonaws.com/font-playground/';
+      // var assetAddress = '../fonts/';
+      var assetAddress = 'https://fonts.typedetail.com/';
       var cssString = '';
       for (var i = 0; i < this.fontFamilies.length; i++) {
         cssString += "@font-face {\n";
