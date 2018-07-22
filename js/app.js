@@ -94,8 +94,19 @@ Vue.component('slider-2d', {
       this.axes[1].defaultValue = roundValueByStep(this.val.y, this.step.y);
       this.$emit('input', this.axes);
     },
-    initDrag: function (e) {
-      e.stopPropagation();
+    initDrag: function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      var e;
+      if (event.type == 'mousedown') {
+        e = event;
+        document.body.addEventListener('mousemove',this.doDrag);
+        document.body.addEventListener('mouseup',this.stopDrag);
+      } else if (event.type == 'touchstart') {
+        e = event.touches[0];
+        document.body.addEventListener('touchmove',this.doDrag);
+        document.body.addEventListener('touchend',this.stopDrag);
+      }
       this.position = this.$el.getBoundingClientRect();
       var targetLeft = e.clientX - this.position.x - this.handleCenter.x;
       var targetTop = e.clientY - this.position.y - this.handleCenter.y;
@@ -104,15 +115,15 @@ Vue.component('slider-2d', {
       if (targetTop < 0) targetTop = 0;
       if (targetTop > this.maxPos.top) targetTop = this.maxPos.top;
       this.updateValueByPosition(targetLeft, targetTop);
-      document.body.addEventListener('mousemove',this.doDrag);
-      document.body.addEventListener('mouseup',this.stopDrag);
     },
-    stopDrag: function () {
-      document.body.removeEventListener('mousemove',this.doDrag);
-      document.body.removeEventListener('mouseup',this.stopDrag);
-    },
-    doDrag: function (e) {
-      e.stopPropagation();
+    doDrag: function (event) {
+      event.stopPropagation();
+      var e;
+      if (event.type == 'mousemove') {
+        e = event;
+      } else if (event.type == 'touchmove') {
+        e = event.touches[0];
+      }
       var targetLeft = e.clientX - this.$el.getBoundingClientRect().x - this.handleCenter.x;
       var targetTop = e.clientY - this.$el.getBoundingClientRect().y - this.handleCenter.y;
       if (targetLeft < 0) targetLeft = 0;
@@ -120,6 +131,17 @@ Vue.component('slider-2d', {
       if (targetTop < 0) targetTop = 0;
       if (targetTop > this.maxPos.top) targetTop = this.maxPos.top;
       this.updateValueByPosition(targetLeft, targetTop);
+    },
+    stopDrag: function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.type == 'mouseup') {
+        document.body.removeEventListener('mouseup',this.stopDrag);
+        document.body.removeEventListener('mousemove',this.doDrag);
+      } else if (event.type == 'touchend') {
+        document.body.removeEventListener('touchend',this.stopDrag);
+        document.body.removeEventListener('touchmove',this.doDrag);
+      }
     },
   }
 })
@@ -251,6 +273,7 @@ Vue.component('text-frame', {
   methods: {
     // Event Handlers for Font Size Control
     controlFontSizeInitDrag: function (event) {
+      event.preventDefault();
       event.stopPropagation();
       var e;
       if (event.type == 'mousedown') {
@@ -269,10 +292,11 @@ Vue.component('text-frame', {
     },
     controlFontSizeDoDrag: function (event) {
       event.stopPropagation();
+      var e;
       if (event.type == 'mousemove') {
-        var e = event;
+        e = event;
       } else if (event.type == 'touchmove') {
-        var e = event.touches[0];
+        e = event.touches[0];
       }
       var targetHeight = this.startHeight + e.clientY - this.startY;
       this.fontSize = targetHeight / this.startHeight * this.startFontSize;
@@ -281,6 +305,8 @@ Vue.component('text-frame', {
       this.$emit('fzchange', this.fontSize);
     },
     controlFontSizeStopDrag: function (event) {
+      event.preventDefault();
+      event.stopPropagation();
       if (event.type == 'mouseup') {
         document.body.removeEventListener('mouseup',this.controlFontSizeStopDrag);
         document.body.removeEventListener('mousemove',this.controlFontSizeDoDrag);
@@ -291,8 +317,19 @@ Vue.component('text-frame', {
     },
     
     // Event Handlers for Variable Optical Size Control
-    controlVFOpticalSizeInitDrag: function (e) {
-      e.stopPropagation();
+    controlVFOpticalSizeInitDrag: function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      var e;
+      if (event.type == 'mousedown') {
+        e = event;
+        document.body.addEventListener('mousemove',this.controlVFOpticalSizeDoDrag);
+        document.body.addEventListener('mouseup',this.controlVFOpticalSizeStopDrag);
+      } else if (event.type == 'touchstart') {
+        e = event.touches[0];
+        document.body.addEventListener('touchmove',this.controlVFOpticalSizeDoDrag);
+        document.body.addEventListener('touchend',this.controlVFOpticalSizeStopDrag);
+      }
       this.startY = e.clientY;
       this.startHeight = parseInt(document.defaultView.getComputedStyle(this.$el).height, 10);
       this.startFontSize = this.fontSize;
@@ -302,11 +339,15 @@ Vue.component('text-frame', {
           this.opticalSizeAxis = axes[i];
         }
       }
-      document.body.addEventListener('mousemove',this.controlVFOpticalSizeDoDrag);
-      document.body.addEventListener('mouseup',this.controlVFOpticalSizeStopDrag);
     },
-    controlVFOpticalSizeDoDrag: function (e) {
-      e.stopPropagation();
+    controlVFOpticalSizeDoDrag: function (event) {
+      event.stopPropagation();
+      var e;
+      if (event.type == 'mousemove') {
+        e = event;
+      } else if (event.type == 'touchmove') {
+        e = event.touches[0];
+      }
       var targetHeight = this.startHeight + e.clientY - this.startY;
       this.fontSize = targetHeight / this.startHeight * this.startFontSize;
       this.fontSize = this.fontSize.toFixed(0);
@@ -322,14 +363,32 @@ Vue.component('text-frame', {
 
       this.$emit('fzchange', this.fontSize);
     },
-    controlVFOpticalSizeStopDrag: function () {
-      document.body.removeEventListener('mouseup',this.controlVFOpticalSizeStopDrag);
-      document.body.removeEventListener('mousemove',this.controlVFOpticalSizeDoDrag);
+    controlVFOpticalSizeStopDrag: function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.type == 'mouseup') {
+        document.body.removeEventListener('mouseup',this.controlVFOpticalSizeStopDrag);
+        document.body.removeEventListener('mousemove',this.controlVFOpticalSizeDoDrag);
+      } else if (event.type == 'touchend') {
+        document.body.removeEventListener('touchend',this.controlVFOpticalSizeStopDrag);
+        document.body.removeEventListener('touchmove',this.controlVFOpticalSizeDoDrag);
+      }
     },
     
     //  Event Handlers for Variable Width Control
-    controlVFWidthInitDrag: function (e) {
-      e.stopPropagation();
+    controlVFWidthInitDrag: function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      var e;
+      if (event.type == 'mousedown') {
+        e = event;
+        document.body.addEventListener('mousemove',this.controlVFWidthDoDrag);
+        document.body.addEventListener('mouseup',this.controlVFWidthStopDrag);
+      } else if (event.type == 'touchstart') {
+        e = event.touches[0];
+        document.body.addEventListener('touchmove',this.controlVFWidthDoDrag);
+        document.body.addEventListener('touchend',this.controlVFWidthStopDrag);
+      }
 
       this.startX = e.clientX;
       this.startY = e.clientY;
@@ -344,11 +403,15 @@ Vue.component('text-frame', {
         }
       }
 
-      document.body.addEventListener('mousemove',this.controlVFWidthDoDrag);
-      document.body.addEventListener('mouseup',this.controlVFWidthStopDrag);
     },
-    controlVFWidthDoDrag: function (e) {
-      e.stopPropagation();
+    controlVFWidthDoDrag: function (event) {
+      event.stopPropagation();
+      var e;
+      if (event.type == 'mousemove') {
+        e = event;
+      } else if (event.type == 'touchmove') {
+        e = event.touches[0];
+      }
       var targetWidth = this.startWidth + e.clientX - this.startX;
       var targetHeight = this.startHeight + e.clientY - this.startY;
       this.$el.style.width = targetWidth + "px";
@@ -360,11 +423,18 @@ Vue.component('text-frame', {
       this.widthAxis.defaultValue = this.fitVFWidth(this.$el, targetWidth);
       this.$emit('fzchange', this.fontSize);
     },
-    controlVFWidthStopDrag: function () {
+    controlVFWidthStopDrag: function (event) {
       this.$el.style.width = "";
       this.$el.style.height = "";
-      document.body.removeEventListener('mouseup',this.controlVFWidthStopDrag);
-      document.body.removeEventListener('mousemove',this.controlVFWidthDoDrag);
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.type == 'mouseup') {
+        document.body.removeEventListener('mouseup',this.controlVFWidthStopDrag);
+        document.body.removeEventListener('mousemove',this.controlVFWidthDoDrag);
+      } else if (event.type == 'touchend') {
+        document.body.removeEventListener('touchend',this.controlVFWidthStopDrag);
+        document.body.removeEventListener('touchmove',this.controlVFWidthDoDrag);
+      }
     },
     generateVFCSS: function(axes) {
       var cssString = 'font-variation-settings: ';
@@ -419,8 +489,19 @@ Vue.component('text-frame', {
     },
     
     //  Event Handlers for Variable Width X axis Control
-    controlVFWidthXInitDrag: function (e) {
-      e.stopPropagation();
+    controlVFWidthXInitDrag: function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      var e;
+      if (event.type == 'mousedown') {
+        e = event;
+        document.body.addEventListener('mousemove',this.controlVFWidthXDoDrag);
+        document.body.addEventListener('mouseup',this.controlVFWidthXStopDrag);
+      } else if (event.type == 'touchstart') {
+        e = event.touches[0];
+        document.body.addEventListener('touchmove',this.controlVFWidthXDoDrag);
+        document.body.addEventListener('touchend',this.controlVFWidthXStopDrag);
+      }
       
       this.startX = e.clientX;
       this.startWidth = parseInt(document.defaultView.getComputedStyle(this.$el).width, 10);
@@ -433,27 +514,48 @@ Vue.component('text-frame', {
           this.widthAxis = axes[i];
         }
       }
-      document.body.addEventListener('mousemove',this.controlVFWidthXDoDrag);
-      document.body.addEventListener('mouseup',this.controlVFWidthXDoDragStopDrag);
     },
-    controlVFWidthXDoDrag: function (e) {
-      e.stopPropagation();
+    controlVFWidthXDoDrag: function (event) {
+      event.stopPropagation();
+      var e;
+      if (event.type == 'mousemove') {
+        e = event;
+      } else if (event.type == 'touchmove') {
+        e = event.touches[0];
+      }
       var targetWidth = this.startWidth + e.clientX - this.startX;
       this.$el.style.width = targetWidth + "px";
 
       this.widthAxis.defaultValue = this.fitVFWidth(this.$el, targetWidth);
       this.$emit('fzchange', this.fontSize);
     },
-    controlVFWidthXDoDragStopDrag: function () {
+    controlVFWidthXStopDrag: function (event) {
       this.$el.style.width = "";
-      
-      document.body.removeEventListener('mouseup',this.controlVFWidthXDoDragStopDrag);
-      document.body.removeEventListener('mousemove',this.controlVFWidthXDoDrag);
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.type == 'mouseup') {
+        document.body.removeEventListener('mouseup',this.controlVFWidthXStopDrag);
+        document.body.removeEventListener('mousemove',this.controlVFWidthXDoDrag);
+      } else if (event.type == 'touchend') {
+        document.body.removeEventListener('touchend',this.controlVFWidthXStopDrag);
+        document.body.removeEventListener('touchmove',this.controlVFWidthXDoDrag);
+      }
     },
     
     //  Event Handlers for Variable Width Y axis Control
     controlVFWidthYInitDrag: function (e) {
-      e.stopPropagation();
+      event.preventDefault();
+      event.stopPropagation();
+      var e;
+      if (event.type == 'mousedown') {
+        e = event;
+        document.body.addEventListener('mousemove',this.controlVFWidthYDoDrag);
+        document.body.addEventListener('mouseup',this.controlVFWidthYStopDrag);
+      } else if (event.type == 'touchstart') {
+        e = event.touches[0];
+        document.body.addEventListener('touchmove',this.controlVFWidthYDoDrag);
+        document.body.addEventListener('touchend',this.controlVFWidthYStopDrag);
+      }
 
       this.startY = e.clientY;
       this.startWidth = parseInt(document.defaultView.getComputedStyle(this.$el).width, 10);
@@ -468,12 +570,15 @@ Vue.component('text-frame', {
           this.widthAxis = axes[i];
         }
       }
-      
-      document.body.addEventListener('mousemove',this.controlVFWidthYDoDrag);
-      document.body.addEventListener('mouseup',this.controlVFWidthYStopDrag);
     },
-    controlVFWidthYDoDrag: function (e) {
-      e.stopPropagation();
+    controlVFWidthYDoDrag: function (event) {
+      event.stopPropagation();
+      var e;
+      if (event.type == 'mousemove') {
+        e = event;
+      } else if (event.type == 'touchmove') {
+        e = event.touches[0];
+      }
       var targetHeight = this.startHeight + e.clientY - this.startY;
       this.$el.style.height = targetHeight + "px";
       this.fontSize = targetHeight / this.startHeight * this.startFontSize;
@@ -483,16 +588,34 @@ Vue.component('text-frame', {
       this.widthAxis.defaultValue = this.fitVFWidth(this.$el, this.startWidth);
       this.$emit('fzchange', this.fontSize);
     },
-    controlVFWidthYStopDrag: function () {
+    controlVFWidthYStopDrag: function (event) {
       this.$el.style.width = "";
       this.$el.style.height = "";
-      document.body.removeEventListener('mouseup',this.controlVFWidthYStopDrag);
-      document.body.removeEventListener('mousemove',this.controlVFWidthYDoDrag);
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.type == 'mouseup') {
+        document.body.removeEventListener('mouseup',this.controlVFWidthYStopDrag);
+        document.body.removeEventListener('mousemove',this.controlVFWidthYDoDrag);
+      } else if (event.type == 'touchend') {
+        document.body.removeEventListener('touchend',this.controlVFWidthYStopDrag);
+        document.body.removeEventListener('touchmove',this.controlVFWidthYDoDrag);
+      }
     },
     
     //  Event Handlers for Variable Slant Control
-    controlVFSlantInitDrag: function (e) {
-      e.stopPropagation();
+    controlVFSlantInitDrag: function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      var e;
+      if (event.type == 'mousedown') {
+        e = event;
+        document.body.addEventListener('mousemove',this.controlVFSlantDoDrag);
+        document.body.addEventListener('mouseup',this.controlVFSlantStopDrag);
+      } else if (event.type == 'touchstart') {
+        e = event.touches[0];
+        document.body.addEventListener('touchmove',this.controlVFSlantDoDrag);
+        document.body.addEventListener('touchend',this.controlVFSlantStopDrag);
+      }
 
       this.handleSlantness = this.$el.querySelector(".vf-slantness-handle");
       this.lineSlantness = this.$el.querySelector(".vf-slantness-line");
@@ -510,12 +633,15 @@ Vue.component('text-frame', {
       var minLeft = Math.tan(this.slantAxis.minAngle * Math.PI/180) * 50;
       this.maxHandleSlantnessLeft = maxLeft>minLeft?maxLeft:minLeft;
       this.minHandleSlantnessLeft = maxLeft>minLeft?minLeft:maxLeft; 
-
-      document.body.addEventListener('mousemove',this.controlVFSlantDoDrag);
-      document.body.addEventListener('mouseup',this.controlVFSlantStopDrag);
     },
-    controlVFSlantDoDrag: function (e) {
-      e.stopPropagation();
+    controlVFSlantDoDrag: function (event) {
+      event.stopPropagation();
+      var e;
+      if (event.type == 'mousemove') {
+        e = event;
+      } else if (event.type == 'touchmove') {
+        e = event.touches[0];
+      }
 
       var targetLeft = this.startLeft + e.clientX - this.startX;
       
@@ -527,14 +653,32 @@ Vue.component('text-frame', {
       var targetAngle = Math.atan(targetLeft/50)/Math.PI * 180;
       this.slantAxis.defaultValue = roundValueByStep(targetAngle/this.slantAxis.maxAngle*this.slantAxis.maxValue, this.step);
     },
-    controlVFSlantStopDrag: function () {
-      document.body.removeEventListener('mouseup',this.controlVFSlantStopDrag);
-      document.body.removeEventListener('mousemove',this.controlVFSlantDoDrag);
+    controlVFSlantStopDrag: function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.type == 'mouseup') {
+        document.body.removeEventListener('mouseup',this.controlVFSlantStopDrag);
+        document.body.removeEventListener('mousemove',this.controlVFSlantDoDrag);
+      } else if (event.type == 'touchend') {
+        document.body.removeEventListener('touchend',this.controlVFSlantStopDrag);
+        document.body.removeEventListener('touchmove',this.controlVFSlantDoDrag);
+      }
     },
 
     //  Event Handlers for Variable xHeight Control
-    controlVFxHeightInitDrag: function (e) {
-      e.stopPropagation();
+    controlVFxHeightInitDrag: function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      var e;
+      if (event.type == 'mousedown') {
+        e = event;
+        document.body.addEventListener('mousemove',this.controlVFxHeightDoDrag);
+        document.body.addEventListener('mouseup',this.controlVFxHeightStopDrag);
+      } else if (event.type == 'touchstart') {
+        e = event.touches[0];
+        document.body.addEventListener('touchmove',this.controlVFxHeightDoDrag);
+        document.body.addEventListener('touchend',this.controlVFxHeightStopDrag);
+      }
       this.handleXHeight = this.$el.querySelector(".vf-xheight-line");
       this.startY = e.clientY;
       this.startTop = parseFloat(document.defaultView.getComputedStyle(this.handleXHeight).top);
@@ -545,12 +689,15 @@ Vue.component('text-frame', {
           this.xHeightAxis = axes[i];
         }
       }
-
-      document.body.addEventListener('mousemove',this.controlVFxHeightDoDrag);
-      document.body.addEventListener('mouseup',this.controlVFxHeightStopDrag);
     },
-    controlVFxHeightDoDrag: function (e) {
-      e.stopPropagation();
+    controlVFxHeightDoDrag: function (event) {
+      event.stopPropagation();
+      var e;
+      if (event.type == 'mousemove') {
+        e = event;
+      } else if (event.type == 'touchmove') {
+        e = event.touches[0];
+      }
       var targetTop = (e.clientY - this.startY + this.startTop) / this.fontSize;
 
       if (targetTop > this.xHeightAxis.minPositionY) {
@@ -562,23 +709,52 @@ Vue.component('text-frame', {
       var targetXHeight = this.xHeightAxis.minValue + (targetTop - this.xHeightAxis.minPositionY) / (this.xHeightAxis.maxPositionY - this.xHeightAxis.minPositionY) * (this.xHeightAxis.maxValue - this.xHeightAxis.minValue);
       this.xHeightAxis.defaultValue = roundValueByStep(targetXHeight, this.step);
     },
-    controlVFxHeightStopDrag: function () {
-      document.body.removeEventListener('mouseup',this.controlVFxHeightStopDrag);
-      document.body.removeEventListener('mousemove',this.controlVFxHeightDoDrag);
+    controlVFxHeightStopDrag: function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.type == 'mouseup') {
+        document.body.removeEventListener('mouseup',this.controlVFxHeightStopDrag);
+        document.body.removeEventListener('mousemove',this.controlVFxHeightDoDrag);
+      } else if (event.type == 'touchend') {
+        document.body.removeEventListener('touchend',this.controlVFxHeightStopDrag);
+        document.body.removeEventListener('touchmove',this.controlVFxHeightDoDrag);
+      }
     },
 
     //  Event Handlers Templates
-    initDrag: function (e) {
-      e.stopPropagation();
-      document.body.addEventListener('mousemove',this.doDrag);
-      document.body.addEventListener('mouseup',this.stopDrag);
+    initDrag: function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      var e;
+      if (event.type == 'mousedown') {
+        e = event;
+        document.body.addEventListener('mousemove',this.doDrag);
+        document.body.addEventListener('mouseup',this.stopDrag);
+      } else if (event.type == 'touchstart') {
+        e = event.touches[0];
+        document.body.addEventListener('touchmove',this.doDrag);
+        document.body.addEventListener('touchend',this.stopDrag);
+      }
     },
-    doDrag: function (e) {
-      e.stopPropagation();
+    doDrag: function (event) {
+      event.stopPropagation();
+      var e;
+      if (event.type == 'mousemove') {
+        e = event;
+      } else if (event.type == 'touchmove') {
+        e = event.touches[0];
+      }
     },
-    stopDrag: function () {
-      document.body.removeEventListener('mouseup',this.stopDrag);
-      document.body.removeEventListener('mousemove',this.doDrag);
+    stopDrag: function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.type == 'mouseup') {
+        document.body.removeEventListener('mouseup',this.stopDrag);
+        document.body.removeEventListener('mousemove',this.doDrag);
+      } else if (event.type == 'touchend') {
+        document.body.removeEventListener('touchend',this.stopDrag);
+        document.body.removeEventListener('touchmove',this.doDrag);
+      }
     },
   }
 })

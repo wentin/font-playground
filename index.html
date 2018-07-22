@@ -96,31 +96,37 @@
     <script type="text/x-template" id="text-frame-template">
       <div class="text-frame point-type selected" 
            :class="{ 'vf-optical-size-on': isVFOpticalSizeSupported, 'vf-width-on': isVFWidthSupported, 'vf-slant-on': isVFSlantSupported, 'vf-xheight-on': isVFXHeightSupported }">
-        <div class="controls--vf-opsz" @mousedown="controlVFOpticalSizeInitDrag">
+        <div class="controls--vf-opsz" @mousedown="controlVFOpticalSizeInitDrag"
+        @touchstart="controlVFOpticalSizeInitDrag">
           <div class="vf-opsz-handle">
             <div class="tip-text">optical size</div>
           </div>
           <div class="vf-opsz-line"></div>
         </div>
-        <div class="controls--vf-slantness" @mousedown="controlVFSlantInitDrag">
+        <div class="controls--vf-slantness" @mousedown="controlVFSlantInitDrag"
+        @touchstart="controlVFSlantInitDrag">
           <div class="vf-slantness-handle" :style="{left: slantnessControlStyles.left}">
             <div class="tip-text">font slantness</div>
           </div>
           <div class="vf-slantness-line" :style="{transform: slantnessControlStyles.skew}"></div>
         </div>
-        <div class="controls--vf-width-x" @mousedown="controlVFWidthXInitDrag">
+        <div class="controls--vf-width-x" @mousedown="controlVFWidthXInitDrag"
+        @touchstart="controlVFWidthXInitDrag">
           <div class="vf-width-x-line"></div>
           <div class="vf-width-x-handle">
             <div class="tip-text">font width</div>
           </div>
         </div>
-        <div class="controls--vf-width-y" @mousedown="controlVFWidthYInitDrag">
+        <div class="controls--vf-width-y" @mousedown="controlVFWidthYInitDrag"
+        @touchstart="controlVFWidthYInitDrag">
           <div class="vf-width-y-line"></div>
           <div class="vf-width-y-handle">
             <div class="tip-text">font width</div>
           </div>
         </div>
-        <div class="controls--vf-width" @mousedown="controlVFWidthInitDrag">
+        <div class="controls--vf-width" 
+        @mousedown="controlVFWidthInitDrag"
+        @touchstart="controlVFWidthInitDrag">
           <div class="vf-width-line"></div>
           <div class="vf-width-handle">
             <div class="tip-text">font width</div>
@@ -147,7 +153,8 @@
         </div>
         <div class="text" contenteditable :style="css">
           <div class="controls--vf-xheight" contenteditable=false>
-            <div class="vf-xheight-line" :style="{top: xHeightControlStyles.xHeightTop}" @mousedown="controlVFxHeightInitDrag">
+            <div class="vf-xheight-line" :style="{top: xHeightControlStyles.xHeightTop}" @mousedown="controlVFxHeightInitDrag"
+            @touchstart="controlVFxHeightInitDrag">
               <div class="tip-text">x height</div>
             </div>
             <div class="vf-base-line" :style="{top: xHeightControlStyles.baselineTop}"></div>
@@ -178,7 +185,7 @@
     <div class="section section-variable-options">
       <h4 class="subtitle-text">VARIABLE OPTIONS</h4>
       <script type="text/x-template" id="slider-2d-template">
-        <div class="slider-2d" @mousedown="initDrag">
+        <div class="slider-2d" @mousedown="initDrag" @touchstart="initDrag">
           <div class="handle" :style="{left: left + 'px', top: top + 'px'}">
               <div class="axis-x-line"></div>
               <div class="axis-y-line"></div>
