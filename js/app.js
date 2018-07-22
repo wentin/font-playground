@@ -9398,6 +9398,12 @@ var app = new Vue({
           isIncluded = true;
         } else if (fontFamily.cssCodeName.toLowerCase().includes(this.search.toLowerCase())) {
           isIncluded = true;
+        } else if (fontFamily.fontInfo.designer.toLowerCase().includes(this.search.toLowerCase())) {
+          isIncluded = true;
+        } else if (fontFamily.fontInfo.publisher.toLowerCase().includes(this.search.toLowerCase())) {
+          isIncluded = true;
+        } else if (fontFamily.fontInfo.license.toLowerCase().includes(this.search.toLowerCase())) {
+          isIncluded = true;
         } else if(fontFamily.hasOwnProperty('variableOptions')) {
           axes = fontFamily.variableOptions.axes;
           for (var i =0; i < axes.length; i++){
