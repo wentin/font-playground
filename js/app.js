@@ -762,6 +762,7 @@ Vue.component('text-frame', {
 var app = new Vue({
   el: '#font-playground-app',
   data: {
+    search: '',
     fontFamilies: [
       {
         "fontFamilyName": "Adobe VF Prototype",
@@ -5095,22 +5096,22 @@ var app = new Vue({
               "isSelected": 1
             },
             {
-              "tag": "slnt",
-              "name": "Slant",
-              "minValue": 0,
-              "defaultValue": 0,
-              "maxValue": 8,
-              "isSelected": 2,
-              "minAngle": 0,
-              "maxAngle": 8
-            },
-            {
               "tag": "wdth",
               "name": "Width",
               "minValue": 100,
               "defaultValue": 500,
               "maxValue": 500,
-              "isSelected": 0
+              "isSelected": 2
+            },
+            {
+              "tag": "slnt",
+              "name": "Slant",
+              "minValue": 0,
+              "defaultValue": 0,
+              "maxValue": 8,
+              "isSelected": 0,
+              "minAngle": 0,
+              "maxAngle": 8
             }
           ],
           "instances": [
@@ -9300,19 +9301,19 @@ var app = new Vue({
         "variableOptions": {
           "axes": [
             {
-              "tag": "wdth",
-              "name": "Width",
-              "minValue": 50,
-              "defaultValue": 130,
-              "maxValue": 130,
-              "isSelected": 1
-            },
-            {
               "tag": "wght",
               "name": "Weight",
               "minValue": 28,
               "defaultValue": 28,
               "maxValue": 194,
+              "isSelected": 1
+            },
+            {
+              "tag": "wdth",
+              "name": "Width",
+              "minValue": 50,
+              "defaultValue": 130,
+              "maxValue": 130,
               "isSelected": 2
             },
             {
@@ -9390,6 +9391,26 @@ var app = new Vue({
     }
   },
   computed: {
+    filteredFontFamilies() {
+      return this.fontFamilies.filter(fontFamily => {
+        var isIncluded = false;
+        if (fontFamily.fontFamilyName.toLowerCase().includes(this.search.toLowerCase())) {
+          isIncluded = true;
+        } else if (fontFamily.cssCodeName.toLowerCase().includes(this.search.toLowerCase())) {
+          isIncluded = true;
+        } else if(fontFamily.hasOwnProperty('variableOptions')) {
+          axes = fontFamily.variableOptions.axes;
+          for (var i =0; i < axes.length; i++){
+            if (axes[i]['tag'].toLowerCase().includes(this.search.toLowerCase())) {
+              isIncluded = true;
+            } else if (axes[i]['name'].toLowerCase().includes(this.search.toLowerCase())) {
+              isIncluded = true;
+            }
+          }
+        }
+        return isIncluded;
+      })
+    },
     activeFont: function() {
       var activeFont;
       for (var i = 0; i < this.fontFamilies.length; i++) {
