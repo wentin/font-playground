@@ -5096,22 +5096,22 @@ var app = new Vue({
               "isSelected": 1
             },
             {
-              "tag": "slnt",
-              "name": "Slant",
-              "minValue": 0,
-              "defaultValue": 0,
-              "maxValue": 8,
-              "isSelected": 2,
-              "minAngle": 0,
-              "maxAngle": 8
-            },
-            {
               "tag": "wdth",
               "name": "Width",
               "minValue": 100,
               "defaultValue": 500,
               "maxValue": 500,
-              "isSelected": 0
+              "isSelected": 2
+            },
+            {
+              "tag": "slnt",
+              "name": "Slant",
+              "minValue": 0,
+              "defaultValue": 0,
+              "maxValue": 8,
+              "isSelected": 0,
+              "minAngle": 0,
+              "maxAngle": 8
             }
           ],
           "instances": [
@@ -9301,19 +9301,19 @@ var app = new Vue({
         "variableOptions": {
           "axes": [
             {
-              "tag": "wdth",
-              "name": "Width",
-              "minValue": 50,
-              "defaultValue": 130,
-              "maxValue": 130,
-              "isSelected": 1
-            },
-            {
               "tag": "wght",
               "name": "Weight",
               "minValue": 28,
               "defaultValue": 28,
               "maxValue": 194,
+              "isSelected": 1
+            },
+            {
+              "tag": "wdth",
+              "name": "Width",
+              "minValue": 50,
+              "defaultValue": 130,
+              "maxValue": 130,
               "isSelected": 2
             },
             {
