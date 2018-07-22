@@ -762,6 +762,7 @@ Vue.component('text-frame', {
 var app = new Vue({
   el: '#font-playground-app',
   data: {
+    search: '',
     fontFamilies: [
       {
         "fontFamilyName": "Adobe VF Prototype",
@@ -9390,6 +9391,26 @@ var app = new Vue({
     }
   },
   computed: {
+    filteredFontFamilies() {
+      return this.fontFamilies.filter(fontFamily => {
+        var isIncluded = false;
+        if (fontFamily.fontFamilyName.toLowerCase().includes(this.search.toLowerCase())) {
+          isIncluded = true;
+        } else if (fontFamily.cssCodeName.toLowerCase().includes(this.search.toLowerCase())) {
+          isIncluded = true;
+        } else if(fontFamily.hasOwnProperty('variableOptions')) {
+          axes = fontFamily.variableOptions.axes;
+          for (var i =0; i < axes.length; i++){
+            if (axes[i]['tag'].toLowerCase().includes(this.search.toLowerCase())) {
+              isIncluded = true;
+            } else if (axes[i]['name'].toLowerCase().includes(this.search.toLowerCase())) {
+              isIncluded = true;
+            }
+          }
+        }
+        return isIncluded;
+      })
+    },
     activeFont: function() {
       var activeFont;
       for (var i = 0; i < this.fontFamilies.length; i++) {

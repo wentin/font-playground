@@ -53,8 +53,9 @@
   <div class="drawer">
     <div class="section section-font-cards">
       <h4 class="subtitle-text">FONT FAMILY</h4>
+      <input type="text" v-model="search" placeholder="Search by name or axis.."/>
       <div class="font-cards">
-        <div class="font-card" :class="{ active: fontFamily.isActive }" v-for="fontFamily in fontFamilies"  v-on:click="activateFamily(fontFamily)">
+        <div class="font-card" :class="{ active: fontFamily.isActive }" v-for="fontFamily in filteredFontFamilies" v-on:click="activateFamily(fontFamily)">
           <h1 class="font-preview" 
             v-if="!fontFamily.previewText.isCustom"
             :style="{fontFamily: fontFamily.cssCodeName}">
