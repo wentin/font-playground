@@ -882,7 +882,6 @@ body {
   font-variation-settings: 'wght' 156; 
   color: $G500;
   font-size: 14px;
-  letter-spacing: 0.03em;
   
   .accent-text {
     color: $A100;
@@ -890,28 +889,25 @@ body {
 }
 .badge-text {
   font-family: $sans;
-  font-variation-settings: 'wght' 100; 
+  font-variation-settings: 'wght' 99; 
   color: $G500;
   font-size: 12px;
-  letter-spacing: 0.03em;
 }
 .label-text {
   font-family: $sans;
-  font-variation-settings: 'wght' 100;
+  font-variation-settings: 'wght' 99;
   color: $G600;
   font-size: 12px;
-  letter-spacing: 0.03em;
 }
 .value-text {
   font-family: $sans;
-  font-variation-settings: 'wght' 100;
+  font-variation-settings: 'wght' 99;
   color: $G700;
   font-size: 12px;
-  letter-spacing: 0.03em;
 }
 .tip-text {
   font-family: $sans;
-  font-variation-settings: 'wght' 100;
+  font-variation-settings: 'wght' 99;
   font-size: 10px;
   white-space: nowrap;
   position: absolute;
@@ -1210,8 +1206,7 @@ body {
       border: solid 1px $G300;
       display: block;
       font-family: $mono;
-      font-variation-settings: 'wght' 450, 'wdth' 500, 'slnt' 0; 
-      letter-spacing: 0.03em;
+      font-variation-settings: 'wght' 450, 'wdth' 500, 'slnt' 0;
       font-size: 11px;
       line-height: 1.3;
       margin-top: 15px;
@@ -1226,25 +1221,22 @@ body {
   width: 600px;
   margin: 80px auto;
   font-family: $sans;
-  font-variation-settings: 'wght' 100; 
+  font-variation-settings: 'wght' 99; 
   color: $textColor;
   font-size: 16px;
   line-height: 24px;
   h1 {
     margin: 22px 0 0 0;
     font-variation-settings: 'wght' 156; 
-    letter-spacing: 0.03em;
   }
   p {
-    font-variation-settings: 'wght' 100; 
+    font-variation-settings: 'wght' 99; 
     margin: 11px 0;
-    letter-spacing: 0.026em;
   }
   ul {
     margin: 11px 0;
     li {
-      font-variation-settings: 'wght' 100; 
-      letter-spacing: 0.026em;
+      font-variation-settings: 'wght' 99; 
     }
   }
   a {
