@@ -107,9 +107,8 @@ Vue.component('slider-2d', {
         document.body.addEventListener('touchmove',this.doDrag);
         document.body.addEventListener('touchend',this.stopDrag);
       }
-      this.position = this.$el.getBoundingClientRect();
-      var targetLeft = e.clientX - this.position.x - this.handleCenter.x;
-      var targetTop = e.clientY - this.position.y - this.handleCenter.y;
+      var targetLeft = e.clientX - this.$el.getBoundingClientRect().left - this.handleCenter.x;
+      var targetTop = e.clientY - this.$el.getBoundingClientRect().top - this.handleCenter.y;
       if (targetLeft < 0) targetLeft = 0;
       if (targetLeft > this.maxPos.left) targetLeft = this.maxPos.left;
       if (targetTop < 0) targetTop = 0;
@@ -124,8 +123,8 @@ Vue.component('slider-2d', {
       } else if (event.type == 'touchmove') {
         e = event.touches[0];
       }
-      var targetLeft = e.clientX - this.$el.getBoundingClientRect().x - this.handleCenter.x;
-      var targetTop = e.clientY - this.$el.getBoundingClientRect().y - this.handleCenter.y;
+      var targetLeft = e.clientX - this.$el.getBoundingClientRect().left - this.handleCenter.x;
+      var targetTop = e.clientY - this.$el.getBoundingClientRect().top - this.handleCenter.y;
       if (targetLeft < 0) targetLeft = 0;
       if (targetLeft > this.maxPos.left) targetLeft = this.maxPos.left;
       if (targetTop < 0) targetTop = 0;

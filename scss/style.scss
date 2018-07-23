@@ -1164,7 +1164,8 @@ body {
   top: 39px;
   right: 0;
   box-sizing: border-box;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   
