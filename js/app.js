@@ -55,8 +55,6 @@ Vue.component('slider-2d', {
       }
     }
   },
-  mounted: function () {
-  },
   computed: {
     min() {
       return {
@@ -173,8 +171,6 @@ Vue.component('text-frame', {
         italic: 'ital'
       }
     };
-  },
-  created: function() {
   },
   computed: {
     css() {
