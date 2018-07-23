@@ -7762,17 +7762,10 @@ var app = new Vue({
           ],
           "instances": [
             {
-              "name": "Regular",
-              "isActive": false,
-              "coordinates": {
-                "wght": 208
-              }
-            },
-            {
               "name": "Black",
               "isActive": false,
               "coordinates": {
-                "wght": 178
+                "wght": 156
               }
             },
             {

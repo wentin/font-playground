@@ -1,5 +1,3 @@
-@import url("https://use.typekit.net/uqw8dxw.css");
-
 // $A100: #3D9CFF;
 // $G100: #000000;
 // $G200: #141414;
@@ -34,9 +32,8 @@ $textBackgroundColor: #FFFFFF;
 $textColor: #000000;
 $transition: 125ms ease-in-out;
 
-$sans: "omnes-pro", sans-serif;
-$mono: "courier-prime", monospace;
-// $assetPath : "https://s3.us-east-2.amazonaws.com/font-playground/";
+$sans: 'Nunito Beta', sans-serif;
+$mono: 'Input Mono Beta', monospace;
 $assetPath : "https://fonts.typedetail.com/";
 
 @font-face {
@@ -874,7 +871,7 @@ body {
 
 .subtitle-text {
   font-family: $sans;
-  font-weight: 600;
+  font-variation-settings: 'wght' 140; 
   color: $G400;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -882,7 +879,7 @@ body {
 }
 .logo-text {
   font-family: $sans;
-  font-weight: 700;
+  font-variation-settings: 'wght' 156; 
   color: $G500;
   font-size: 14px;
   letter-spacing: 0.03em;
@@ -893,27 +890,28 @@ body {
 }
 .badge-text {
   font-family: $sans;
-  font-weight: 500;
+  font-variation-settings: 'wght' 100; 
   color: $G500;
   font-size: 12px;
   letter-spacing: 0.03em;
 }
 .label-text {
   font-family: $sans;
-  font-weight: 500;
+  font-variation-settings: 'wght' 100;
   color: $G600;
   font-size: 12px;
   letter-spacing: 0.03em;
 }
 .value-text {
   font-family: $sans;
-  font-weight: 500;
+  font-variation-settings: 'wght' 100;
   color: $G700;
   font-size: 12px;
   letter-spacing: 0.03em;
 }
 .tip-text {
   font-family: $sans;
+  font-variation-settings: 'wght' 100;
   font-size: 10px;
   white-space: nowrap;
   position: absolute;
@@ -1212,10 +1210,10 @@ body {
       border: solid 1px $G300;
       display: block;
       font-family: $mono;
-      font-size: 12px;
-      font-weight: 400;
+      font-variation-settings: 'wght' 450, 'wdth' 500, 'slnt' 0; 
       letter-spacing: 0.03em;
-      line-height: 1.2;
+      font-size: 11px;
+      line-height: 1.3;
       margin-top: 15px;
       padding: 10px 6px;
       white-space: pre-wrap;
@@ -1228,23 +1226,24 @@ body {
   width: 600px;
   margin: 80px auto;
   font-family: $sans;
+  font-variation-settings: 'wght' 100; 
   color: $textColor;
   font-size: 16px;
   line-height: 24px;
   h1 {
     margin: 22px 0 0 0;
-    font-weight: 700;
+    font-variation-settings: 'wght' 156; 
     letter-spacing: 0.03em;
   }
   p {
-    font-weight: 500;
+    font-variation-settings: 'wght' 100; 
     margin: 11px 0;
     letter-spacing: 0.026em;
   }
   ul {
     margin: 11px 0;
     li {
-      font-weight: 500;
+      font-variation-settings: 'wght' 100; 
       letter-spacing: 0.026em;
     }
   }
@@ -1465,7 +1464,7 @@ body {
         left: 0;
         border-top: solid 2px $G400;
         color: $G400;
-        font-weight: 700;
+        font-variation-settings: 'wght' 156; 
         line-height: 12px;
         text-align: center;
       }

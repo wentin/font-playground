@@ -181,7 +181,7 @@
     <div class="section section-preset-variations" v-if="activeFont.variableOptions.instances.length > 0">
       <h4 class="subtitle-text">PRESET VARIATIONS</h4>
       <div class="variations">
-        <div class="variation-card" :class="{ active: instance.isActive }" v-for="instance in activeFont.variableOptions.instances" v-on:click="activateInstance(instance)">
+        <div class="variation-card value-text" :class="{ active: instance.isActive }" v-for="instance in activeFont.variableOptions.instances" v-on:click="activateInstance(instance)">
           {{instance.name}}
           <span class="specimen" v-bind:style="instanceStyles(instance)">Ag</span>
         </div>
