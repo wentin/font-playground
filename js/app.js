@@ -7807,7 +7807,7 @@ var app = new Vue({
               "name": "ExtraLight",
               "isActive": false,
               "coordinates": {
-                "wght": 42
+                "wght": 54
               }
             }
           ]
