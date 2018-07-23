@@ -9450,6 +9450,11 @@ var app = new Vue({
         }
       }
       cssString += "}\n";
+
+      html2canvas(document.querySelector(".canvas")).then(canvas => {
+          document.querySelector(".section-code").innerHTML = '';
+          document.querySelector(".section-code").appendChild(canvas);
+      });
       return cssString;
     },
     fontFaces: function() {
