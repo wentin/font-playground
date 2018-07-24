@@ -9881,7 +9881,7 @@ var app = new Vue({
         canvasObjects[i].isSelected = false;
       }
     },
-    instanceStyles: function(instance) {
+    instanceStyles: function(instance){
       var fontVariationSettings = [];
       for (var tag in instance.coordinates) {
         if( instance.coordinates.hasOwnProperty(tag) ) {
@@ -9892,6 +9892,26 @@ var app = new Vue({
         fontFamily: this.activeFont.cssCodeName,
         fontVariationSettings: fontVariationSettings.join()
       };
+    },
+    addPointType: function() {
+      var canvasObject = {
+        type: "Point Type Frame",
+        isSelected: true,
+        properties: {
+          "left": 0,
+          "top": 0,
+          "text": "Heading One",
+          "fontSize": 100,
+          "cssCodeName": this.activeFont.cssCodeName,
+          "isVariableFont": this.activeFont.isVariableFont,
+        }
+      };
+      if (this.activeFont.isVariableFont) {
+        canvasObject.properties.variableOptions = {
+          "axes": this.activeFont.variableOptions.axes
+        }
+      }
+      this.canvasObjects.push(canvasObject);
     },
   }
 })
