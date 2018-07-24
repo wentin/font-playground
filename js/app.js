@@ -279,6 +279,10 @@ Vue.component('point-type-frame', {
       if(this.states.isEditable == false) {
         this.states.isEditable = true;
       }
+      var el = this.$el;
+      setTimeout(function() {
+        el.querySelector('[contenteditable]').focus();
+      }, 0);
     },
     deactivateStates: function (event) {
       event.preventDefault();
@@ -291,6 +295,14 @@ Vue.component('point-type-frame', {
     },
     emitValueChangeEvent: function() {
       this.$emit('change', this.cobject.properties);
+    },
+    //  Cancel canvas click when mouseup event fires on controls
+    cancelCanvasClick: function(){
+      document.body.addEventListener('click', this.captureClick, true);
+    },
+    captureClick: function(e) {
+        e.stopPropagation();
+        document.body.removeEventListener('click', this.captureClick, true); 
     },
     //  Event Handlers for moving text frame
     moveTextFrameInitDrag: function (event) {
@@ -383,8 +395,8 @@ Vue.component('point-type-frame', {
         document.body.removeEventListener('touchend',this.controlFontSizeStopDrag);
         document.body.removeEventListener('touchmove',this.controlFontSizeDoDrag);
       }
+      this.cancelCanvasClick();
     },
-    
     // Event Handlers for Variable Optical Size Control
     controlVFOpticalSizeInitDrag: function (event) {
       event.preventDefault();
@@ -443,6 +455,7 @@ Vue.component('point-type-frame', {
         document.body.removeEventListener('touchend',this.controlVFOpticalSizeStopDrag);
         document.body.removeEventListener('touchmove',this.controlVFOpticalSizeDoDrag);
       }
+      this.cancelCanvasClick();
     },
     
     //  Event Handlers for Variable Width Control
@@ -506,6 +519,7 @@ Vue.component('point-type-frame', {
         document.body.removeEventListener('touchend',this.controlVFWidthStopDrag);
         document.body.removeEventListener('touchmove',this.controlVFWidthDoDrag);
       }
+      this.cancelCanvasClick();
     },
     generateVFCSS: function(axes) {
       var cssString = 'font-variation-settings: ';
@@ -612,6 +626,7 @@ Vue.component('point-type-frame', {
         document.body.removeEventListener('touchend',this.controlVFWidthXStopDrag);
         document.body.removeEventListener('touchmove',this.controlVFWidthXDoDrag);
       }
+      this.cancelCanvasClick();
     },
     
     //  Event Handlers for Variable Width Y axis Control
@@ -673,6 +688,7 @@ Vue.component('point-type-frame', {
         document.body.removeEventListener('touchend',this.controlVFWidthYStopDrag);
         document.body.removeEventListener('touchmove',this.controlVFWidthYDoDrag);
       }
+      this.cancelCanvasClick();
     },
     
     //  Event Handlers for Variable Slant Control
@@ -737,6 +753,7 @@ Vue.component('point-type-frame', {
         document.body.removeEventListener('touchend',this.controlVFSlantStopDrag);
         document.body.removeEventListener('touchmove',this.controlVFSlantDoDrag);
       }
+      this.cancelCanvasClick();
     },
 
     //  Event Handlers for Variable xHeight Control
@@ -794,6 +811,7 @@ Vue.component('point-type-frame', {
         document.body.removeEventListener('touchend',this.controlVFxHeightStopDrag);
         document.body.removeEventListener('touchmove',this.controlVFxHeightDoDrag);
       }
+      this.cancelCanvasClick();
     },
 
     //  Event Handlers Templates
@@ -830,6 +848,7 @@ Vue.component('point-type-frame', {
         document.body.removeEventListener('touchend',this.stopDrag);
         document.body.removeEventListener('touchmove',this.doDrag);
       }
+      this.cancelCanvasClick();
     },
   }
 })
@@ -9791,7 +9810,6 @@ var app = new Vue({
           this.selectedCanvasObjects[i].properties.variableOptions.axes = newFontFamily.variableOptions.axes;
         }
       }
-      
     },
     activateAxis: function(axis) {
       if (axis.isSelected == 0) {
@@ -9850,6 +9868,12 @@ var app = new Vue({
       for (var i = 0; i < this.selectedCanvasObjects.length; i++) {
         this.selectedCanvasObjects[i].properties.fontSize = this.fontSize;
       }
+    },
+    selectCanvasObject: function(canvasObject) {
+      for (var i = 0; i < this.canvasObjects.length; i++) {
+        this.canvasObjects[i].isSelected = false;
+      }
+      canvasObject.isSelected = true;
     },
     deselectAllCanvasObject: function(){
       var canvasObjects = this.canvasObjects;

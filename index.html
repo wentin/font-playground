@@ -107,7 +107,6 @@
             'vf-slant-on': isVFSlantSupported, 
             'vf-xheight-on': isVFXHeightSupported }"
            :style="{top: cobject.properties.top + 'px', left: cobject.properties.left + 'px'}"
-           @click="selectTextFrame"
            @dblclick="editTextFrame"
            @mousedown="moveTextFrameInitDrag"
            @touchstart="moveTextFrameInitDrag"
@@ -167,7 +166,8 @@
           <div class="contrast-value">2.0</div>
           <div class="contrast-bracket"></div>
         </div>
-        <div class="text":class="{ 'select-disabled': !states.isEditable }" :contenteditable="states.isEditable" :style="css">
+        <div class="text":class="{ 'select-disabled': !states.isEditable }" :contenteditable="states.isEditable" :style="css"
+           @blur="deactivateStates">
           <div class="controls--vf-xheight" contenteditable=false>
             <div class="vf-xheight-line" :style="{top: xHeightControlStyles.xHeightTop}" @mousedown="controlVFxHeightInitDrag"
             @touchstart="controlVFxHeightInitDrag">
@@ -179,7 +179,7 @@
         </div>
       </div>
     </script>
-    <point-type-frame :cobject="object" v-for="object in canvasObjects" @change="handleCanvasObjectChange"></point-type-frame>
+    <point-type-frame :cobject="canvasObject" v-for="canvasObject in canvasObjects" @change="handleCanvasObjectChange" @click.native.stop="selectCanvasObject(canvasObject)"></point-type-frame>
   </div>
   <div class="panel">
     <div class="section section-font-size">
