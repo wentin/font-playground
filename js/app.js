@@ -142,15 +142,10 @@ Vue.component('slider-2d', {
     },
   }
 })
-Vue.component('text-frame', {
-  template: '#text-frame-template',
+Vue.component('point-type-frame', {
+  template: '#point-type-frame-template',
   props: {
-    fontSize: {
-      type: Number
-    },
-    fontSettings: {
-      type: Object
-    }
+    cobject: Object,
   },
   data: function () {
     return {
@@ -169,12 +164,15 @@ Vue.component('text-frame', {
         xHeight: 'XHGT',
         slant: 'slnt',
         italic: 'ital'
+      },
+      states: {
+        isEditable: false
       }
     };
   },
   computed: {
     css() {
-      var axes = this.fontSettings.variableOptions.axes;
+      var axes = this.cobject.properties.variableOptions.axes;
       var cssString = '';
       for (var i = 0; i < axes.length; i++) {
         if (i < axes.length-1) {
@@ -184,14 +182,14 @@ Vue.component('text-frame', {
         }
       }
       return {
-        fontSize: this.fontSize + 'px',
-        fontFamily: this.fontSettings.cssCodeName,
+        fontSize: this.cobject.properties.fontSize + 'px',
+        fontFamily: this.cobject.properties.cssCodeName,
         fontVariationSettings: cssString
       };
     },
     slantnessControlStyles() {
       var defaultValue;
-      var axes = this.fontSettings.variableOptions.axes;
+      var axes = this.cobject.properties.variableOptions.axes;
       var maxAngle, minAngle, maxValue, minValue, defaultValue, skew, left;
       for (var i = 0; i < axes.length; i++) {
         if (axes[i].tag == this.supportedTags.italic || axes[i].tag == this.supportedTags.slant) {
@@ -212,7 +210,7 @@ Vue.component('text-frame', {
     },
     xHeightControlStyles() {
       var defaultValue;
-      var axes = this.fontSettings.variableOptions.axes;
+      var axes = this.cobject.properties.variableOptions.axes;
       var maxPositionY, minPositionY, baselinePostionY, maxValue, minValue, defaultValue, xHeightTop, baselineTop;
       for (var i = 0; i < axes.length; i++) {
         if (axes[i].tag == this.supportedTags.xHeight) {
@@ -233,32 +231,30 @@ Vue.component('text-frame', {
       };
     },
     isVFOpticalSizeSupported() {
-      // return false;
-      var axes = this.fontSettings.variableOptions.axes;
+      var axes = this.cobject.properties.variableOptions.axes;
       for (var i = 0; i < axes.length; i++) {
         if (axes[i].tag == this.supportedTags.opticalSize) return true;
       }
       return false;
     },
     isVFWidthSupported() {
-      // return false;
-      var axes = this.fontSettings.variableOptions.axes;
+      var axes = this.cobject.properties.variableOptions.axes;
       for (var i = 0; i < axes.length; i++) {
-        if (axes[i].tag == this.supportedTags.width) return true;
+        if (axes[i].tag == this.supportedTags.width) {
+          return true;
+        }
       }
       return false;
     },
     isVFSlantSupported() {
-      // return false;
-      var axes = this.fontSettings.variableOptions.axes;
+      var axes = this.cobject.properties.variableOptions.axes;
       for (var i = 0; i < axes.length; i++) {
         if (axes[i].tag == this.supportedTags.italic || axes[i].tag == this.supportedTags.slant) return true;
       }
       return false;
     },
     isVFXHeightSupported() {
-      // return false;
-      var axes = this.fontSettings.variableOptions.axes;
+      var axes = this.cobject.properties.variableOptions.axes;
       for (var i = 0; i < axes.length; i++) {
         if (axes[i].tag == this.supportedTags.xHeight) return true;
       }
@@ -266,6 +262,83 @@ Vue.component('text-frame', {
     }
   },
   methods: {
+    selectTextFrame: function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      if(this.cobject.isSelected == false) {
+        this.cobject.isSelected = true;
+        this.emitValueChangeEvent();
+      }
+    },
+    editTextFrame: function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      if(this.cobject.isSelected == false) {
+        this.cobject.isSelected = true;
+      }
+      if(this.states.isEditable == false) {
+        this.states.isEditable = true;
+      }
+    },
+    deactivateStates: function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      if(this.states.isEditable == true) {
+        this.states.isEditable = false;
+      } else {
+        this.cobject.isSelected = false;
+      }
+    },
+    emitValueChangeEvent: function() {
+      this.$emit('change', this.cobject.properties);
+    },
+    //  Event Handlers for moving text frame
+    moveTextFrameInitDrag: function (event) {
+      event.stopPropagation();
+      if(!this.states.isEditable) {
+        event.preventDefault();
+        var e;
+        if (event.type == 'mousedown') {
+          e = event;
+          document.body.addEventListener('mousemove',this.moveTextFrameDoDrag);
+          document.body.addEventListener('mouseup',this.moveTextFrameStopDrag);
+        } else if (event.type == 'touchstart') {
+          e = event.touches[0];
+          document.body.addEventListener('touchmove',this.moveTextFrameDoDrag);
+          document.body.addEventListener('touchend',this.moveTextFrameStopDrag);
+        }
+
+        this.startX = e.clientX;
+        this.startY = e.clientY;
+        this.startTop = parseFloat(document.defaultView.getComputedStyle(this.$el).top);
+        this.startLeft = parseFloat(document.defaultView.getComputedStyle(this.$el).left);
+      }
+    },
+    moveTextFrameDoDrag: function (event) {
+      event.stopPropagation();
+      var e;
+      if (event.type == 'mousemove') {
+        e = event;
+      } else if (event.type == 'touchmove') {
+        e = event.touches[0];
+      }
+
+      this.cobject.properties.left = this.startLeft + e.clientX - this.startX;
+      this.cobject.properties.top = this.startTop + e.clientY - this.startY;
+
+      this.emitValueChangeEvent();
+    },
+    moveTextFrameStopDrag: function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.type == 'mouseup') {
+        document.body.removeEventListener('mouseup',this.moveTextFrameStopDrag);
+        document.body.removeEventListener('mousemove',this.moveTextFrameDoDrag);
+      } else if (event.type == 'touchend') {
+        document.body.removeEventListener('touchend',this.moveTextFrameStopDrag);
+        document.body.removeEventListener('touchmove',this.moveTextFrameDoDrag);
+      }
+    },
     // Event Handlers for Font Size Control
     controlFontSizeInitDrag: function (event) {
       event.preventDefault();
@@ -283,7 +356,7 @@ Vue.component('text-frame', {
       this.startY = e.clientY;
       
       this.startHeight = parseInt(document.defaultView.getComputedStyle(this.$el).height, 10);
-      this.startFontSize = this.fontSize;
+      this.startFontSize = this.cobject.properties.fontSize;
     },
     controlFontSizeDoDrag: function (event) {
       event.stopPropagation();
@@ -294,10 +367,11 @@ Vue.component('text-frame', {
         e = event.touches[0];
       }
       var targetHeight = this.startHeight + e.clientY - this.startY;
-      this.fontSize = targetHeight / this.startHeight * this.startFontSize;
-      this.fontSize = this.fontSize.toFixed(0);
-      if(this.fontSize < 1) this.fontSize = 1;
-      this.$emit('fzchange', this.fontSize);
+      this.cobject.properties.fontSize = targetHeight / this.startHeight * this.startFontSize;
+      this.cobject.properties.fontSize = this.cobject.properties.fontSize.toFixed(0);
+      if(this.cobject.properties.fontSize < 1) this.cobject.properties.fontSize = 1;
+      this.$emit('fzchange', this.cobject.properties.fontSize);
+      this.emitValueChangeEvent();
     },
     controlFontSizeStopDrag: function (event) {
       event.preventDefault();
@@ -327,8 +401,8 @@ Vue.component('text-frame', {
       }
       this.startY = e.clientY;
       this.startHeight = parseInt(document.defaultView.getComputedStyle(this.$el).height, 10);
-      this.startFontSize = this.fontSize;
-      var axes = this.fontSettings.variableOptions.axes;
+      this.startFontSize = this.cobject.properties.fontSize;
+      var axes = this.cobject.properties.variableOptions.axes;
       for (var i = 0; i < axes.length; i++) {
         if (axes[i].tag == this.supportedTags.opticalSize) {
           this.opticalSizeAxis = axes[i];
@@ -344,19 +418,20 @@ Vue.component('text-frame', {
         e = event.touches[0];
       }
       var targetHeight = this.startHeight + e.clientY - this.startY;
-      this.fontSize = targetHeight / this.startHeight * this.startFontSize;
-      this.fontSize = this.fontSize.toFixed(0);
-      if(this.fontSize < 1) this.fontSize = 1;
+      this.cobject.properties.fontSize = targetHeight / this.startHeight * this.startFontSize;
+      this.cobject.properties.fontSize = this.cobject.properties.fontSize.toFixed(0);
+      if(this.cobject.properties.fontSize < 1) this.cobject.properties.fontSize = 1;
 
-      if (this.fontSize > this.opticalSizeAxis.maxValue) {
+      if (this.cobject.properties.fontSize > this.opticalSizeAxis.maxValue) {
         this.opticalSizeAxis.defaultValue = this.opticalSizeAxis.maxValue;
-      } else if (this.fontSize < this.opticalSizeAxis.minValue) {
+      } else if (this.cobject.properties.fontSize < this.opticalSizeAxis.minValue) {
         this.opticalSizeAxis.defaultValue = this.opticalSizeAxis.minValue;
       } else {
-        this.opticalSizeAxis.defaultValue = this.fontSize;
+        this.opticalSizeAxis.defaultValue = this.cobject.properties.fontSize;
       }
 
-      this.$emit('fzchange', this.fontSize);
+      this.$emit('fzchange', this.cobject.properties.fontSize);
+      this.emitValueChangeEvent();
     },
     controlVFOpticalSizeStopDrag: function (event) {
       event.preventDefault();
@@ -389,9 +464,9 @@ Vue.component('text-frame', {
       this.startY = e.clientY;
       this.startWidth = parseInt(document.defaultView.getComputedStyle(this.$el).width, 10);
       this.startHeight = parseInt(document.defaultView.getComputedStyle(this.$el).height, 10);
-      this.startFontSize = this.fontSize;
+      this.startFontSize = this.cobject.properties.fontSize;
       
-      var axes = this.fontSettings.variableOptions.axes;
+      var axes = this.cobject.properties.variableOptions.axes;
       for (var i = 0; i < axes.length; i++) {
         if (axes[i].tag == this.supportedTags.width) {
           this.widthAxis = axes[i];
@@ -411,12 +486,13 @@ Vue.component('text-frame', {
       var targetHeight = this.startHeight + e.clientY - this.startY;
       this.$el.style.width = targetWidth + "px";
       this.$el.style.height = targetHeight + "px";
-      this.fontSize = targetHeight / this.startHeight * this.startFontSize;
-      this.fontSize = this.fontSize.toFixed(0);
-      if(this.fontSize < 1) this.fontSize = 1;
+      this.cobject.properties.fontSize = targetHeight / this.startHeight * this.startFontSize;
+      this.cobject.properties.fontSize = this.cobject.properties.fontSize.toFixed(0);
+      if(this.cobject.properties.fontSize < 1) this.cobject.properties.fontSize = 1;
       
       this.widthAxis.defaultValue = this.fitVFWidth(this.$el, targetWidth);
-      this.$emit('fzchange', this.fontSize);
+      this.$emit('fzchange', this.cobject.properties.fontSize);
+      this.emitValueChangeEvent();
     },
     controlVFWidthStopDrag: function (event) {
       this.$el.style.width = "";
@@ -440,15 +516,15 @@ Vue.component('text-frame', {
           cssString += "'" + axes[i].tag + "' " + axes[i].defaultValue + '; ';
         }
       }
-      cssString += "font-size: " + this.fontSize + 'px; ';
-      cssString += "font-family: " + this.fontSettings.cssCodeName + '; ';
+      cssString += "font-size: " + this.cobject.properties.fontSize + 'px; ';
+      cssString += "font-family: " + this.cobject.properties.cssCodeName + '; ';
       return cssString;
     },
     fitVFWidth: function(el, nwidth){
       var el = el;
       var nwidth = nwidth;
       
-      var axes = this.fontSettings.variableOptions.axes;
+      var axes = this.cobject.properties.variableOptions.axes;
 
       // var axesClone = axes.map(a => ({...a}));
       var axesClone = JSON.parse(JSON.stringify(axes));
@@ -501,9 +577,9 @@ Vue.component('text-frame', {
       this.startX = e.clientX;
       this.startWidth = parseInt(document.defaultView.getComputedStyle(this.$el).width, 10);
       this.startHeight = parseInt(document.defaultView.getComputedStyle(this.$el).height, 10);
-      this.startFontSize = this.fontSize;
+      this.startFontSize = this.cobject.properties.fontSize;
       
-      var axes = this.fontSettings.variableOptions.axes;
+      var axes = this.cobject.properties.variableOptions.axes;
       for (var i = 0; i < axes.length; i++) {
         if (axes[i].tag == this.supportedTags.width) {
           this.widthAxis = axes[i];
@@ -522,7 +598,8 @@ Vue.component('text-frame', {
       this.$el.style.width = targetWidth + "px";
 
       this.widthAxis.defaultValue = this.fitVFWidth(this.$el, targetWidth);
-      this.$emit('fzchange', this.fontSize);
+      this.$emit('fzchange', this.cobject.properties.fontSize);
+      this.emitValueChangeEvent();
     },
     controlVFWidthXStopDrag: function (event) {
       this.$el.style.width = "";
@@ -555,11 +632,11 @@ Vue.component('text-frame', {
       this.startY = e.clientY;
       this.startWidth = parseInt(document.defaultView.getComputedStyle(this.$el).width, 10);
       this.startHeight = parseInt(document.defaultView.getComputedStyle(this.$el).height, 10);
-      this.startFontSize = this.fontSize;
+      this.startFontSize = this.cobject.properties.fontSize;
       
       this.$el.style.width = this.startWidth + "px";
 
-      var axes = this.fontSettings.variableOptions.axes;
+      var axes = this.cobject.properties.variableOptions.axes;
       for (var i = 0; i < axes.length; i++) {
         if (axes[i].tag == this.supportedTags.width) {
           this.widthAxis = axes[i];
@@ -576,12 +653,13 @@ Vue.component('text-frame', {
       }
       var targetHeight = this.startHeight + e.clientY - this.startY;
       this.$el.style.height = targetHeight + "px";
-      this.fontSize = targetHeight / this.startHeight * this.startFontSize;
-      this.fontSize = this.fontSize.toFixed(0);
-      if(this.fontSize < 1) this.fontSize = 1;
+      this.cobject.properties.fontSize = targetHeight / this.startHeight * this.startFontSize;
+      this.cobject.properties.fontSize = this.cobject.properties.fontSize.toFixed(0);
+      if(this.cobject.properties.fontSize < 1) this.cobject.properties.fontSize = 1;
       
       this.widthAxis.defaultValue = this.fitVFWidth(this.$el, this.startWidth);
-      this.$emit('fzchange', this.fontSize);
+      this.$emit('fzchange', this.cobject.properties.fontSize);
+      this.emitValueChangeEvent();
     },
     controlVFWidthYStopDrag: function (event) {
       this.$el.style.width = "";
@@ -617,7 +695,7 @@ Vue.component('text-frame', {
       this.startX = e.clientX;
       this.startLeft = parseInt(document.defaultView.getComputedStyle(this.handleSlantness).left, 10);
 
-      var axes = this.fontSettings.variableOptions.axes;
+      var axes = this.cobject.properties.variableOptions.axes;
       for (var i = 0; i < axes.length; i++) {
         if (axes[i].tag == this.supportedTags.italic || axes[i].tag == this.supportedTags.slant) {
           this.slantAxis = axes[i];
@@ -647,6 +725,7 @@ Vue.component('text-frame', {
       }
       var targetAngle = Math.atan(targetLeft/50)/Math.PI * 180;
       this.slantAxis.defaultValue = roundValueByStep(targetAngle/this.slantAxis.maxAngle*this.slantAxis.maxValue, this.step);
+      this.emitValueChangeEvent();
     },
     controlVFSlantStopDrag: function (event) {
       event.preventDefault();
@@ -678,7 +757,7 @@ Vue.component('text-frame', {
       this.startY = e.clientY;
       this.startTop = parseFloat(document.defaultView.getComputedStyle(this.handleXHeight).top);
 
-      var axes = this.fontSettings.variableOptions.axes;
+      var axes = this.cobject.properties.variableOptions.axes;
       for (var i = 0; i < axes.length; i++) {
         if (axes[i].tag == this.supportedTags.xHeight) {
           this.xHeightAxis = axes[i];
@@ -693,7 +772,7 @@ Vue.component('text-frame', {
       } else if (event.type == 'touchmove') {
         e = event.touches[0];
       }
-      var targetTop = (e.clientY - this.startY + this.startTop) / this.fontSize;
+      var targetTop = (e.clientY - this.startY + this.startTop) / this.cobject.properties.fontSize;
 
       if (targetTop > this.xHeightAxis.minPositionY) {
         targetTop = this.xHeightAxis.minPositionY;
@@ -703,6 +782,7 @@ Vue.component('text-frame', {
 
       var targetXHeight = this.xHeightAxis.minValue + (targetTop - this.xHeightAxis.minPositionY) / (this.xHeightAxis.maxPositionY - this.xHeightAxis.minPositionY) * (this.xHeightAxis.maxValue - this.xHeightAxis.minValue);
       this.xHeightAxis.defaultValue = roundValueByStep(targetXHeight, this.step);
+      this.emitValueChangeEvent();
     },
     controlVFxHeightStopDrag: function (event) {
       event.preventDefault();
@@ -9355,6 +9435,203 @@ var app = new Vue({
         }
       }
     ],
+    canvasObjects: [
+      {
+        type: "Point Type Frame",
+        isSelected: false,
+        properties: {
+          "left": 0,
+          "top": 0,
+          "text": "Heading One",
+          "fontSize": 100,
+          "cssCodeName": "Dunbar",
+          "isVariableFont": true,
+          "variableOptions": {
+            "axes": [
+              {
+                "tag": "wght",
+                "name": "Weight",
+                "minValue": 100,
+                "defaultValue": 500,
+                "maxValue": 900,
+                "isSelected": 1
+              },
+              {
+                "tag": "XHGT",
+                "name": "xHeight",
+                "minValue": 353,
+                "defaultValue": 353,
+                "maxValue": 574,
+                "isSelected": 2,
+                "minPositionY": 0.571,
+                "maxPositionY": 0.35,
+                "baselinePostionY": 0.924
+              },
+              {
+                "tag": "opsz",
+                "name": "Optical Size",
+                "minValue": 10,
+                "defaultValue": 36,
+                "maxValue": 36,
+                "isSelected": 0
+              }
+            ]
+          }
+        }
+      },
+      {
+        type: "Point Type Frame",
+        isSelected: false,
+        properties: {
+          "left": 0,
+          "top": 300,
+          "text": "Paragraph One",
+          "fontSize": 20,
+          "cssCodeName": "Amstelvar",
+          "isVariableFont": true,
+          "variableOptions": {
+            "axes": [
+              {
+                "tag": "wght",
+                "name": "Weight",
+                "minValue": 100,
+                "defaultValue": 400,
+                "maxValue": 900,
+                "isSelected": 1
+              },
+              {
+                "tag": "wdth",
+                "name": "Width",
+                "minValue": 35,
+                "defaultValue": 100,
+                "maxValue": 100,
+                "isSelected": 2
+              },
+              {
+                "tag": "opsz",
+                "name": "Optical Size",
+                "minValue": 10,
+                "defaultValue": 14,
+                "maxValue": 72,
+                "isSelected": 0
+              },
+              {
+                "tag": "XOPQ",
+                "name": "x opaque",
+                "minValue": 5,
+                "defaultValue": 88,
+                "maxValue": 500,
+                "isSelected": 0
+              },
+              {
+                "tag": "XTRA",
+                "name": "x transparent",
+                "minValue": 42,
+                "defaultValue": 402,
+                "maxValue": 402,
+                "isSelected": 0
+              },
+              {
+                "tag": "YOPQ",
+                "name": "y opaque",
+                "minValue": 4,
+                "defaultValue": 50,
+                "maxValue": 85,
+                "isSelected": 0
+              },
+              {
+                "tag": "YTLC",
+                "name": "lc y transparent",
+                "minValue": 445,
+                "defaultValue": 500,
+                "maxValue": 600,
+                "isSelected": 0
+              },
+              {
+                "tag": "YTSE",
+                "name": "Serif height",
+                "minValue": 0,
+                "defaultValue": 18,
+                "maxValue": 48,
+                "isSelected": 0
+              },
+              {
+                "tag": "GRAD",
+                "name": "Grade",
+                "minValue": 25,
+                "defaultValue": 88,
+                "maxValue": 150,
+                "isSelected": 0
+              },
+              {
+                "tag": "XTCH",
+                "name": "x transparent Chinese",
+                "minValue": 800,
+                "defaultValue": 1000,
+                "maxValue": 1200,
+                "isSelected": 0
+              },
+              {
+                "tag": "YTCH",
+                "name": "y transparent Chinese",
+                "minValue": 800,
+                "defaultValue": 1000,
+                "maxValue": 1200,
+                "isSelected": 0
+              },
+              {
+                "tag": "YTAS",
+                "name": "y transparent ascender",
+                "minValue": 650,
+                "defaultValue": 750,
+                "maxValue": 850,
+                "isSelected": 0
+              },
+              {
+                "tag": "YTDE",
+                "name": "y transparent descender",
+                "minValue": 150,
+                "defaultValue": 250,
+                "maxValue": 350,
+                "isSelected": 0
+              },
+              {
+                "tag": "YTUC",
+                "name": "y transparent uppercase",
+                "minValue": 650,
+                "defaultValue": 750,
+                "maxValue": 950,
+                "isSelected": 0
+              },
+              {
+                "tag": "YTRA",
+                "name": "y transparent",
+                "minValue": 800,
+                "defaultValue": 1000,
+                "maxValue": 1200,
+                "isSelected": 0
+              },
+              {
+                "tag": "PWGT",
+                "name": "Para Weight",
+                "minValue": 38,
+                "defaultValue": 88,
+                "maxValue": 250,
+                "isSelected": 0
+              },
+              {
+                "tag": "PWDT",
+                "name": "Para Width",
+                "minValue": 60,
+                "defaultValue": 402,
+                "maxValue": 402,
+                "isSelected": 0
+              }
+            ]
+          }
+        }
+      }
+    ],
     fontSize: 100,
     appStates: {
       drawer: {
@@ -9410,6 +9687,7 @@ var app = new Vue({
       for (var i = 0; i < this.fontFamilies.length; i++) {
         if (this.fontFamilies[i].isActive == true) {
           activeFont = this.fontFamilies[i];
+
           return activeFont;
         }
       }
@@ -9423,6 +9701,15 @@ var app = new Vue({
         }
       }
       return selectedAxes;
+    },
+    selectedCanvasObjects: function() {
+      var selectedCanvasObjects = [];
+      for (var i = 0; i < this.canvasObjects.length; i++) {
+        if(this.canvasObjects[i].isSelected == true) {
+          selectedCanvasObjects.push(this.canvasObjects[i]);
+        }
+      }
+      return selectedCanvasObjects;
     },
     isSlider2dActive: function() {
       if (this.selectedAxes.length >= 2) {
@@ -9468,6 +9755,20 @@ var app = new Vue({
       return cssString;
     },
   },
+  mounted: function() {
+    if (this.selectedCanvasObjects.length > 0) {
+      for (var i = 0; i < this.fontFamilies.length; i++) {
+        if(this.fontFamilies[i].cssCodeName == this.selectedCanvasObjects[0].properties.cssCodeName) {
+          this.fontFamilies[i].isActive = true;
+          if (this.selectedCanvasObjects[0].properties.isVariableFont) {
+            this.fontFamilies[i].variableOptions.axes = this.selectedCanvasObjects[0].properties.variableOptions.axes;
+          }
+        } else {
+          this.fontFamilies[i].isActive = false;
+        }
+      }
+    }
+  },
   methods: {
     activateTab: function(tab) {
       for (var key in this.appStates.tabs) {
@@ -9483,6 +9784,14 @@ var app = new Vue({
         this.fontFamilies[i].isActive = false;
       }
       fontFamily.isActive = true;
+      for (var i = 0; i < this.selectedCanvasObjects.length; i++) {
+        var newFontFamily = JSON.parse(JSON.stringify(fontFamily));
+        this.selectedCanvasObjects[i].properties.cssCodeName = newFontFamily.cssCodeName;
+        if (newFontFamily.isVariableFont) {
+          this.selectedCanvasObjects[i].properties.variableOptions.axes = newFontFamily.variableOptions.axes;
+        }
+      }
+      
     },
     activateAxis: function(axis) {
       if (axis.isSelected == 0) {
@@ -9514,9 +9823,39 @@ var app = new Vue({
           instances[i].isActive = 0;
       }
       instance.isActive = 1;
+      this.handleActiveFontChange();
     },
-    changeFontSize: function(e){
-      this.fontSize = e;
+    handleCanvasObjectChange: function(settings){
+      let newSettings = JSON.parse(JSON.stringify(settings));
+      this.fontSize = newSettings.fontSize;
+      for (var i = 0; i < this.fontFamilies.length; i++) {
+        if(this.fontFamilies[i].cssCodeName == newSettings.cssCodeName) {
+          this.fontFamilies[i].isActive = true;
+          this.fontFamilies[i].variableOptions.axes = newSettings.variableOptions.axes
+        } else {
+          this.fontFamilies[i].isActive = false;
+        }
+      }
+    },
+    handleActiveFontChange: function(){
+      for (var i = 0; i < this.selectedCanvasObjects.length; i++) {
+        var newActiveFont = JSON.parse(JSON.stringify(this.activeFont));
+        this.selectedCanvasObjects[i].properties.cssCodeName = newActiveFont.cssCodeName;
+        if (newActiveFont.isVariableFont) {
+          this.selectedCanvasObjects[i].properties.variableOptions.axes = newActiveFont.variableOptions.axes;
+        }
+      }
+    },
+    handleFontSizeChange: function(){
+      for (var i = 0; i < this.selectedCanvasObjects.length; i++) {
+        this.selectedCanvasObjects[i].properties.fontSize = this.fontSize;
+      }
+    },
+    deselectAllCanvasObject: function(){
+      var canvasObjects = this.canvasObjects;
+      for (var i = 0; i < canvasObjects.length; i++) {
+        canvasObjects[i].isSelected = false;
+      }
     },
     instanceStyles: function(instance) {
       var fontVariationSettings = [];

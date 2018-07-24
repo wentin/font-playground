@@ -28,7 +28,7 @@
   'font-menu-opened': appStates.drawer.fontMenu.isActive }">
   <div class="tabs select-disabled">
     <div class="logo-text"><span class="accent-text">Font</span> Playground</div>
-    <div class="tab label-text" :class="{ active: tab.isActive }" v-for="tab in appStates.tabs" v-on:click="activateTab(tab)">{{ tab.name }}</div>
+    <div class="tab label-text" :class="{ active: tab.isActive }" v-for="tab in appStates.tabs" @click="activateTab(tab)">{{ tab.name }}</div>
   </div>
   <div class="tools">
     <div class="tool selector active">
@@ -46,7 +46,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><title>fit-type</title><path d="M4,9.051v-3.1A2.5,2.5,0,0,0,5.949,4h6.1a2.5,2.5,0,1,0,0-1h-6.1A2.5,2.5,0,1,0,3,5.949v3.1A2.5,2.5,0,1,0,5.949,12H7V11H5.949A2.505,2.505,0,0,0,4,9.051ZM14.5,2A1.5,1.5,0,1,1,13,3.5,1.5,1.5,0,0,1,14.5,2ZM2,3.5A1.5,1.5,0,1,1,3.5,5,1.5,1.5,0,0,1,2,3.5ZM3.5,13A1.5,1.5,0,1,1,5,11.5,1.5,1.5,0,0,1,3.5,13Z"/><path d="M16.5,7h-9a.5.5,0,0,0-.5.5v3a.5.5,0,0,0,.5.5h1a.5.5,0,0,0,.5-.5V9h2v5h-.5a.5.5,0,0,0-.5.5v1a.5.5,0,0,0,.5.5h3a.5.5,0,0,0,.5-.5v-1a.5.5,0,0,0-.5-.5H13V9h2v1.5a.5.5,0,0,0,.5.5h1a.5.5,0,0,0,.5-.5v-3A.5.5,0,0,0,16.5,7Z"/></svg>
       <div class="tip-text">Feature coming soon</div>
     </div>
-    <div class="tool font-menu" :class="{ active: appStates.drawer.fontMenu.isActive }" v-on:click="toggleDrawer(appStates.drawer.fontMenu)">
+    <div class="tool font-menu" :class="{ active: appStates.drawer.fontMenu.isActive }" @click="toggleDrawer(appStates.drawer.fontMenu)">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><title>font-menu</title><path d="M13.93,1.253C12.515,1.253,11.608,1,10.151,1c-4.708,0-6.9,2.681-6.9,5.4,0,1.6.76,2.132,2.259,2.132a2.949,2.949,0,0,1-.3-1.626c0-3.188,1.2-4.116,2.745-4.18,0,0-1.265,12.4-4.934,13.884V17H7.969L9.657,9h3.094l.689-2H10.079l.811-3.846a14.012,14.012,0,0,0,2.617.38c.971,0,1.858-.3,2.343-2.533a6.239,6.239,0,0,1-1.921.253Z" fill="#666"/></svg>
     </div>
   </div>
@@ -56,10 +56,10 @@
       <div class="search-box">
         <input required class="value-text" type="text" v-model="search" placeholder="Search by name, axis, designer…"/>
         <div class="search-icon"></div>
-        <div class="close-button" v-on:click="search = ''"></div>
+        <div class="close-button" @click="search = ''"></div>
       </div>
       <div class="font-cards">
-        <div class="font-card" :class="{ active: fontFamily.isActive }" v-for="fontFamily in filteredFontFamilies" v-on:click="activateFamily(fontFamily)">
+        <div class="font-card" :class="{ active: fontFamily.isActive }" v-for="fontFamily in filteredFontFamilies" @click="activateFamily(fontFamily)">
           <h1 class="font-preview" 
             v-if="!fontFamily.previewText.isCustom"
             :style="{fontFamily: fontFamily.cssCodeName}">
@@ -97,10 +97,21 @@
       </div>
     </div>
   </div>
-  <div class="canvas">
-    <script type="text/x-template" id="text-frame-template">
-      <div class="text-frame point-type selected" 
-           :class="{ 'vf-optical-size-on': isVFOpticalSizeSupported, 'vf-width-on': isVFWidthSupported, 'vf-slant-on': isVFSlantSupported, 'vf-xheight-on': isVFXHeightSupported }">
+  <div class="canvas" @click="deselectAllCanvasObject">
+    <script type="text/x-template" id="point-type-frame-template">
+      <div class="text-frame point-type" 
+           :class="{ 
+            'selected': cobject.isSelected, 
+            'vf-optical-size-on': isVFOpticalSizeSupported, 
+            'vf-width-on': isVFWidthSupported, 
+            'vf-slant-on': isVFSlantSupported, 
+            'vf-xheight-on': isVFXHeightSupported }"
+           :style="{top: cobject.properties.top + 'px', left: cobject.properties.left + 'px'}"
+           @click="selectTextFrame"
+           @dblclick="editTextFrame"
+           @mousedown="moveTextFrameInitDrag"
+           @touchstart="moveTextFrameInitDrag"
+            >
         <div class="controls--vf-opsz" @mousedown="controlVFOpticalSizeInitDrag"
         @touchstart="controlVFOpticalSizeInitDrag">
           <div class="vf-opsz-handle">
@@ -156,7 +167,7 @@
           <div class="contrast-value">2.0</div>
           <div class="contrast-bracket"></div>
         </div>
-        <div class="text" contenteditable :style="css">
+        <div class="text":class="{ 'select-disabled': !states.isEditable }" :contenteditable="states.isEditable" :style="css">
           <div class="controls--vf-xheight" contenteditable=false>
             <div class="vf-xheight-line" :style="{top: xHeightControlStyles.xHeightTop}" @mousedown="controlVFxHeightInitDrag"
             @touchstart="controlVFxHeightInitDrag">
@@ -168,20 +179,20 @@
         </div>
       </div>
     </script>
-    <text-frame :font-settings="activeFont" :font-size="fontSize" v-on:fzchange="changeFontSize"></text-frame>
+    <point-type-frame :cobject="object" v-for="object in canvasObjects" @change="handleCanvasObjectChange"></point-type-frame>
   </div>
   <div class="panel">
     <div class="section section-font-size">
       <div class="slider slider-font-size">
         <label for="range-input" class="label-text">Font Size</label>
         <input type="text" class="value-text" v-model="fontSize">
-        <input type="range" min="1"  max="400" step="1" v-model="fontSize" >
+        <input type="range" min="1"  max="400" step="1" v-model="fontSize" @input="handleFontSizeChange">
       </div>
     </div>
     <div class="section section-preset-variations" v-if="activeFont.variableOptions.instances.length > 0">
       <h4 class="subtitle-text">PRESET VARIATIONS</h4>
       <div class="variations">
-        <div class="variation-card value-text" :class="{ active: instance.isActive }" v-for="instance in activeFont.variableOptions.instances" v-on:click="activateInstance(instance)">
+        <div class="variation-card value-text" :class="{ active: instance.isActive }" v-for="instance in activeFont.variableOptions.instances" @click="activateInstance(instance)">
           {{instance.name}}
           <span class="specimen" v-bind:style="instanceStyles(instance)">Ag</span>
         </div>
@@ -197,13 +208,13 @@
           </div>
         </div>
       </script>
-      <slider-2d v-if="isSlider2dActive" :axes="selectedAxes" v-model="selectedAxes"></slider-2d>
+      <slider-2d v-if="isSlider2dActive" :axes="selectedAxes" v-model="selectedAxes" @input="handleActiveFontChange"></slider-2d>
       <div class="sliders">
         <div class="slider" v-for="axis in activeFont.variableOptions.axes" :class="{selected: axis.isSelected}">
-          <span v-if="isSlider2dActive" class="radio-button" v-on:click="activateAxis(axis)"></span>
+          <span v-if="isSlider2dActive" class="radio-button" @click="activateAxis(axis)"></span>
           <label for="range-input" class="label-text">{{axis.name}}</label>
           <input type="text" class="value-text" v-model="axis.defaultValue">
-          <input type="range" :min="axis.minValue"  :max="axis.maxValue" step="0.01" v-model="axis.defaultValue">
+          <input type="range" :min="axis.minValue"  :max="axis.maxValue" step="0.01" v-model="axis.defaultValue" @input="handleActiveFontChange">
         </div>
       </div>
     </div>
@@ -237,6 +248,7 @@
   </div>
   <!-- <code v-html="fontFaces"></code> -->
 </div>
+<script src="http://localhost:35729/livereload.js"></script>
 <script src="js/app.js"></script>
 </body>
 
