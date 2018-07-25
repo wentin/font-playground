@@ -262,7 +262,7 @@ Vue.component('point-type-frame', {
     }
   },
   mounted: function() {
-    this.$el.querySelector('.text').innerText = this.cobject.properties.text;
+    this.$el.querySelector('.text-span').innerText = this.cobject.properties.text;
   },
   methods: {
     updateContent:function(event){
@@ -9794,7 +9794,8 @@ var app = new Vue({
 
     const self = this;
     document.body.addEventListener('keydown', function(e){
-      if (e.key == "Backspace" || e.key == "Delete") {
+      // if (e.key == "Backspace" || e.key == "Delete") {
+      if (e.key == "Delete") {
         for (var i = self.canvasObjects.length - 1; i >= 0; i--) {
           if (self.canvasObjects[i].isSelected) {
             self.canvasObjects.splice(i,1);
