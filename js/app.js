@@ -294,7 +294,7 @@ Vue.component('point-type-frame', {
       }
     },
     emitValueChangeEvent: function() {
-      this.$emit('change', this.cobject.properties);
+      this.$emit('change', this.cobject);
     },
     //  Cancel canvas click when mouseup event fires on controls
     cancelCanvasClick: function(){
@@ -9738,25 +9738,57 @@ var app = new Vue({
       }
     },
     cssCode: function() {
-      var cssString = "@font-face {\n";
-      cssString += "  src: url('[Your url to woff2 file here.]');\n";
-      cssString += "  font-family:'" + this.activeFont.cssCodeName + "';\n";
-      cssString += "  font-style: normal;\n";
-      cssString += "}\n";
-      cssString += "div {\n";
-      cssString += "  font-family: '" + this.activeFont.cssCodeName + "';\n";
-      cssString += "  font-size: " + this.fontSize + "px; \n";
-      cssString += "  font-variation-settings:\n";
-      var axes = this.activeFont.variableOptions.axes;
-      for (var i = 0; i < axes.length; i++) {
-        if (i < axes.length-1) {
-          cssString += "    '" + axes[i].tag + "' " + axes[i].defaultValue + ",\n";
-        } else {
-          cssString += "    '" + axes[i].tag + "' " + axes[i].defaultValue + "; \n";
+      var fontFaces = [];
+      var cssFontFaces = "";
+      var cssCanvasObjects = [];
+
+      for (var i = 0; i < this.canvasObjects.length; i++) {
+        var cssString = "";
+        var id = "#text" + (i+1);
+        // cssString += "@font-face {\n";
+        // cssString += "  src: url('[Your url to woff2 file here.]');\n";
+        // cssString += "  font-family:'" + this.canvasObjects[i].properties.cssCodeName + "';\n";
+        // cssString += "  font-style: normal;\n";
+        // cssString += "}\n";
+        if (!fontFaces.includes(this.canvasObjects[i].properties.cssCodeName)) {
+          fontFaces.push(this.canvasObjects[i].properties.cssCodeName);
         }
+        cssString += id + " {\n";
+        cssString += "  font-family: '" + this.canvasObjects[i].properties.cssCodeName + "';\n";
+        cssString += "  font-size: " + this.canvasObjects[i].properties.fontSize + "px; \n";
+        cssString += "  position: absolute; \n";
+        cssString += "  left: " + this.canvasObjects[i].properties.left + "px; \n";
+        cssString += "  top: " + this.canvasObjects[i].properties.top + "px; \n";
+        cssString += "  font-variation-settings:\n";
+        if (this.canvasObjects[i].properties.isVariableFont) {
+          var axes = this.canvasObjects[i].properties.variableOptions.axes;
+          for (var j = 0; j < axes.length; j++) {
+            if (j < axes.length-1) {
+              cssString += "    '" + axes[j].tag + "' " + axes[j].defaultValue + ",\n";
+            } else {
+              cssString += "    '" + axes[j].tag + "' " + axes[j].defaultValue + "; \n";
+            }
+          }
+        }
+        cssString += "}\n";
+        var cssCanvasObject = {
+            "id": id,
+            "cssString": cssString
+        }
+        cssCanvasObjects.push(cssCanvasObject);
       }
-      cssString += "}\n";
-      return cssString;
+      for (var k = 0; k < fontFaces.length; k++) {
+        cssFontFaces += "@font-face {\n";
+        cssFontFaces += "  src: url('[Your url to woff2 file here.]');\n";
+        cssFontFaces += "  font-family:'" + fontFaces[k] + "';\n";
+        cssFontFaces += "  font-style: normal;\n";
+        cssFontFaces += "}\n";
+      }
+      
+      return {
+        "cssFontFaces": cssFontFaces,
+        "cssCanvasObjects": cssCanvasObjects
+      };
     },
     fontFaces: function() {
       var fontFamilies = this.fontFamilies;
@@ -9787,6 +9819,17 @@ var app = new Vue({
         }
       }
     }
+
+    const self = this;
+    document.body.addEventListener('keydown', function(e){
+      if (e.key == "Backspace" || e.key == "Delete") {
+        for (var i = self.canvasObjects.length - 1; i >= 0; i--) {
+          if (self.canvasObjects[i].isSelected) {
+            self.canvasObjects.splice(i,1);
+          }
+        }
+      } 
+    });
   },
   methods: {
     activateTab: function(tab) {
@@ -9843,13 +9886,13 @@ var app = new Vue({
       instance.isActive = 1;
       this.handleActiveFontChange();
     },
-    handleCanvasObjectChange: function(settings){
-      let newSettings = JSON.parse(JSON.stringify(settings));
-      this.fontSize = newSettings.fontSize;
+    handleCanvasObjectChange: function(canvasObject){
+      let newCanvasObject = JSON.parse(JSON.stringify(canvasObject));
+      this.fontSize = newCanvasObject.properties.fontSize;
       for (var i = 0; i < this.fontFamilies.length; i++) {
-        if(this.fontFamilies[i].cssCodeName == newSettings.cssCodeName) {
+        if(this.fontFamilies[i].cssCodeName == newCanvasObject.properties.cssCodeName) {
           this.fontFamilies[i].isActive = true;
-          this.fontFamilies[i].variableOptions.axes = newSettings.variableOptions.axes
+          this.fontFamilies[i].variableOptions.axes = newCanvasObject.properties.variableOptions.axes
         } else {
           this.fontFamilies[i].isActive = false;
         }
@@ -9874,6 +9917,7 @@ var app = new Vue({
         this.canvasObjects[i].isSelected = false;
       }
       canvasObject.isSelected = true;
+      this.handleCanvasObjectChange(canvasObject);
     },
     deselectAllCanvasObject: function(){
       var canvasObjects = this.canvasObjects;
@@ -9894,14 +9938,25 @@ var app = new Vue({
       };
     },
     addPointType: function() {
+      var left, top;
+      if (this.selectedCanvasObjects.length > 0) {
+        left = 20 + this.selectedCanvasObjects[this.selectedCanvasObjects.length - 1].properties.left;
+        top = 20 + this.selectedCanvasObjects[this.selectedCanvasObjects.length - 1].properties.top;
+      } else if (this.canvasObjects.length > 0) {
+        left = 20 + this.canvasObjects[this.canvasObjects.length-1].properties.left;
+        top = 20 + this.canvasObjects[this.canvasObjects.length-1].properties.top;
+      } else {
+        left = 0;
+        top = 0;
+      }
       var canvasObject = {
         type: "Point Type Frame",
         isSelected: true,
         properties: {
-          "left": 0,
-          "top": 0,
+          "left": left,
+          "top": top,
           "text": "Heading One",
-          "fontSize": 100,
+          "fontSize": this.fontSize,
           "cssCodeName": this.activeFont.cssCodeName,
           "isVariableFont": this.activeFont.isVariableFont,
         }
@@ -9913,5 +9968,13 @@ var app = new Vue({
       }
       this.canvasObjects.push(canvasObject);
     },
+    highLightCanvasObject: function(id) {
+      document.body.querySelector(id).classList.add('highlight');
+      console.log(document.body.querySelector(id));
+    },
+    unHighLightCanvasObject: function(id) {
+      document.body.querySelector(id).classList.remove('highlight');
+      console.log(document.body.querySelector(id));
+    }
   }
 })

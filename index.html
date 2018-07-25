@@ -178,7 +178,7 @@
         </div>
       </div>
     </script>
-    <point-type-frame :cobject="canvasObject" v-for="canvasObject in canvasObjects" @change="handleCanvasObjectChange" @click.native.stop="selectCanvasObject(canvasObject)"></point-type-frame>
+    <point-type-frame :id="'text'+(index+1)" :cobject="canvasObject" v-for="(canvasObject, index) in canvasObjects" @change="handleCanvasObjectChange" @click.native.stop="selectCanvasObject(canvasObject)"></point-type-frame>
   </div>
   <div class="panel">
     <div class="section section-font-size">
@@ -219,7 +219,12 @@
     </div>
     <div class="section section-code">
       <h4 class="subtitle-text">CSS</h4>
-      <code class="select-enabled">{{ cssCode }}</code>
+      <code class="select-enabled">
+        <span>{{cssCode.cssFontFaces}}</span>
+        <span class="css-for-canvas-object" :data-id="cssCanvasObject.id" v-for="cssCanvasObject in cssCode.cssCanvasObjects"
+        @mouseover="highLightCanvasObject(cssCanvasObject.id)"
+        @mouseleave="unHighLightCanvasObject(cssCanvasObject.id)">{{cssCanvasObject.cssString}}</span>
+      </code>
     </div>
   </div>
   <div class="about select-enabled">
