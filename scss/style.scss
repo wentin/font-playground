@@ -1223,11 +1223,13 @@ body {
       span.css-for-canvas-object {
         display: block;
         cursor: pointer;
-        border-radius: 3px;
-
-        &:hover {
+        
+        &.highlight {
           background-color: $G700;
           color: $G100;
+        }
+        &:hover {
+          color: $vfColor;
         }
       }
     }

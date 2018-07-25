@@ -261,7 +261,13 @@ Vue.component('point-type-frame', {
       return false;
     }
   },
+  mounted: function() {
+    this.$el.querySelector('.text').innerText = this.cobject.properties.text;
+  },
   methods: {
+    updateContent:function(event){
+      this.$emit('update',event.target.innerText);
+    },
     selectTextFrame: function (event) {
       event.preventDefault();
       event.stopPropagation();
@@ -9458,6 +9464,7 @@ var app = new Vue({
       {
         type: "Point Type Frame",
         isSelected: false,
+        id: "text1",
         properties: {
           "left": 0,
           "top": 0,
@@ -9501,6 +9508,7 @@ var app = new Vue({
       {
         type: "Point Type Frame",
         isSelected: false,
+        id: "text2",
         properties: {
           "left": 0,
           "top": 300,
@@ -9737,45 +9745,13 @@ var app = new Vue({
         return false;
       }
     },
-    cssCode: function() {
+    cssFontFaces: function() {
       var fontFaces = [];
       var cssFontFaces = "";
-      var cssCanvasObjects = [];
-
       for (var i = 0; i < this.canvasObjects.length; i++) {
-        var cssString = "";
-        var id = "#text" + (i+1);
-        // cssString += "@font-face {\n";
-        // cssString += "  src: url('[Your url to woff2 file here.]');\n";
-        // cssString += "  font-family:'" + this.canvasObjects[i].properties.cssCodeName + "';\n";
-        // cssString += "  font-style: normal;\n";
-        // cssString += "}\n";
         if (!fontFaces.includes(this.canvasObjects[i].properties.cssCodeName)) {
           fontFaces.push(this.canvasObjects[i].properties.cssCodeName);
         }
-        cssString += id + " {\n";
-        cssString += "  font-family: '" + this.canvasObjects[i].properties.cssCodeName + "';\n";
-        cssString += "  font-size: " + this.canvasObjects[i].properties.fontSize + "px; \n";
-        cssString += "  position: absolute; \n";
-        cssString += "  left: " + this.canvasObjects[i].properties.left + "px; \n";
-        cssString += "  top: " + this.canvasObjects[i].properties.top + "px; \n";
-        cssString += "  font-variation-settings:\n";
-        if (this.canvasObjects[i].properties.isVariableFont) {
-          var axes = this.canvasObjects[i].properties.variableOptions.axes;
-          for (var j = 0; j < axes.length; j++) {
-            if (j < axes.length-1) {
-              cssString += "    '" + axes[j].tag + "' " + axes[j].defaultValue + ",\n";
-            } else {
-              cssString += "    '" + axes[j].tag + "' " + axes[j].defaultValue + "; \n";
-            }
-          }
-        }
-        cssString += "}\n";
-        var cssCanvasObject = {
-            "id": id,
-            "cssString": cssString
-        }
-        cssCanvasObjects.push(cssCanvasObject);
       }
       for (var k = 0; k < fontFaces.length; k++) {
         cssFontFaces += "@font-face {\n";
@@ -9784,13 +9760,9 @@ var app = new Vue({
         cssFontFaces += "  font-style: normal;\n";
         cssFontFaces += "}\n";
       }
-      
-      return {
-        "cssFontFaces": cssFontFaces,
-        "cssCanvasObjects": cssCanvasObjects
-      };
+      return cssFontFaces;
     },
-    fontFaces: function() {
+    allFontFacesDebugOnly: function() {
       var fontFamilies = this.fontFamilies;
       // var assetAddress = 'https://s3.us-east-2.amazonaws.com/font-playground/';
       // var assetAddress = '../fonts/';
@@ -9952,10 +9924,11 @@ var app = new Vue({
       var canvasObject = {
         type: "Point Type Frame",
         isSelected: true,
+        id: "text" + (this.canvasObjects.length + 1),
         properties: {
           "left": left,
           "top": top,
-          "text": "Heading One",
+          "text": "Lorem Ipsum",
           "fontSize": this.fontSize,
           "cssCodeName": this.activeFont.cssCodeName,
           "isVariableFont": this.activeFont.isVariableFont,
@@ -9968,13 +9941,33 @@ var app = new Vue({
       }
       this.canvasObjects.push(canvasObject);
     },
-    highLightCanvasObject: function(id) {
-      document.body.querySelector(id).classList.add('highlight');
-      console.log(document.body.querySelector(id));
+    generateCSSForCanvasObject: function(cobject) {
+      var cssString = "";
+      cssString += "#" + cobject.id + " {\n";
+      cssString += "  font-family: '" + cobject.properties.cssCodeName + "';\n";
+      cssString += "  font-size: " + cobject.properties.fontSize + "px; \n";
+      cssString += "  position: absolute; \n";
+      cssString += "  left: " + cobject.properties.left + "px; \n";
+      cssString += "  top: " + cobject.properties.top + "px; \n";
+      cssString += "  font-variation-settings:\n";
+      if (cobject.properties.isVariableFont) {
+        var axes = cobject.properties.variableOptions.axes;
+        for (var j = 0; j < axes.length; j++) {
+          if (j < axes.length-1) {
+            cssString += "    '" + axes[j].tag + "' " + axes[j].defaultValue + ",\n";
+          } else {
+            cssString += "    '" + axes[j].tag + "' " + axes[j].defaultValue + "; \n";
+          }
+        }
+      }
+      cssString += "}\n";
+      return cssString;
     },
-    unHighLightCanvasObject: function(id) {
-      document.body.querySelector(id).classList.remove('highlight');
-      console.log(document.body.querySelector(id));
+    highLightCanvasObject: function(cobject) {
+      document.getElementById(cobject.id).classList.add('highlight');
+    },
+    unHighLightCanvasObject: function(cobject) {
+      document.getElementById(cobject.id).classList.remove('highlight');
     }
   }
 })

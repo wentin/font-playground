@@ -166,7 +166,8 @@
           <div class="contrast-bracket"></div>
         </div>
         <div class="text":class="{ 'select-disabled': !states.isEditable }" :contenteditable="states.isEditable" :style="css"
-           @blur="deactivateStates">
+           @blur="deactivateStates"
+           @input="updateContent">
           <div class="controls--vf-xheight" contenteditable=false>
             <div class="vf-xheight-line" :style="{top: xHeightControlStyles.xHeightTop}" @mousedown="controlVFxHeightInitDrag"
             @touchstart="controlVFxHeightInitDrag">
@@ -178,7 +179,13 @@
         </div>
       </div>
     </script>
-    <point-type-frame :id="'text'+(index+1)" :cobject="canvasObject" v-for="(canvasObject, index) in canvasObjects" @change="handleCanvasObjectChange" @click.native.stop="selectCanvasObject(canvasObject)"></point-type-frame>
+    <point-type-frame 
+      :id="canvasObject.id" 
+      :cobject="canvasObject" 
+      v-for="canvasObject in canvasObjects" 
+      @change="handleCanvasObjectChange" 
+      @click.native.stop="selectCanvasObject(canvasObject)" 
+      @update="canvasObject.properties.text = $event"></point-type-frame>
   </div>
   <div class="panel">
     <div class="section section-font-size">
@@ -220,10 +227,14 @@
     <div class="section section-code">
       <h4 class="subtitle-text">CSS</h4>
       <code class="select-enabled">
-        <span>{{cssCode.cssFontFaces}}</span>
-        <span class="css-for-canvas-object" :data-id="cssCanvasObject.id" v-for="cssCanvasObject in cssCode.cssCanvasObjects"
-        @mouseover="highLightCanvasObject(cssCanvasObject.id)"
-        @mouseleave="unHighLightCanvasObject(cssCanvasObject.id)">{{cssCanvasObject.cssString}}</span>
+        <span>{{cssFontFaces}}</span>
+        <span class="css-for-canvas-object"
+          :class="{highlight: canvasObject.isSelected}" 
+          v-for="canvasObject in canvasObjects"
+          @click="canvasObject.isSelected = !canvasObject.isSelected"
+          @mouseover="highLightCanvasObject(canvasObject)"
+          @mouseleave="unHighLightCanvasObject(canvasObject)"
+          >{{generateCSSForCanvasObject(canvasObject)}}</span>
       </code>
     </div>
   </div>
