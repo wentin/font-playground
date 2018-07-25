@@ -9912,6 +9912,7 @@ var app = new Vue({
     },
     addPointType: function() {
       var left, top;
+      var newActiveFont = JSON.parse(JSON.stringify(this.activeFont));
       if (this.selectedCanvasObjects.length > 0) {
         left = 20 + this.selectedCanvasObjects[this.selectedCanvasObjects.length - 1].properties.left;
         top = 20 + this.selectedCanvasObjects[this.selectedCanvasObjects.length - 1].properties.top;
@@ -9931,13 +9932,13 @@ var app = new Vue({
           "top": top,
           "text": "Lorem Ipsum",
           "fontSize": this.fontSize,
-          "cssCodeName": this.activeFont.cssCodeName,
-          "isVariableFont": this.activeFont.isVariableFont,
+          "cssCodeName": newActiveFont.cssCodeName,
+          "isVariableFont": newActiveFont.isVariableFont,
         }
       };
-      if (this.activeFont.isVariableFont) {
+      if (newActiveFont.isVariableFont) {
         canvasObject.properties.variableOptions = {
-          "axes": this.activeFont.variableOptions.axes
+          "axes": newActiveFont.variableOptions.axes
         }
       }
       this.canvasObjects.push(canvasObject);
