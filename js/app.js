@@ -9943,6 +9943,7 @@ var app = new Vue({
     },
     generateCSSForCanvasObject: function(cobject) {
       var cssString = "";
+      cssString += "/* text: " + cobject.properties.text + " */\n";
       cssString += "#" + cobject.id + " {\n";
       cssString += "  font-family: '" + cobject.properties.cssCodeName + "';\n";
       cssString += "  font-size: " + cobject.properties.fontSize + "px; \n";
