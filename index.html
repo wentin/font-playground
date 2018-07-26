@@ -167,7 +167,8 @@
         </div>
         <div class="text":class="{ 'select-disabled': !states.isEditable }" :contenteditable="states.isEditable" :style="css"
            @blur="deactivateStates"
-           @input="updateContent">
+           @input="updateContent"
+           @keydown="captureKeydown">
           <div class="controls--vf-xheight" contenteditable=false>
             <div class="vf-xheight-line" :style="{top: xHeightControlStyles.xHeightTop}" @mousedown="controlVFxHeightInitDrag"
             @touchstart="controlVFxHeightInitDrag">
@@ -175,7 +176,7 @@
             </div>
             <div class="vf-base-line" :style="{top: xHeightControlStyles.baselineTop}"></div>
           </div>
-          <span class="text-span">Heading One</span>
+          <span class="text-span"></span>
         </div>
       </div>
     </script>
@@ -231,7 +232,7 @@
         <span class="css-for-canvas-object"
           :class="{highlight: canvasObject.isSelected}" 
           v-for="canvasObject in canvasObjects"
-          @click="canvasObject.isSelected = !canvasObject.isSelected"
+          @click="handleCSSCanvasObjectClick(canvasObject)"
           @mouseover="highLightCanvasObject(canvasObject)"
           @mouseleave="unHighLightCanvasObject(canvasObject)"
           >{{generateCSSForCanvasObject(canvasObject)}}</span>

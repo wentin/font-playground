@@ -170,6 +170,11 @@ Vue.component('point-type-frame', {
       }
     };
   },
+  watch: {
+    cobject: function() {
+      this.$el.querySelector('.text-span').innerText = this.cobject.properties.text;
+    }
+  },
   computed: {
     css() {
       var axes = this.cobject.properties.variableOptions.axes;
@@ -267,6 +272,10 @@ Vue.component('point-type-frame', {
   methods: {
     updateContent:function(event){
       this.$emit('update',event.target.innerText);
+    },
+    captureKeydown: function(event) {
+      event.stopPropagation();
+      event.target.removeEventListener('keydown', this.captureKeydown); 
     },
     selectTextFrame: function (event) {
       event.preventDefault();
@@ -9659,6 +9668,7 @@ var app = new Vue({
         }
       }
     ],
+    canvasObjectsCounter: 0,
     fontSize: 100,
     appStates: {
       drawer: {
@@ -9791,17 +9801,16 @@ var app = new Vue({
         }
       }
     }
-
+    this.canvasObjectsCounter = this.canvasObjects.length;
     const self = this;
     document.body.addEventListener('keydown', function(e){
-      // if (e.key == "Backspace" || e.key == "Delete") {
-      if (e.key == "Delete") {
+      if (e.key == "Backspace" || e.key == "Delete") {
         for (var i = self.canvasObjects.length - 1; i >= 0; i--) {
           if (self.canvasObjects[i].isSelected) {
             self.canvasObjects.splice(i,1);
           }
         }
-      } 
+      }
     });
   },
   methods: {
@@ -9858,6 +9867,15 @@ var app = new Vue({
       }
       instance.isActive = 1;
       this.handleActiveFontChange();
+    },
+    handleCSSCanvasObjectClick: function(canvasObject){
+      if(canvasObject.isSelected) {
+        canvasObject.isSelected = false;
+        this.handleActiveFontChange();
+      } else {
+        canvasObject.isSelected = true;
+        this.handleCanvasObjectChange(canvasObject);
+      }
     },
     handleCanvasObjectChange: function(canvasObject){
       let newCanvasObject = JSON.parse(JSON.stringify(canvasObject));
@@ -9926,7 +9944,7 @@ var app = new Vue({
       var canvasObject = {
         type: "Point Type Frame",
         isSelected: true,
-        id: "text" + (this.canvasObjects.length + 1),
+        id: "text" + (++this.canvasObjectsCounter),
         properties: {
           "left": left,
           "top": top,
