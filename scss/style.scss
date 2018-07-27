@@ -837,9 +837,9 @@ input[type="text"] {
   &.selected.area-type .controls--font-size,
   &.selected.point-type .controls--font-size,
   &.selected.vf-optical-size-on .controls--vf-opsz,
-  &.selected.vf-width-on .controls--vf-width,
-  &.selected.vf-width-on .controls--vf-width-x,
-  &.selected.vf-width-on .controls--vf-width-y,
+  &.selected.point-type.vf-width-on .controls--vf-width,
+  &.selected.point-type.vf-width-on .controls--vf-width-x,
+  &.selected.point-type.vf-width-on .controls--vf-width-y,
   &.selected.vf-slant-on .controls--vf-slantness,
   &.selected.vf-xheight-on .controls--vf-xheight {
     display: block;

@@ -14,18 +14,6 @@ var roundValueByStep = function(value, step){
   return result.toFixed(step.countDecimals());
 }
 
-var addLineBreakers = function (el) {
-  var lines = lineWrapDetector.getLines(el);
-  var str = "";
-  for (var i = 0; i < lines.length; i++) {
-    for (var j = 0; j < lines[i].length; j++) {
-      str += lines[i][j].innerText + ' ';
-    }
-    if (i != lines.length - 1) str += '\n';
-  }
-  return str;
-}
-
 Vue.component('slider-2d', {
   template: '#slider-2d-template',
   props: {
@@ -522,7 +510,6 @@ Vue.component('point-type-frame', {
       this.startWidth = parseInt(document.defaultView.getComputedStyle(this.$el).width, 10);
       this.startHeight = parseInt(document.defaultView.getComputedStyle(this.$el).height, 10);
       this.startFontSize = this.cobject.properties.fontSize;
-      
       var axes = this.cobject.properties.variableOptions.axes;
       for (var i = 0; i < axes.length; i++) {
         if (axes[i].tag == this.supportedTags.width) {
@@ -545,16 +532,16 @@ Vue.component('point-type-frame', {
       this.cobject.properties.fontSize = targetHeight / this.startHeight * this.startFontSize;
       this.cobject.properties.fontSize = this.cobject.properties.fontSize.toFixed(0);
       if(this.cobject.properties.fontSize < 1) this.cobject.properties.fontSize = 1;
-      
+            
+
       this.widthAxis.defaultValue = this.fitVFWidth(this.$el, targetWidth);
+
       this.$emit('fzchange', this.cobject.properties.fontSize);
       this.emitValueChangeEvent();
     },
     controlVFWidthStopDrag: function (event) {
-      if (this.cobject.type == "point type") {
-        this.$el.style.width = "";
-        this.$el.style.height = "";
-      }
+      this.$el.style.width = "";
+      this.$el.style.height = "";
 
       event.preventDefault();
       event.stopPropagation();
@@ -601,9 +588,6 @@ Vue.component('point-type-frame', {
       el.parentNode.insertBefore(dupEl, el.nextSibling);
       var dupTextEl = dupEl.querySelector('.text');
       var dupTextSpanEl = dupEl.querySelector('.text-span');
-      dupTextSpanEl.innerText = addLineBreakers(dupTextSpanEl);
-      dupTextEl.style.whiteSpace = 'nowrap';
-      dupTextEl.style.overflow = 'auto';
 
       dupEl.style.visibility = "hidden";
       dupEl.style.width = "";
@@ -665,9 +649,7 @@ Vue.component('point-type-frame', {
       this.emitValueChangeEvent();
     },
     controlVFWidthXStopDrag: function (event) {
-      if (this.cobject.type == "point type") {
-        this.$el.style.width = "";
-      }
+      this.$el.style.width = "";
       event.preventDefault();
       event.stopPropagation();
       if (event.type == 'mouseup') {
@@ -728,10 +710,8 @@ Vue.component('point-type-frame', {
       this.emitValueChangeEvent();
     },
     controlVFWidthYStopDrag: function (event) {
-      if (this.cobject.type == "point type") {
-        this.$el.style.width = "";
-        this.$el.style.height = "";
-      }
+      this.$el.style.width = "";
+      this.$el.style.height = "";
       event.preventDefault();
       event.stopPropagation();
       if (event.type == 'mouseup') {
@@ -9908,67 +9888,48 @@ var app = new Vue({
         fontVariationSettings: fontVariationSettings.join()
       };
     },
-    addPointType: function() {
+    addCanvasObject: function(type) {
       var left, top;
       var newActiveFont = JSON.parse(JSON.stringify(this.activeFont));
+      var anchorCanvasObject;
       if (this.selectedCanvasObjects.length > 0) {
-        left = 20 + this.selectedCanvasObjects[this.selectedCanvasObjects.length - 1].properties.left;
-        top = 20 + this.selectedCanvasObjects[this.selectedCanvasObjects.length - 1].properties.top;
+        anchorCanvasObject = this.selectedCanvasObjects[this.selectedCanvasObjects.length - 1];
       } else if (this.canvasObjects.length > 0) {
-        left = 20 + this.canvasObjects[this.canvasObjects.length-1].properties.left;
-        top = 20 + this.canvasObjects[this.canvasObjects.length-1].properties.top;
+        anchorCanvasObject = this.canvasObjects[this.canvasObjects.length-1];
+      }
+
+      if (anchorCanvasObject) {
+        left = anchorCanvasObject.properties.left;
+        if (anchorCanvasObject.type == "point type") {
+          top = 20 + parseInt(anchorCanvasObject.properties.fontSize, 10) + anchorCanvasObject.properties.top;
+        } else {
+          top = 20 + anchorCanvasObject.properties.height + anchorCanvasObject.properties.top;
+        }
       } else {
         left = 0;
         top = 0;
       }
+
       var canvasObject = {
-        type: "point type",
+        type: type,
         isSelected: true,
         id: "text" + (++this.canvasObjectsCounter),
         properties: {
           "left": left,
           "top": top,
-          "text": "Lorem Ipsum",
-          "fontSize": 100,
           "cssCodeName": newActiveFont.cssCodeName,
           "isVariableFont": newActiveFont.isVariableFont,
         }
       };
-      if (newActiveFont.isVariableFont) {
-        canvasObject.properties.variableOptions = {
-          "axes": newActiveFont.variableOptions.axes
-        }
+      if (type == "point type") {
+        canvasObject.properties.text = "Lorem Ipsum";
+        canvasObject.properties.fontSize = 100;
+      } else if (type == "area type") {
+        canvasObject.properties.text = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi dignissimos molestias, repellendus sequi incidunt itaque eligendi esse ab odio perspiciatis, eveniet libero est aliquid ipsam facilis blanditiis tenetur. Et ducimus dolorum illo dolor praesentium nisi quo magnam cumque quis ad repellendus fugit corporis velit sunt, laborum voluptatibus soluta blanditiis iusto recusandae reprehenderit quas fuga natus exercitationem dolore iste! Sequi, modi?";
+        canvasObject.properties.fontSize = 20;
+        canvasObject.properties.width = 560;
+        canvasObject.properties.height = 160;
       }
-      this.canvasObjects.push(canvasObject);
-    },
-    addAreaType: function() {
-      var left, top;
-      var newActiveFont = JSON.parse(JSON.stringify(this.activeFont));
-      if (this.selectedCanvasObjects.length > 0) {
-        left = 20 + this.selectedCanvasObjects[this.selectedCanvasObjects.length - 1].properties.left;
-        top = 20 + this.selectedCanvasObjects[this.selectedCanvasObjects.length - 1].properties.top;
-      } else if (this.canvasObjects.length > 0) {
-        left = 20 + this.canvasObjects[this.canvasObjects.length-1].properties.left;
-        top = 20 + this.canvasObjects[this.canvasObjects.length-1].properties.top;
-      } else {
-        left = 0;
-        top = 0;
-      }
-      var canvasObject = {
-        type: "area type",
-        isSelected: true,
-        id: "text" + (++this.canvasObjectsCounter),
-        properties: {
-          "width": 560,
-          "height": 160,
-          "left": left,
-          "top": top,
-          "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi dignissimos molestias, repellendus sequi incidunt itaque eligendi esse ab odio perspiciatis, eveniet libero est aliquid ipsam facilis blanditiis tenetur. Et ducimus dolorum illo dolor praesentium nisi quo magnam cumque quis ad repellendus fugit corporis velit sunt, laborum voluptatibus soluta blanditiis iusto recusandae reprehenderit quas fuga natus exercitationem dolore iste! Sequi, modi?",
-          "fontSize": 20,
-          "cssCodeName": newActiveFont.cssCodeName,
-          "isVariableFont": newActiveFont.isVariableFont,
-        }
-      };
       if (newActiveFont.isVariableFont) {
         canvasObject.properties.variableOptions = {
           "axes": newActiveFont.variableOptions.axes
