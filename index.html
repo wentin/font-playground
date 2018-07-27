@@ -14,7 +14,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'UA-122306892-1');
     </script>
 
@@ -37,9 +36,8 @@
     <div class="tool point-type" @click="addPointType">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><title>point-type</title><path d="M6.5,16a.5.5,0,0,1-.5-.5v-1a.5.5,0,0,1,.5-.5H8V4H4V5.5a.5.5,0,0,1-.5.5h-1A.5.5,0,0,1,2,5.5v-3A.5.5,0,0,1,2.5,2h13a.5.5,0,0,1,.5.5v3a.5.5,0,0,1-.5.5h-1a.5.5,0,0,1-.5-.5V4H10V14h1.5a.5.5,0,0,1,.5.5v1a.5.5,0,0,1-.5.5Z"/></svg>
     </div>
-    <div class="tool area-type">
+    <div class="tool area-type" @click="addAreaType">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><title>area-type</title><path d="M12.5,16a.5.5,0,0,1-.5-.5V4H10V15.5a.5.5,0,0,1-.5.5h-1a.5.5,0,0,1-.5-.5V11H6.5a4.5,4.5,0,0,1,0-9h7a.5.5,0,0,1,.5.5v13a.5.5,0,0,1-.5.5Z"/></svg>
-      <div class="tip-text">Feature coming soon</div>
     </div>
     <div class="tool fit-type">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><title>fit-type</title><path d="M4,9.051v-3.1A2.5,2.5,0,0,0,5.949,4h6.1a2.5,2.5,0,1,0,0-1h-6.1A2.5,2.5,0,1,0,3,5.949v3.1A2.5,2.5,0,1,0,5.949,12H7V11H5.949A2.505,2.505,0,0,0,4,9.051ZM14.5,2A1.5,1.5,0,1,1,13,3.5,1.5,1.5,0,0,1,14.5,2ZM2,3.5A1.5,1.5,0,1,1,3.5,5,1.5,1.5,0,0,1,2,3.5ZM3.5,13A1.5,1.5,0,1,1,5,11.5,1.5,1.5,0,0,1,3.5,13Z"/><path d="M16.5,7h-9a.5.5,0,0,0-.5.5v3a.5.5,0,0,0,.5.5h1a.5.5,0,0,0,.5-.5V9h2v5h-.5a.5.5,0,0,0-.5.5v1a.5.5,0,0,0,.5.5h3a.5.5,0,0,0,.5-.5v-1a.5.5,0,0,0-.5-.5H13V9h2v1.5a.5.5,0,0,0,.5.5h1a.5.5,0,0,0,.5-.5v-3A.5.5,0,0,0,16.5,7Z"/></svg>
@@ -98,14 +96,16 @@
   </div>
   <div class="canvas" @click="deselectAllCanvasObject">
     <script type="text/x-template" id="point-type-frame-template">
-      <div class="text-frame point-type" 
+      <div class="text-frame" 
            :class="{ 
+            'area-type': cobject.type == 'area type',
+            'point-type': cobject.type == 'point type',
             'selected': cobject.isSelected, 
             'vf-optical-size-on': isVFOpticalSizeSupported, 
             'vf-width-on': isVFWidthSupported, 
             'vf-slant-on': isVFSlantSupported, 
             'vf-xheight-on': isVFXHeightSupported }"
-           :style="{top: cobject.properties.top + 'px', left: cobject.properties.left + 'px'}"
+           :style="textFrameStyles"
            @dblclick="editTextFrame"
            @mousedown="moveTextFrameInitDrag"
            @touchstart="moveTextFrameInitDrag"
@@ -156,6 +156,23 @@
           <div class="handle bottom center"></div>
           <div class="handle bottom right"></div>
         </div>
+        <div class="controls--area-size">
+          <div class="square-handle area-size-top-left-handle top left"
+          @mousedown="controlAreaSizeInitDrag($event,[-1,-1])"
+          @touchstart="controlAreaSizeInitDrag($event,[-1,-1])"></div>
+
+          <div class="square-handle area-size-top-right-handle top right"
+          @mousedown="controlAreaSizeInitDrag($event,[1,-1])"
+          @touchstart="controlAreaSizeInitDrag($event,[1,-1])"></div>
+
+          <div class="square-handle area-size-bottom-left-handle bottom left"
+          @mousedown="controlAreaSizeInitDrag($event,[-1,1])"
+          @touchstart="controlAreaSizeInitDrag($event,[-1,1])"></div>
+          
+          <div class="square-handle area-size-bottom-right-handle bottom right"
+          @mousedown="controlAreaSizeInitDrag($event,[1,1])"
+          @touchstart="controlAreaSizeInitDrag($event,[1,1])"></div>
+        </div>
         <div class="controls--font-size" @mousedown="controlFontSizeInitDrag" @touchstart="controlFontSizeInitDrag">
           <div class="round-handle font-size-handle">
             <div class="tip-text">font size</div>
@@ -165,7 +182,7 @@
           <div class="contrast-value">2.0</div>
           <div class="contrast-bracket"></div>
         </div>
-        <div class="text":class="{ 'select-disabled': !states.isEditable }" :contenteditable="states.isEditable" :style="css"
+        <div class="text":class="{ 'select-disabled': !states.isEditable }" :contenteditable="states.isEditable" :style="textStyles"
            @blur="deactivateStates"
            @input="updateContent"
            @keydown="captureKeydown">
@@ -187,12 +204,13 @@
       @change="handleCanvasObjectChange" 
       @click.native.stop="selectCanvasObject(canvasObject)" 
       @update="canvasObject.properties.text = $event"></point-type-frame>
+      <!-- <pre>{{canvasObjects}}</pre> -->
   </div>
   <div class="panel">
     <div class="section section-font-size">
       <div class="slider slider-font-size">
         <label for="range-input" class="label-text">Font Size</label>
-        <input type="text" class="value-text" v-model="fontSize">
+        <input type="text" class="value-text" v-model="fontSize" @input="handleFontSizeChange">
         <input type="range" min="1"  max="400" step="1" v-model="fontSize" @input="handleFontSizeChange">
       </div>
     </div>
@@ -220,7 +238,7 @@
         <div class="slider" v-for="axis in activeFont.variableOptions.axes" :class="{selected: axis.isSelected}">
           <span v-if="isSlider2dActive" class="radio-button" @click="activateAxis(axis)"></span>
           <label for="range-input" class="label-text">{{axis.name}}</label>
-          <input type="text" class="value-text" v-model="axis.defaultValue">
+          <input type="text" class="value-text" v-model="axis.defaultValue" @input="handleActiveFontChange">
           <input type="range" :min="axis.minValue"  :max="axis.maxValue" step="0.01" v-model="axis.defaultValue" @input="handleActiveFontChange">
         </div>
       </div>
@@ -262,9 +280,9 @@
     Font playground is actively looking to add more variable fonts to its font menu. If you could share your fonts with Font Playground, I thank your generosity in advance, and please get in touch with me via Email.
     </p>
   </div>
-  <!-- <code v-html="fontFaces"></code> -->
 </div>
 <script src="http://localhost:35729/livereload.js"></script>
+<script src="js/lineWrapDetector.js"></script>
 <script src="js/app.js"></script>
 </body>
 

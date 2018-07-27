@@ -14,6 +14,18 @@ var roundValueByStep = function(value, step){
   return result.toFixed(step.countDecimals());
 }
 
+var addLineBreakers = function (el) {
+  var lines = lineWrapDetector.getLines(el);
+  var str = "";
+  for (var i = 0; i < lines.length; i++) {
+    for (var j = 0; j < lines[i].length; j++) {
+      str += lines[i][j].innerText + ' ';
+    }
+    if (i != lines.length - 1) str += '\n';
+  }
+  return str;
+}
+
 Vue.component('slider-2d', {
   template: '#slider-2d-template',
   props: {
@@ -176,7 +188,23 @@ Vue.component('point-type-frame', {
     }
   },
   computed: {
-    css() {
+    textFrameStyles() {
+      if (this.cobject.type == "area type") {
+        var textFrameStyles = {
+          width: this.cobject.properties.width + 'px',
+          height: this.cobject.properties.height + 'px',
+          left: this.cobject.properties.left + 'px', 
+          top: this.cobject.properties.top + 'px'
+        }
+      } else if (this.cobject.type == "point type") {
+        var textFrameStyles = {
+          left: this.cobject.properties.left + 'px', 
+          top: this.cobject.properties.top + 'px'
+        }
+      }
+      return textFrameStyles;
+    },
+    textStyles() {
       var axes = this.cobject.properties.variableOptions.axes;
       var cssString = '';
       for (var i = 0; i < axes.length; i++) {
@@ -274,6 +302,7 @@ Vue.component('point-type-frame', {
       this.$emit('update',event.target.innerText);
     },
     captureKeydown: function(event) {
+      // this is to capture bubbling keydown event of Backspace or Delete in editing mode
       event.stopPropagation();
       event.target.removeEventListener('keydown', this.captureKeydown); 
     },
@@ -500,7 +529,6 @@ Vue.component('point-type-frame', {
           this.widthAxis = axes[i];
         }
       }
-
     },
     controlVFWidthDoDrag: function (event) {
       event.stopPropagation();
@@ -523,8 +551,11 @@ Vue.component('point-type-frame', {
       this.emitValueChangeEvent();
     },
     controlVFWidthStopDrag: function (event) {
-      this.$el.style.width = "";
-      this.$el.style.height = "";
+      if (this.cobject.type == "point type") {
+        this.$el.style.width = "";
+        this.$el.style.height = "";
+      }
+
       event.preventDefault();
       event.stopPropagation();
       if (event.type == 'mouseup') {
@@ -555,7 +586,6 @@ Vue.component('point-type-frame', {
       
       var axes = this.cobject.properties.variableOptions.axes;
 
-      // var axesClone = axes.map(a => ({...a}));
       var axesClone = JSON.parse(JSON.stringify(axes));
 
       var widthAxis;
@@ -570,6 +600,10 @@ Vue.component('point-type-frame', {
       var dupEl = el.cloneNode(true);
       el.parentNode.insertBefore(dupEl, el.nextSibling);
       var dupTextEl = dupEl.querySelector('.text');
+      var dupTextSpanEl = dupEl.querySelector('.text-span');
+      dupTextSpanEl.innerText = addLineBreakers(dupTextSpanEl);
+      dupTextEl.style.whiteSpace = 'nowrap';
+      dupTextEl.style.overflow = 'auto';
 
       dupEl.style.visibility = "hidden";
       dupEl.style.width = "";
@@ -631,7 +665,9 @@ Vue.component('point-type-frame', {
       this.emitValueChangeEvent();
     },
     controlVFWidthXStopDrag: function (event) {
-      this.$el.style.width = "";
+      if (this.cobject.type == "point type") {
+        this.$el.style.width = "";
+      }
       event.preventDefault();
       event.stopPropagation();
       if (event.type == 'mouseup') {
@@ -692,8 +728,10 @@ Vue.component('point-type-frame', {
       this.emitValueChangeEvent();
     },
     controlVFWidthYStopDrag: function (event) {
-      this.$el.style.width = "";
-      this.$el.style.height = "";
+      if (this.cobject.type == "point type") {
+        this.$el.style.width = "";
+        this.$el.style.height = "";
+      }
       event.preventDefault();
       event.stopPropagation();
       if (event.type == 'mouseup') {
@@ -825,6 +863,58 @@ Vue.component('point-type-frame', {
       } else if (event.type == 'touchend') {
         document.body.removeEventListener('touchend',this.controlVFxHeightStopDrag);
         document.body.removeEventListener('touchmove',this.controlVFxHeightDoDrag);
+      }
+      this.cancelCanvasClick();
+    },
+
+    //  Event Handlers for Area Size Control
+    controlAreaSizeInitDrag: function (event, handle) {
+      this.handle = handle;
+      event.preventDefault();
+      event.stopPropagation();
+      var e;
+      if (event.type == 'mousedown') {
+        e = event;
+        document.body.addEventListener('mousemove',this.controlAreaSizeDoDrag);
+        document.body.addEventListener('mouseup',this.controlAreaSizeStopDrag);
+      } else if (event.type == 'touchstart') {
+        e = event.touches[0];
+        document.body.addEventListener('touchmove',this.controlAreaSizeDoDrag);
+        document.body.addEventListener('touchend',this.controlAreaSizeStopDrag);
+      }
+
+      this.startX = e.clientX;
+      this.startY = e.clientY;
+      this.startLeft = this.cobject.properties.left;
+      this.startTop = this.cobject.properties.top;
+      // this.startWidth = this.cobject.properties.width;
+      // this.startHeight = this.cobject.properties.height;
+      this.startWidth = parseInt(document.defaultView.getComputedStyle(this.$el).width, 10);
+      this.startHeight = parseInt(document.defaultView.getComputedStyle(this.$el).height, 10);
+    },
+    controlAreaSizeDoDrag: function (event) {
+      event.stopPropagation();
+      var e;
+      if (event.type == 'mousemove') {
+        e = event;
+      } else if (event.type == 'touchmove') {
+        e = event.touches[0];
+      }
+      // use handle array to decide which handle is being moved, [-1, 1] is top right for example
+      this.cobject.properties.left = this.startLeft + (e.clientX - this.startX) * (1 - this.handle[0])/2;
+      this.cobject.properties.top = this.startTop + (e.clientY - this.startY) * (1 - this.handle[1])/2;  
+      this.cobject.properties.width = this.startWidth + (e.clientX - this.startX) * this.handle[0];
+      this.cobject.properties.height = this.startHeight + (e.clientY - this.startY) * this.handle[1];      
+    },
+    controlAreaSizeStopDrag: function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.type == 'mouseup') {
+        document.body.removeEventListener('mouseup',this.controlAreaSizeStopDrag);
+        document.body.removeEventListener('mousemove',this.controlAreaSizeDoDrag);
+      } else if (event.type == 'touchend') {
+        document.body.removeEventListener('touchend',this.controlAreaSizeStopDrag);
+        document.body.removeEventListener('touchmove',this.controlAreaSizeDoDrag);
       }
       this.cancelCanvasClick();
     },
@@ -9471,13 +9561,13 @@ var app = new Vue({
     ],
     canvasObjects: [
       {
-        type: "Point Type Frame",
-        isSelected: false,
-        id: "text1",
-        properties: {
-          "left": 0,
-          "top": 0,
-          "text": "Heading One",
+        "type": "point type",
+        "isSelected": true,
+        "id": "text4",
+        "properties": {
+          "left": 15,
+          "top": 15,
+          "text": "Lorem Ipsum",
           "fontSize": 100,
           "cssCodeName": "Dunbar",
           "isVariableFont": true,
@@ -9495,7 +9585,7 @@ var app = new Vue({
                 "tag": "XHGT",
                 "name": "xHeight",
                 "minValue": 353,
-                "defaultValue": 353,
+                "defaultValue": 500,
                 "maxValue": 574,
                 "isSelected": 2,
                 "minPositionY": 0.571,
@@ -9515,152 +9605,42 @@ var app = new Vue({
         }
       },
       {
-        type: "Point Type Frame",
-        isSelected: false,
-        id: "text2",
-        properties: {
-          "left": 0,
-          "top": 300,
-          "text": "Paragraph One",
-          "fontSize": 20,
-          "cssCodeName": "Amstelvar",
+        "type": "area type",
+        "isSelected": false,
+        "id": "text5",
+        "properties": {
+          "width": 560,
+          "height": 200,
+          "left": 15,
+          "top": 140,
+          "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi dignissimos molestias, repellendus sequi incidunt itaque eligendi esse ab odio perspiciatis, eveniet libero est aliquid ipsam facilis blanditiis tenetur. Et ducimus dolorum illo dolor praesentium nisi quo magnam cumque quis ad repellendus fugit corporis velit sunt, laborum voluptatibus soluta blanditiis iusto recusandae reprehenderit quas fuga natus exercitationem dolore iste! Sequi, modi?",
+          "fontSize": "22",
+          "cssCodeName": "Voto Serif",
           "isVariableFont": true,
           "variableOptions": {
             "axes": [
               {
                 "tag": "wght",
                 "name": "Weight",
-                "minValue": 100,
-                "defaultValue": 400,
-                "maxValue": 900,
+                "minValue": 28,
+                "defaultValue": 100,
+                "maxValue": 194,
                 "isSelected": 1
               },
               {
                 "tag": "wdth",
                 "name": "Width",
-                "minValue": 35,
+                "minValue": 50,
                 "defaultValue": 100,
-                "maxValue": 100,
+                "maxValue": 130,
                 "isSelected": 2
               },
               {
                 "tag": "opsz",
                 "name": "Optical Size",
-                "minValue": 10,
-                "defaultValue": 14,
+                "minValue": 12,
+                "defaultValue": 22,
                 "maxValue": 72,
-                "isSelected": 0
-              },
-              {
-                "tag": "XOPQ",
-                "name": "x opaque",
-                "minValue": 5,
-                "defaultValue": 88,
-                "maxValue": 500,
-                "isSelected": 0
-              },
-              {
-                "tag": "XTRA",
-                "name": "x transparent",
-                "minValue": 42,
-                "defaultValue": 402,
-                "maxValue": 402,
-                "isSelected": 0
-              },
-              {
-                "tag": "YOPQ",
-                "name": "y opaque",
-                "minValue": 4,
-                "defaultValue": 50,
-                "maxValue": 85,
-                "isSelected": 0
-              },
-              {
-                "tag": "YTLC",
-                "name": "lc y transparent",
-                "minValue": 445,
-                "defaultValue": 500,
-                "maxValue": 600,
-                "isSelected": 0
-              },
-              {
-                "tag": "YTSE",
-                "name": "Serif height",
-                "minValue": 0,
-                "defaultValue": 18,
-                "maxValue": 48,
-                "isSelected": 0
-              },
-              {
-                "tag": "GRAD",
-                "name": "Grade",
-                "minValue": 25,
-                "defaultValue": 88,
-                "maxValue": 150,
-                "isSelected": 0
-              },
-              {
-                "tag": "XTCH",
-                "name": "x transparent Chinese",
-                "minValue": 800,
-                "defaultValue": 1000,
-                "maxValue": 1200,
-                "isSelected": 0
-              },
-              {
-                "tag": "YTCH",
-                "name": "y transparent Chinese",
-                "minValue": 800,
-                "defaultValue": 1000,
-                "maxValue": 1200,
-                "isSelected": 0
-              },
-              {
-                "tag": "YTAS",
-                "name": "y transparent ascender",
-                "minValue": 650,
-                "defaultValue": 750,
-                "maxValue": 850,
-                "isSelected": 0
-              },
-              {
-                "tag": "YTDE",
-                "name": "y transparent descender",
-                "minValue": 150,
-                "defaultValue": 250,
-                "maxValue": 350,
-                "isSelected": 0
-              },
-              {
-                "tag": "YTUC",
-                "name": "y transparent uppercase",
-                "minValue": 650,
-                "defaultValue": 750,
-                "maxValue": 950,
-                "isSelected": 0
-              },
-              {
-                "tag": "YTRA",
-                "name": "y transparent",
-                "minValue": 800,
-                "defaultValue": 1000,
-                "maxValue": 1200,
-                "isSelected": 0
-              },
-              {
-                "tag": "PWGT",
-                "name": "Para Weight",
-                "minValue": 38,
-                "defaultValue": 88,
-                "maxValue": 250,
-                "isSelected": 0
-              },
-              {
-                "tag": "PWDT",
-                "name": "Para Width",
-                "minValue": 60,
-                "defaultValue": 402,
-                "maxValue": 402,
                 "isSelected": 0
               }
             ]
@@ -9942,14 +9922,49 @@ var app = new Vue({
         top = 0;
       }
       var canvasObject = {
-        type: "Point Type Frame",
+        type: "point type",
         isSelected: true,
         id: "text" + (++this.canvasObjectsCounter),
         properties: {
           "left": left,
           "top": top,
           "text": "Lorem Ipsum",
-          "fontSize": this.fontSize,
+          "fontSize": 100,
+          "cssCodeName": newActiveFont.cssCodeName,
+          "isVariableFont": newActiveFont.isVariableFont,
+        }
+      };
+      if (newActiveFont.isVariableFont) {
+        canvasObject.properties.variableOptions = {
+          "axes": newActiveFont.variableOptions.axes
+        }
+      }
+      this.canvasObjects.push(canvasObject);
+    },
+    addAreaType: function() {
+      var left, top;
+      var newActiveFont = JSON.parse(JSON.stringify(this.activeFont));
+      if (this.selectedCanvasObjects.length > 0) {
+        left = 20 + this.selectedCanvasObjects[this.selectedCanvasObjects.length - 1].properties.left;
+        top = 20 + this.selectedCanvasObjects[this.selectedCanvasObjects.length - 1].properties.top;
+      } else if (this.canvasObjects.length > 0) {
+        left = 20 + this.canvasObjects[this.canvasObjects.length-1].properties.left;
+        top = 20 + this.canvasObjects[this.canvasObjects.length-1].properties.top;
+      } else {
+        left = 0;
+        top = 0;
+      }
+      var canvasObject = {
+        type: "area type",
+        isSelected: true,
+        id: "text" + (++this.canvasObjectsCounter),
+        properties: {
+          "width": 560,
+          "height": 160,
+          "left": left,
+          "top": top,
+          "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi dignissimos molestias, repellendus sequi incidunt itaque eligendi esse ab odio perspiciatis, eveniet libero est aliquid ipsam facilis blanditiis tenetur. Et ducimus dolorum illo dolor praesentium nisi quo magnam cumque quis ad repellendus fugit corporis velit sunt, laborum voluptatibus soluta blanditiis iusto recusandae reprehenderit quas fuga natus exercitationem dolore iste! Sequi, modi?",
+          "fontSize": 20,
           "cssCodeName": newActiveFont.cssCodeName,
           "isVariableFont": newActiveFont.isVariableFont,
         }
@@ -9963,11 +9978,19 @@ var app = new Vue({
     },
     generateCSSForCanvasObject: function(cobject) {
       var cssString = "";
-      cssString += "/* text: " + cobject.properties.text + " */\n";
+      if (cobject.properties.text.length > 16) {
+        cssString += "/* text: " + cobject.properties.text.substring(0, 15) + "… */\n";
+      } else {
+        cssString += "/* text: " + cobject.properties.text + " */\n";
+      }
       cssString += "#" + cobject.id + " {\n";
       cssString += "  font-family: '" + cobject.properties.cssCodeName + "';\n";
       cssString += "  font-size: " + cobject.properties.fontSize + "px; \n";
       cssString += "  position: absolute; \n";
+      if(cobject.type == "area type") {
+        cssString += "  width: " + cobject.properties.width + "px; \n";
+        cssString += "  height: " + cobject.properties.height + "px; \n";
+      }
       cssString += "  left: " + cobject.properties.left + "px; \n";
       cssString += "  top: " + cobject.properties.top + "px; \n";
       cssString += "  font-variation-settings:\n";

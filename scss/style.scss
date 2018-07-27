@@ -435,7 +435,7 @@ input[type="text"] {
   &.area-type {
     &:hover,
     &.selected {
-      border: dashed 1px $vfColor;
+      border: solid 1px $vfColor;
     }
   }
 
@@ -445,6 +445,49 @@ input[type="text"] {
     }
   }
   
+  &.point-type .text {
+    white-space: nowrap;
+  }
+  &.area-type .text {
+    height: 100%;
+    white-space: normal;
+    overflow: hidden;
+  }
+  .text {
+    font-size: 100px;
+    font-family:'Dunbar';
+    font-variation-settings: "wght" 400, "opsz" 72;
+
+    .controls--vf-xheight {
+      .vf-xheight-line {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 1px;
+        cursor: ns-resize;
+        background-color: $vfColor;
+        visibility: hidden;
+        &:before {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: -5px;
+          margin: auto;
+          height: 11px;
+          background-color: rgba($vfColor, 0.15);
+        }
+      }
+      .vf-base-line {
+        position: absolute;
+        left: 0;
+        right: 0;
+        border-bottom: 1px dashed $vfColor;
+        visibility: hidden;
+      }
+    }
+  }
+
   .round-handle {
     width: 7px;
     height: 7px;
@@ -452,6 +495,13 @@ input[type="text"] {
     border: solid 1px $vfColor;
     background-color: #fff;
     border-radius: 50%;
+  }
+  .square-handle {
+    width: 7px;
+    height: 7px;
+    position: absolute;
+    border: solid 1px $vfColor;
+    background-color: #fff;
   }
   .controls--vf-opsz {
     position: absolute;
@@ -707,6 +757,30 @@ input[type="text"] {
       }
     }
   }
+  .controls--area-size {
+    .square-handle {
+      &.top.left,
+      &.bottom.right {
+        cursor: nwse-resize;
+      }
+      &.top.right,
+      &.bottom.left {
+        cursor: nesw-resize;
+      }
+      &.top {
+        top: -5px;
+      }
+      &.bottom {
+        bottom: -5px;
+      }
+      &.left {
+        left: -5px;
+      }
+      &.right {
+        right: -5px;
+      }
+    }
+  }
   .controls--font-size {
     .round-handle.font-size-handle {
       cursor: ns-resize;
@@ -748,41 +822,6 @@ input[type="text"] {
       border-bottom: solid 1px $vfColor;
     }
   }
-  .text {
-    font-size: 100px;
-    font-family:'Dunbar';
-    font-variation-settings: "wght" 400, "opsz" 72;
-    white-space: nowrap;
-
-    .controls--vf-xheight {
-      .vf-xheight-line {
-        position: absolute;
-        left: 0;
-        right: 0;
-        height: 1px;
-        cursor: ns-resize;
-        background-color: $vfColor;
-        visibility: hidden;
-        &:before {
-          content: '';
-          position: absolute;
-          left: 0;
-          right: 0;
-          top: -5px;
-          margin: auto;
-          height: 11px;
-          background-color: rgba($vfColor, 0.15);
-        }
-      }
-      .vf-base-line {
-        position: absolute;
-        left: 0;
-        right: 0;
-        border-bottom: 1px dashed $vfColor;
-        visibility: hidden;
-      }
-    }
-  }
   &:hover .controls--vf-xheight {
     .vf-xheight-line,
     .vf-base-line {
@@ -794,6 +833,8 @@ input[type="text"] {
     display: none;
   }
   
+  &.selected.area-type .controls--area-size,
+  &.selected.area-type .controls--font-size,
   &.selected.point-type .controls--font-size,
   &.selected.vf-optical-size-on .controls--vf-opsz,
   &.selected.vf-width-on .controls--vf-width,
