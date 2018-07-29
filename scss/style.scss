@@ -866,7 +866,8 @@ body {
     .panel .section.section-variable-options {
       display: flex;
     }
-    .panel .section.section-code {
+    .panel .section.section-code,
+    .panel .section.section-export {
       display: none;
     }
     .about {
@@ -879,8 +880,9 @@ body {
     .panel .section.section-variable-options {
       display: none;
     }
-    .panel .section.section-code {
-      display: block;
+    .panel .section.section-code,
+    .panel .section.section-export {
+      display: flex;
     }
     .about {
       display: none;
@@ -950,44 +952,19 @@ body {
   color: $G700;
   font-size: 12px;
 }
-.tip-text {
-  font-family: $sans;
-  font-variation-settings: 'wght' 99;
-  font-size: 10px;
-  white-space: nowrap;
-  position: absolute;
-  pointer-events: none;
-  display: none;
-  z-index: 9;
-  color: $vfColor;
+.button {
+  background-color: $G100;
+  border: 1px solid $G300;
+  line-height: 28px;
+  height: 28px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  padding: 0 5px;
+  cursor: pointer;
+  display: inline-block;
 
-  [class$="-handle"] & {
-    top: 10px;
-    left: 10px;
-  }
-
-  .tool & {
-    top: 13px;
-    left: 30px;
-    color: $textColor;
-    background-color: $textBackgroundColor;
-  }
-
-  .vf-xheight-line &{
-    left: calc(100% + 5px);
-    top: -5px;
-  }
-  
-  .vf-xheight-line:hover &,
-  .tool:hover &,
-  [class$="-handle"]:hover & {
-    display: block;
-  }
-
-  .vf-xheight-line:active &,
-  .tool:active &,
-  [class$="-handle"]:active & {
-    display: none;
+  &:active {
+    border-color: $A100;
   }
 }
 
@@ -1035,6 +1012,47 @@ body {
       
       &:after {
         opacity: 1;
+      }
+    }
+  }
+  .social {
+    margin-right: 12px;
+    margin-top: 4px;
+    position: absolute;
+    right: 0;
+    display: flex;
+
+    .icon-button {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      path {
+        fill: $G500;
+        transition: fill 0.2s ease;
+      }
+      &.newsletter:hover {
+        path {
+          fill: $A100;
+        }
+      }
+      &.twitter:hover {
+        path {
+          fill: #1DA1F2;
+        }
+      }
+      &.facebook:hover {
+        path {
+          fill: #3B5998;
+        }
+      }
+      &.github:hover {
+        path {
+          fill: #000000;
+        }
       }
     }
   }
@@ -1229,6 +1247,7 @@ body {
   .section.section-variable-options {
     display: flex;
     flex-direction: column;
+    min-height: 0;
     .slider-2d {
       flex-shrink: 0;
       margin-top: 15px;
@@ -1245,6 +1264,10 @@ body {
     }
   }
   .section.section-code {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    flex-grow: 1;
     code {
       background-color: $G100;
       color: $G700;
@@ -1258,7 +1281,7 @@ body {
       margin-top: 15px;
       padding: 10px 6px;
       white-space: pre;
-      overflow-y: auto;
+      overflow: auto;
       word-wrap: break-word;
 
       span.css-for-canvas-object {
@@ -1271,6 +1294,43 @@ body {
         }
         &:hover {
           color: $vfColor;
+        }
+      }
+    }
+  }
+  .section.section-export {
+    display: flex;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    width: 100%;
+    background-color: $G200;
+    .button {
+      margin-left: 12px;
+
+      &.copied {
+        position: relative;
+        border-color: $A100;
+        
+        &:after {
+          content: "Copied";
+          position: absolute;
+          color: $G100;
+          background-color: $A100;
+          left: 0;
+          width: 100%;
+          height: 26px;
+          text-align: center;
+          border-radius: 2px;
+        }
+      }
+      &.button-export {
+        margin-left: 0;
+        flex-grow: 1;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        path {
+          fill: $G500;
         }
       }
     }
@@ -1577,5 +1637,45 @@ body {
   input[type=range] {
     margin-top: 10px;
     clear: both;
+  }
+}
+.tip-text {
+  font-family: $sans;
+  font-variation-settings: 'wght' 99;
+  font-size: 10px;
+  white-space: nowrap;
+  position: absolute;
+  pointer-events: none;
+  display: none;
+  z-index: 9;
+  color: $vfColor;
+
+  [class$="-handle"] & {
+    top: 10px;
+    left: 10px;
+  }
+
+  .tool & {
+    top: 13px;
+    left: 30px;
+    color: $textColor;
+    background-color: $textBackgroundColor;
+  }
+
+  .vf-xheight-line &{
+    left: calc(100% + 5px);
+    top: -5px;
+  }
+  
+  .vf-xheight-line:hover &,
+  .tool:hover &,
+  [class$="-handle"]:hover & {
+    display: block;
+  }
+
+  .vf-xheight-line:active &,
+  .tool:active &,
+  [class$="-handle"]:active & {
+    display: none;
   }
 }

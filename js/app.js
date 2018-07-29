@@ -9543,7 +9543,7 @@ var app = new Vue({
       {
         "type": "point type",
         "isSelected": true,
-        "id": "text4",
+        "id": "text1",
         "properties": {
           "left": 15,
           "top": 15,
@@ -9587,7 +9587,7 @@ var app = new Vue({
       {
         "type": "area type",
         "isSelected": false,
-        "id": "text5",
+        "id": "text2",
         "properties": {
           "width": 560,
           "height": 200,
@@ -9771,6 +9771,38 @@ var app = new Vue({
           }
         }
       }
+    });
+
+    var allClipboard = new ClipboardJS('.button-copy-all', {
+        text: function() {
+          var copyString = document.querySelector('.section-code code').innerText;
+          return copyString;
+        }
+    });
+
+    allClipboard.on('success', function(e) {
+        e.trigger.classList.add('copied');
+        setTimeout(function(){
+          e.trigger.classList.remove('copied');
+        }, 500)
+    });
+
+    var selectedClipboard = new ClipboardJS('.button-copy-selected', {
+        text: function() {
+          var copyString = '';
+          var copyTarget = document.querySelectorAll('.section-code code .css-for-canvas-object.highlight');
+          for(var i = 0; i < copyTarget.length; i++) {
+            copyString += copyTarget[i].innerText;
+          }
+          return copyString;
+        }
+    });
+
+    selectedClipboard.on('success', function(e) {
+        e.trigger.classList.add('copied');
+        setTimeout(function(){
+          e.trigger.classList.remove('copied');
+        }, 500)
     });
   },
   methods: {
@@ -9973,6 +10005,43 @@ var app = new Vue({
     },
     unHighLightCanvasObject: function(cobject) {
       document.getElementById(cobject.id).classList.remove('highlight');
+    },
+    copyCode: function(copyMode){
+      if (copyMode == "all") {
+        console.log('all');  
+
+        // var copyTarget = document.querySelectorAll('.section-code code');  
+        // // var copyTarget = document.querySelectorAll('.css-for-canvas-object.highlight'); 
+        // var range = document.createRange();  
+        // for (var i = 0; i < copyTarget.length; i++) {
+        //   range.selectNode(copyTarget[i]);  
+        // }
+        
+        // window.getSelection().removeAllRanges();    
+        // window.getSelection().addRange(range);  
+        // try {  
+        //   var successful = document.execCommand('copy');
+        // } catch(err) {  
+        //   console.log('Oops, unable to copy');  
+        // }  
+        // window.getSelection().removeAllRanges();
+        return 'all';
+      } else if (copyMode == "selected") { 
+        // var copyTarget = document.querySelectorAll('.css-for-canvas-object.highlight'); 
+        console.log('multiple');  
+        // var htmlClipboard = new Clipboard('.html.buttonCopy', {
+        //   text: function() {
+        //     return generateHTML($scope.selectedIcon);
+        //   }
+        // });
+        
+        // htmlClipboard.on('success', function(e) {
+        //   console.log("html", e.trigger);
+        //   angular.element(e.trigger).addClass('copied');
+        // });
+        return 'multiple';
+      }
+
     }
   }
 })
