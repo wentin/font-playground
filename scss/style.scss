@@ -35,6 +35,7 @@ $transition: 125ms ease-in-out;
 $sans: 'Nunito Beta', sans-serif;
 $mono: 'Input Mono Beta', monospace;
 $assetPath : "https://fonts.typedetail.com/";
+// $assetPath : "../fonts/";
 
 @font-face {
   src: url('#{$assetPath}AdobeVFPrototype.woff2');
@@ -1419,7 +1420,7 @@ body {
       width: 11px;
       height: 11px;
       margin-right: 3px;
-      background-image: url(https://res.cloudinary.com/dr6lvwubh/image/upload/v1530222859/variable-font.svg);
+      background-image: url(../images/variable-font.svg);
     }
   }
 }

@@ -23,6 +23,7 @@
     <meta property="og:image:height" content="630">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <!-- <script src='js/vue.min.js'></script> -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js'></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122306892-1"></script>
     <script>
@@ -43,7 +44,7 @@
     <div class="logo-text"><span class="accent-text">Font</span> Playground</div>
     <div class="tab label-text" :class="{ active: tab.isActive }" v-for="tab in appStates.tabs" @click="activateTab(tab)">{{ tab.name }}</div>
     <div class="social">
-      <a href="http://eepurl.com/bowzQn" target="_blank" class="newsletter icon-button">
+      <a href="http://eepurl.com/dCxipf" target="_blank" class="newsletter icon-button">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><title>newsletter</title><path d="M0,1,3.417,14.578l6.648-2.119L4.137,5.233l7.65,6.71L18,10ZM10.279,17.262V13.526l-2.187.65Z"/></svg>
       </a>
       <a href="https://twitter.com/home?status=Font%20Playground%20--%20Play%20with%20variable%20fonts,%20and%20export%20front-end%20code%20right%20from%20this%20little%20web%20app%3A%20https%3A//play.typedetail.com/%20%23variablefonts%20%23fontplayground%20via%20%40DesignJokes" target="_blank" class="twitter icon-button">
@@ -221,7 +222,7 @@
             </div>
             <div class="vf-base-line" :style="{top: xHeightControlStyles.baselineTop}"></div>
           </div>
-          <span class="text-span"></span>
+          <div class="text-span"></div>
         </div>
       </div>
     </script>
@@ -307,6 +308,7 @@
       <li>Twitter: <a href="https://twitter.com/DesignJokes" target="_blank">@DesignJokes</a></li>
       <li>Email: zhangwenting111 [at] gmail.com</li>
       <li>Github: <a href="https://github.com/wentin/font-playground" target="_blank">https://github.com/wentin/font-playground</li></a>
+      <li>Newsletter: <a href="http://eepurl.com/dCxipf" target="_blank">subscribe to it</li></a>
     </ul>
     <p>
     If you have any feedback or suggestions, chat with me on twitter or email me.
@@ -316,7 +318,7 @@
     </p>
   </div>
 </div>
-<script src="http://localhost:35729/livereload.js"></script>
+<!-- <script src="http://localhost:35729/livereload.js"></script> -->
 <script src="js/clipboard.min.js"></script>
 <script src="js/app.js"></script>
 </body>

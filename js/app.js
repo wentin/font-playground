@@ -9542,15 +9542,141 @@ var app = new Vue({
     canvasObjects: [
       {
         "type": "point type",
-        "isSelected": true,
+        "isSelected": false,
         "id": "text1",
         "properties": {
-          "left": 15,
-          "top": 15,
-          "text": "Lorem Ipsum",
+          "left": 153,
+          "top": 110,
+          "text": "Playground",
+          "fontSize": "119",
+          "cssCodeName": "Extraordinaire Shade",
+          "isVariableFont": true,
+          "variableOptions": {
+            "axes": [
+              {
+                "tag": "wght",
+                "name": "Weight",
+                "minValue": 100,
+                "defaultValue": 400,
+                "maxValue": 400,
+                "isSelected": 1
+              },
+              {
+                "tag": "SHDW",
+                "name": "Shade Distance",
+                "minValue": 30,
+                "defaultValue": 30,
+                "maxValue": 60,
+                "isSelected": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "area type",
+        "isSelected": false,
+        "id": "text2",
+        "properties": {
+          "width": 458,
+          "height": 89,
+          "left": 162,
+          "top": 254,
+          "text": "The most fun place to experiment with layouts using variable fonts, and export front-end code right from this little web app.",
+          "fontSize": "27",
+          "cssCodeName": "Markazi Text",
+          "isVariableFont": true,
+          "variableOptions": {
+            "axes": [
+              {
+                "tag": "wght",
+                "name": "Weight",
+                "minValue": 400,
+                "defaultValue": "450",
+                "maxValue": 700,
+                "isSelected": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "point type",
+        "isSelected": false,
+        "id": "text3",
+        "properties": {
+          "left": 23,
+          "top": 35,
+          "cssCodeName": "Cheee",
+          "isVariableFont": true,
+          "text": "Font",
           "fontSize": 100,
+          "variableOptions": {
+            "axes": [
+              {
+                "tag": "yest",
+                "name": "Yeast",
+                "minValue": 0,
+                "defaultValue": "100.00",
+                "maxValue": 1000,
+                "isSelected": 1
+              },
+              {
+                "tag": "gvty",
+                "name": "Gravity",
+                "minValue": 0,
+                "defaultValue": "355.00",
+                "maxValue": 1000,
+                "isSelected": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "point type",
+        "isSelected": false,
+        "id": "text4",
+        "properties": {
+          "left": 29,
+          "top": 355,
+          "cssCodeName": "Merit Badge",
+          "isVariableFont": true,
+          "text": "Come",
+          "fontSize": 100,
+          "variableOptions": {
+            "axes": [
+              {
+                "tag": "SANS",
+                "name": "Sans serif forms",
+                "minValue": 0,
+                "defaultValue": 0,
+                "maxValue": 1,
+                "isSelected": 1
+              },
+              {
+                "tag": "wght",
+                "name": "Weight",
+                "minValue": 200,
+                "defaultValue": 400,
+                "maxValue": 500,
+                "isSelected": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "point type",
+        "isSelected": true,
+        "id": "text5",
+        "properties": {
+          "left": 372,
+          "top": 441,
           "cssCodeName": "Dunbar",
           "isVariableFont": true,
+          "text": "Play",
+          "fontSize": 100,
           "variableOptions": {
             "axes": [
               {
@@ -9585,42 +9711,89 @@ var app = new Vue({
         }
       },
       {
-        "type": "area type",
+        "type": "point type",
         "isSelected": false,
-        "id": "text2",
+        "id": "text6",
         "properties": {
-          "width": 560,
-          "height": 200,
-          "left": 15,
-          "top": 140,
-          "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi dignissimos molestias, repellendus sequi incidunt itaque eligendi esse ab odio perspiciatis, eveniet libero est aliquid ipsam facilis blanditiis tenetur. Et ducimus dolorum illo dolor praesentium nisi quo magnam cumque quis ad repellendus fugit corporis velit sunt, laborum voluptatibus soluta blanditiis iusto recusandae reprehenderit quas fuga natus exercitationem dolore iste! Sequi, modi?",
-          "fontSize": "22",
-          "cssCodeName": "Voto Serif",
+          "left": 261,
+          "top": 411,
+          "cssCodeName": "Louvette Italic Beta",
           "isVariableFont": true,
+          "text": "&",
+          "fontSize": 100,
           "variableOptions": {
             "axes": [
               {
                 "tag": "wght",
                 "name": "Weight",
-                "minValue": 28,
-                "defaultValue": 100,
-                "maxValue": 194,
+                "minValue": 300,
+                "defaultValue": 300,
+                "maxValue": 1000,
                 "isSelected": 1
               },
               {
-                "tag": "wdth",
-                "name": "Width",
-                "minValue": 50,
+                "tag": "yopq",
+                "name": "Hairline",
+                "minValue": 14,
                 "defaultValue": 100,
-                "maxValue": 130,
+                "maxValue": 100,
                 "isSelected": 2
               },
               {
-                "tag": "opsz",
-                "name": "Optical Size",
-                "minValue": 12,
-                "defaultValue": 22,
-                "maxValue": 72,
+                "tag": "ytde",
+                "name": "Descender",
+                "minValue": 14,
+                "defaultValue": 100,
+                "maxValue": 100,
+                "isSelected": 0
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "point type",
+        "isSelected": false,
+        "id": "text7",
+        "properties": {
+          "left": 576,
+          "top": 408,
+          "cssCodeName": "Lab",
+          "isVariableFont": true,
+          "text": "!",
+          "fontSize": "95",
+          "variableOptions": {
+            "axes": [
+              {
+                "tag": "BEVL",
+                "name": "Bevel",
+                "minValue": 0,
+                "defaultValue": 0,
+                "maxValue": 1000,
+                "isSelected": 1
+              },
+              {
+                "tag": "OVAL",
+                "name": "Oval",
+                "minValue": 0,
+                "defaultValue": 0,
+                "maxValue": 1000,
+                "isSelected": 2
+              },
+              {
+                "tag": "QUAD",
+                "name": "Quad",
+                "minValue": 0,
+                "defaultValue": 0,
+                "maxValue": 1000,
+                "isSelected": 0
+              },
+              {
+                "tag": "SIZE",
+                "name": "Size",
+                "minValue": 0,
+                "defaultValue": 0,
+                "maxValue": 1000,
                 "isSelected": 0
               }
             ]
@@ -9863,7 +10036,10 @@ var app = new Vue({
     handleCSSCanvasObjectClick: function(canvasObject){
       if(canvasObject.isSelected) {
         canvasObject.isSelected = false;
-        this.handleActiveFontChange();
+        if(this.selectedCanvasObjects.length > 0) {
+          var lastCanvasObject = this.selectedCanvasObjects[this.selectedCanvasObjects.length - 1];
+          this.handleCanvasObjectChange(lastCanvasObject);
+        }
       } else {
         canvasObject.isSelected = true;
         this.handleCanvasObjectChange(canvasObject);
