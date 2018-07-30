@@ -232,6 +232,7 @@
       v-for="canvasObject in canvasObjects" 
       @change="handleCanvasObjectChange" 
       @click.native.stop="selectCanvasObject(canvasObject)" 
+      @touchstart.native.stop="selectCanvasObject(canvasObject)"
       @update="canvasObject.properties.text = $event"></point-type-frame>
       <!-- <pre>{{canvasObjects}}</pre> -->
   </div>
