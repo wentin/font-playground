@@ -9905,6 +9905,58 @@ var app = new Vue({
       }
       return cssFontFaces;
     },
+    codepenJSON: function() {
+      var tags = ["Variable_Font", "Font_Playground"];
+      var html = '<!-- This Codepen is created via Font Playground. After saving this codepen, you can use its URL to import this composition back to Font Playground. --> \n';
+      var css = '/* Fonts are embedded through external CSS and for testing purpose on Codepen only. Please consult each font’s licensing info for other usages. */ \n\n';
+      var js = JSON.stringify(this.canvasObjects);
+
+      for (var i = 0; i < this.canvasObjects.length; i++) {
+        cobject = this.canvasObjects[i];
+        if (cobject.properties.text.length > 16) {
+          css += "/* text: " + cobject.properties.text.substring(0, 15) + "… */\n";
+        } else {
+          css += "/* text: " + cobject.properties.text + " */\n";
+        }
+        css += "#" + cobject.id + " {\n";
+        css += "  font-family: '" + cobject.properties.cssCodeName + "';\n";
+        css += "  font-size: " + cobject.properties.fontSize + "px; \n";
+        css += "  position: absolute; \n";
+        if(cobject.type == "area type") {
+          css += "  width: " + cobject.properties.width + "px; \n";
+          css += "  height: " + cobject.properties.height + "px; \n";
+        }
+        css += "  left: " + cobject.properties.left + "px; \n";
+        css += "  top: " + cobject.properties.top + "px; \n";
+        css += "  font-variation-settings:\n";
+        if (cobject.properties.isVariableFont) {
+          var axes = cobject.properties.variableOptions.axes;
+          for (var j = 0; j < axes.length; j++) {
+            if (j < axes.length-1) {
+              css += "    '" + axes[j].tag + "' " + axes[j].defaultValue + ",\n";
+            } else {
+              css += "    '" + axes[j].tag + "' " + axes[j].defaultValue + "; \n";
+            }
+          }
+        }
+        css += "}\n";
+        html += '<div id="' + cobject.id + '">' + cobject.properties.text + '</div> \n';
+        tags.push(cobject.properties.cssCodeName.replace(/ /g,"_"));
+      }
+      
+      var data = {
+        title                 : "Exported Composition via Font Playground",
+        description           : "Created via https://play.typedetail.com/.",
+        tags                  : tags,
+        editors               : "111", 
+        layout                : "right", // top | left | right
+        html                  : html,
+        css                   : css,
+        js                    : js,
+        css_external          : "https://fonts.typedetail.com/fonts.css"
+      }
+      return JSON.stringify(data).replace(/"/g, "&​quot;").replace(/'/g, "&apos;");
+    },
     allFontFacesDebugOnly: function() {
       var fontFamilies = this.fontFamilies;
       // var assetAddress = 'https://s3.us-east-2.amazonaws.com/font-playground/';
@@ -9934,7 +9986,9 @@ var app = new Vue({
         }
       }
     }
+
     this.canvasObjectsCounter = this.canvasObjects.length;
+
     const self = this;
     document.body.addEventListener('keydown', function(e){
       if (e.key == "Backspace" || e.key == "Delete") {
@@ -9945,6 +9999,17 @@ var app = new Vue({
         }
       }
     });
+
+    var codepenURL = "https://codepen.io/wentin/pen/WKmxQx?&editors=111";
+    var jsURL = codepenURL.split('?')[0] + '.js';
+
+    var oReq = new XMLHttpRequest();
+    oReq.onload = function reqListener() {
+      var data = JSON.parse(this.responseText);
+      self.canvasObjects = data;
+    };
+    oReq.open('get', jsURL, true);
+    oReq.send();
 
     var allClipboard = new ClipboardJS('.button-copy-all', {
         text: function() {

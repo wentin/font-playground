@@ -287,9 +287,12 @@
       </code>
     </div>
     <div class="section section-export">
-      <div class="button button-export">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><title>export</title><path d="M15.5,11h-1a.5.5,0,0,0-.5.5V14H4V11.5a.5.5,0,0,0-.5-.5h-1a.5.5,0,0,0-.5.5v4a.5.5,0,0,0,.5.5h13a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,15.5,11Z"/><path d="M7,11.5a.5.5,0,0,0,.5.5h3a.5.5,0,0,0,.5-.5V7h3L9,2,4,7H7Z"/></svg>
-      </div>
+      <form class="form-export" action="https://codepen.io/pen/define" method="POST" target="_blank">
+        <input type="hidden" name="data" :value='codepenJSON'>
+        <button class="button button-export" type="submit">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><title>export</title><path d="M15.5,11h-1a.5.5,0,0,0-.5.5V14H4V11.5a.5.5,0,0,0-.5-.5h-1a.5.5,0,0,0-.5.5v4a.5.5,0,0,0,.5.5h13a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,15.5,11Z"/><path d="M7,11.5a.5.5,0,0,0,.5.5h3a.5.5,0,0,0,.5-.5V7h3L9,2,4,7H7Z"/></svg>
+        </button>
+      </form>
       <div class="button label-text button-copy-selected" v-if="selectedCanvasObjects.length > 0">Copy Selected</div>
       <div class="button label-text button-copy-all">Copy All</div>
     </div>

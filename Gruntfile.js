@@ -8,7 +8,8 @@ module.exports = function(grunt) {
                     sourcemap: 'none'
                 },
                 files: {
-                    'css/style.css': 'scss/style.scss'
+                    'css/style.css': 'scss/style.scss',
+                    'fonts/fonts.css': 'scss/fonts.scss'
                 }
             }
         },
@@ -18,7 +19,8 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'css/style.css': 'css/style.css'
+                    'css/style.css': 'css/style.css',
+                    'fonts/fonts.css': 'fonts/fonts.css',
                 }
             }
         },
