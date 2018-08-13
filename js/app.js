@@ -1207,6 +1207,140 @@ var app = new Vue({
         }
       },
       {
+        "fontFamilyName": "Angus Italic",
+        "isActive": true,
+        "fontFileName": "AngusVariableItalic.woff2",
+        "cssCodeName": "Angus Italic",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": 0,
+              "defaultValue": 300,
+              "maxValue": 1000,
+              "isSelected": 1
+            }
+          ],
+          "instances": [
+            {
+              "name": "Extrabold Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000
+              }
+            },
+            {
+              "name": "Bold Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 820
+              }
+            },
+            {
+              "name": "Medium Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 550
+              }
+            },
+            {
+              "name": "Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 300
+              }
+            },
+            {
+              "name": "Light Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 0
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Black Foundry",
+          "publisher": "Black Foundry",
+          "urlText": "black-foundry.com",
+          "url": "https://black-foundry.com/angus/",
+          "license": "Paid/commercial"
+        }
+      },
+      {
+        "fontFamilyName": "Angus",
+        "isActive": false,
+        "fontFileName": "AngusVariable.woff2",
+        "cssCodeName": "Angus",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": 0,
+              "defaultValue": 300,
+              "maxValue": 1000,
+              "isSelected": 1
+            }
+          ],
+          "instances": [
+            {
+              "name": "Extrabold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000
+              }
+            },
+            {
+              "name": "Bold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 820
+              }
+            },
+            {
+              "name": "Medium",
+              "isActive": false,
+              "coordinates": {
+                "wght": 550
+              }
+            },
+            {
+              "name": "Regular",
+              "isActive": false,
+              "coordinates": {
+                "wght": 300
+              }
+            },
+            {
+              "name": "Light",
+              "isActive": false,
+              "coordinates": {
+                "wght": 0
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Black Foundry",
+          "publisher": "Black Foundry",
+          "urlText": "black-foundry.com",
+          "url": "https://black-foundry.com/angus/",
+          "license": "Paid/commercial"
+        }
+      },
+      {
         "fontFamilyName": "Avenir Next",
         "isActive": false,
         "fontFileName": "AvenirNext_Variable.woff2",
@@ -1940,6 +2074,126 @@ var app = new Vue({
           "urlText": "tribby.com",
           "url": "https://tribby.com/fonts/barlow/",
           "license": "Open source"
+        }
+      },
+      {
+        "fontFamilyName": "Bluu Suuperstar Italic",
+        "isActive": false,
+        "fontFileName": "BluuSuuperstarVariableItalic.woff2",
+        "cssCodeName": "Bluu Suuperstar Italic",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": 0,
+              "defaultValue": 0,
+              "maxValue": 1000,
+              "isSelected": 1
+            }
+          ],
+          "instances": [
+            {
+              "name": "Black Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000
+              }
+            },
+            {
+              "name": "Bold Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 666
+              }
+            },
+            {
+              "name": "Medium Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 333
+              }
+            },
+            {
+              "name": "Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 0
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Jean-Baptiste Morizot, Gaetan Baer",
+          "publisher": "Black Foundry",
+          "urlText": "black-foundry.com",
+          "url": "https://black-foundry.com/bluusuuperstar/",
+          "license": "Paid/commercial"
+        }
+      },
+      {
+        "fontFamilyName": "Bluu Suuperstar",
+        "isActive": false,
+        "fontFileName": "BluuSuuperstarVariable.woff2",
+        "cssCodeName": "Bluu Suuperstar",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": 0,
+              "defaultValue": 0,
+              "maxValue": 1000,
+              "isSelected": 1
+            }
+          ],
+          "instances": [
+            {
+              "name": "Black",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000
+              }
+            },
+            {
+              "name": "Bold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 666
+              }
+            },
+            {
+              "name": "Medium",
+              "isActive": false,
+              "coordinates": {
+                "wght": 333
+              }
+            },
+            {
+              "name": "Regular",
+              "isActive": false,
+              "coordinates": {
+                "wght": 0
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Jean-Baptiste Morizot, Gaetan Baer",
+          "publisher": "Black Foundry",
+          "urlText": "black-foundry.com",
+          "url": "https://black-foundry.com/bluusuuperstar/",
+          "license": "Paid/commercial"
         }
       },
       {
@@ -2921,66 +3175,6 @@ var app = new Vue({
         }
       },
       {
-        "fontFamilyName": "dT Jakob",
-        "isActive": false,
-        "fontFileName": "dTJakobVariableConceptGX.woff2",
-        "cssCodeName": "dT Jakob",
-        "previewText": {
-          "isCustom": false,
-          "customText": ""
-        },
-        "isVariableFont": true,
-        "variableOptions": {
-          "axes": [
-            {
-              "tag": "wght",
-              "name": "Weight",
-              "minValue": 10,
-              "defaultValue": 10,
-              "maxValue": 40,
-              "isSelected": 1
-            }
-          ],
-          "instances": [
-            {
-              "name": "Weight 40",
-              "isActive": false,
-              "coordinates": {
-                "wght": 40
-              }
-            },
-            {
-              "name": "Weight 30",
-              "isActive": false,
-              "coordinates": {
-                "wght": 30
-              }
-            },
-            {
-              "name": "Weight 20",
-              "isActive": false,
-              "coordinates": {
-                "wght": 20
-              }
-            },
-            {
-              "name": "Weight 10",
-              "isActive": false,
-              "coordinates": {
-                "wght": 10
-              }
-            }
-          ]
-        },
-        "fontInfo": {
-          "designer": "Eduilson Coan, Gustavo Soares",
-          "publisher": "dooType",
-          "urlText": "dootype.com",
-          "url": "http://home.dootype.com/dt-jakob-variable-concept",
-          "license": "Free for personal and commercial use"
-        }
-      },
-      {
         "fontFamilyName": "Decovar",
         "isActive": false,
         "fontFileName": "DecovarAlpha-VF.woff2",
@@ -3479,6 +3673,576 @@ var app = new Vue({
           "urlText": "github.com",
           "url": "https://github.com/TypeNetwork/Decovar",
           "license": "Open source"
+        }
+      },
+      {
+        "fontFamilyName": "Drive Italic",
+        "isActive": false,
+        "fontFileName": "DriveItalicVariable.woff2",
+        "cssCodeName": "Drive Italic",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": 0,
+              "defaultValue": 500,
+              "maxValue": 1000,
+              "isSelected": 1
+            }
+          ],
+          "instances": [
+            {
+              "name": "ExtraboldItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000
+              }
+            },
+            {
+              "name": "BoldItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 861
+              }
+            },
+            {
+              "name": "MediumItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 722
+              }
+            },
+            {
+              "name": "BookItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 583
+              }
+            },
+            {
+              "name": "RegularItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 500
+              }
+            },
+            {
+              "name": "LightItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 390
+              }
+            },
+            {
+              "name": "ExtraLightItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 233
+              }
+            },
+            {
+              "name": "ThinItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 116
+              }
+            },
+            {
+              "name": "HairlineItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 0
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Black Foundry",
+          "publisher": "Black Foundry",
+          "urlText": "black-foundry.com",
+          "url": "https://black-foundry.com/drive/",
+          "license": "Paid/commercial"
+        }
+      },
+      {
+        "fontFamilyName": "Drive Mono Italic",
+        "isActive": false,
+        "fontFileName": "DriveMonoVariableItalic.woff2",
+        "cssCodeName": "Drive Mono Italic",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": 0,
+              "defaultValue": 500,
+              "maxValue": 1000,
+              "isSelected": 1
+            }
+          ],
+          "instances": [
+            {
+              "name": "ExtraboldItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000
+              }
+            },
+            {
+              "name": "BoldItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 861
+              }
+            },
+            {
+              "name": "MediumItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 722
+              }
+            },
+            {
+              "name": "BookItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 583
+              }
+            },
+            {
+              "name": "RegularItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 500
+              }
+            },
+            {
+              "name": "LightItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 390
+              }
+            },
+            {
+              "name": "ExtraLightItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 233
+              }
+            },
+            {
+              "name": "ThinItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 116
+              }
+            },
+            {
+              "name": "HairlineItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 0
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Black Foundry",
+          "publisher": "Black Foundry",
+          "urlText": "black-foundry.com",
+          "url": "https://black-foundry.com/drive/",
+          "license": "Paid/commercial"
+        }
+      },
+      {
+        "fontFamilyName": "Drive Mono",
+        "isActive": false,
+        "fontFileName": "DriveMonoVariable.woff2",
+        "cssCodeName": "Drive Mono",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": 0,
+              "defaultValue": 500,
+              "maxValue": 1000,
+              "isSelected": 1
+            }
+          ],
+          "instances": [
+            {
+              "name": "Extrabold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000
+              }
+            },
+            {
+              "name": "Bold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 861
+              }
+            },
+            {
+              "name": "Medium",
+              "isActive": false,
+              "coordinates": {
+                "wght": 722
+              }
+            },
+            {
+              "name": "Book",
+              "isActive": false,
+              "coordinates": {
+                "wght": 583
+              }
+            },
+            {
+              "name": "Regular",
+              "isActive": false,
+              "coordinates": {
+                "wght": 500
+              }
+            },
+            {
+              "name": "Light",
+              "isActive": false,
+              "coordinates": {
+                "wght": 390
+              }
+            },
+            {
+              "name": "ExtraLight",
+              "isActive": false,
+              "coordinates": {
+                "wght": 233
+              }
+            },
+            {
+              "name": "Thin",
+              "isActive": false,
+              "coordinates": {
+                "wght": 116
+              }
+            },
+            {
+              "name": "Hairline",
+              "isActive": false,
+              "coordinates": {
+                "wght": 0
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Black Foundry",
+          "publisher": "Black Foundry",
+          "urlText": "black-foundry.com",
+          "url": "https://black-foundry.com/drive/",
+          "license": "Paid/commercial"
+        }
+      },
+      {
+        "fontFamilyName": "Drive Prop Italic",
+        "isActive": false,
+        "fontFileName": "DrivePropItalicVariable.woff2",
+        "cssCodeName": "Drive Prop Italic",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": 0,
+              "defaultValue": 500,
+              "maxValue": 1000,
+              "isSelected": 1
+            }
+          ],
+          "instances": [
+            {
+              "name": "ExtraboldItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000
+              }
+            },
+            {
+              "name": "BoldItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 861
+              }
+            },
+            {
+              "name": "MediumItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 722
+              }
+            },
+            {
+              "name": "BookItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 583
+              }
+            },
+            {
+              "name": "RegularItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 500
+              }
+            },
+            {
+              "name": "LightItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 390
+              }
+            },
+            {
+              "name": "ExtraLightItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 233
+              }
+            },
+            {
+              "name": "ThinItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 116
+              }
+            },
+            {
+              "name": "HairlineItalic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 0
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Black Foundry",
+          "publisher": "Black Foundry",
+          "urlText": "black-foundry.com",
+          "url": "https://black-foundry.com/drive/",
+          "license": "Paid/commercial"
+        }
+      },
+      {
+        "fontFamilyName": "Drive Prop",
+        "isActive": false,
+        "fontFileName": "DrivePropVariable.woff2",
+        "cssCodeName": "Drive Prop",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": 0,
+              "defaultValue": 500,
+              "maxValue": 1000,
+              "isSelected": 1
+            }
+          ],
+          "instances": [
+            {
+              "name": "Extrabold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000
+              }
+            },
+            {
+              "name": "Bold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 861
+              }
+            },
+            {
+              "name": "Medium",
+              "isActive": false,
+              "coordinates": {
+                "wght": 722
+              }
+            },
+            {
+              "name": "Book",
+              "isActive": false,
+              "coordinates": {
+                "wght": 583
+              }
+            },
+            {
+              "name": "Regular",
+              "isActive": false,
+              "coordinates": {
+                "wght": 500
+              }
+            },
+            {
+              "name": "Light",
+              "isActive": false,
+              "coordinates": {
+                "wght": 390
+              }
+            },
+            {
+              "name": "ExtraLight",
+              "isActive": false,
+              "coordinates": {
+                "wght": 233
+              }
+            },
+            {
+              "name": "Thin",
+              "isActive": false,
+              "coordinates": {
+                "wght": 116
+              }
+            },
+            {
+              "name": "Hairline",
+              "isActive": false,
+              "coordinates": {
+                "wght": 0
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Black Foundry",
+          "publisher": "Black Foundry",
+          "urlText": "black-foundry.com",
+          "url": "https://black-foundry.com/drive/",
+          "license": "Paid/commercial"
+        }
+      },
+      {
+        "fontFamilyName": "Drive",
+        "isActive": false,
+        "fontFileName": "DriveVariable.woff2",
+        "cssCodeName": "Drive",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": 0,
+              "defaultValue": 500,
+              "maxValue": 1000,
+              "isSelected": 1
+            }
+          ],
+          "instances": [
+            {
+              "name": "Extrabold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000
+              }
+            },
+            {
+              "name": "Bold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 861
+              }
+            },
+            {
+              "name": "Medium",
+              "isActive": false,
+              "coordinates": {
+                "wght": 722
+              }
+            },
+            {
+              "name": "Book",
+              "isActive": false,
+              "coordinates": {
+                "wght": 583
+              }
+            },
+            {
+              "name": "Regular",
+              "isActive": false,
+              "coordinates": {
+                "wght": 500
+              }
+            },
+            {
+              "name": "Light",
+              "isActive": false,
+              "coordinates": {
+                "wght": 390
+              }
+            },
+            {
+              "name": "ExtraLight",
+              "isActive": false,
+              "coordinates": {
+                "wght": 233
+              }
+            },
+            {
+              "name": "Thin",
+              "isActive": false,
+              "coordinates": {
+                "wght": 116
+              }
+            },
+            {
+              "name": "Hairline",
+              "isActive": false,
+              "coordinates": {
+                "wght": 0
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Black Foundry",
+          "publisher": "Black Foundry",
+          "urlText": "black-foundry.com",
+          "url": "https://black-foundry.com/drive/",
+          "license": "Paid/commercial"
         }
       },
       {
@@ -8837,91 +9601,10 @@ var app = new Vue({
         }
       },
       {
-        "fontFamilyName": "Source Code",
-        "isActive": false,
-        "fontFileName": "SourceCodeVariable-Roman.woff2",
-        "cssCodeName": "Source Code Variable",
-        "previewText": {
-          "isCustom": false,
-          "customText": ""
-        },
-        "isVariableFont": true,
-        "variableOptions": {
-          "axes": [
-            {
-              "tag": "wght",
-              "name": "Weight",
-              "minValue": 200,
-              "defaultValue": 400,
-              "maxValue": 900,
-              "isSelected": 1
-            }
-          ],
-          "instances": [
-            {
-              "name": "Black",
-              "isActive": false,
-              "coordinates": {
-                "wght": 900
-              }
-            },
-            {
-              "name": "Bold",
-              "isActive": false,
-              "coordinates": {
-                "wght": 700
-              }
-            },
-            {
-              "name": "Semibold",
-              "isActive": false,
-              "coordinates": {
-                "wght": 600
-              }
-            },
-            {
-              "name": "Medium",
-              "isActive": false,
-              "coordinates": {
-                "wght": 500
-              }
-            },
-            {
-              "name": "Regular",
-              "isActive": false,
-              "coordinates": {
-                "wght": 400
-              }
-            },
-            {
-              "name": "Light",
-              "isActive": false,
-              "coordinates": {
-                "wght": 300
-              }
-            },
-            {
-              "name": "ExtraLight",
-              "isActive": false,
-              "coordinates": {
-                "wght": 200
-              }
-            }
-          ]
-        },
-        "fontInfo": {
-          "designer": "Paul D. Hunt, Teo Tuominen",
-          "publisher": "Adobe",
-          "urlText": "github.com",
-          "url": "https://github.com/adobe-fonts/source-code-pro/releases/tag/variable-fonts",
-          "license": "Open source"
-        }
-      },
-      {
         "fontFamilyName": "Source Code Italic",
         "isActive": false,
         "fontFileName": "SourceCodeVariable-Italic.woff2",
-        "cssCodeName": "Source Code Italic Variable",
+        "cssCodeName": "Source Code Italic",
         "previewText": {
           "isCustom": false,
           "customText": ""
@@ -8999,10 +9682,10 @@ var app = new Vue({
         }
       },
       {
-        "fontFamilyName": "Source Sans",
+        "fontFamilyName": "Source Code",
         "isActive": false,
-        "fontFileName": "SourceSansVariable-Roman.woff2",
-        "cssCodeName": "Source Sans Variable",
+        "fontFileName": "SourceCodeVariable-Roman.woff2",
+        "cssCodeName": "Source Code",
         "previewText": {
           "isCustom": false,
           "customText": ""
@@ -9014,7 +9697,7 @@ var app = new Vue({
               "tag": "wght",
               "name": "Weight",
               "minValue": 200,
-              "defaultValue": 200,
+              "defaultValue": 400,
               "maxValue": 900,
               "isSelected": 1
             }
@@ -9042,6 +9725,13 @@ var app = new Vue({
               }
             },
             {
+              "name": "Medium",
+              "isActive": false,
+              "coordinates": {
+                "wght": 500
+              }
+            },
+            {
               "name": "Regular",
               "isActive": false,
               "coordinates": {
@@ -9065,10 +9755,10 @@ var app = new Vue({
           ]
         },
         "fontInfo": {
-          "designer": "Paul D. Hunt",
+          "designer": "Paul D. Hunt, Teo Tuominen",
           "publisher": "Adobe",
           "urlText": "github.com",
-          "url": "https://github.com/adobe-fonts/source-sans-pro/releases/tag/variable-fonts",
+          "url": "https://github.com/adobe-fonts/source-code-pro/releases/tag/variable-fonts",
           "license": "Open source"
         }
       },
@@ -9076,7 +9766,7 @@ var app = new Vue({
         "fontFamilyName": "Source Sans Italic",
         "isActive": false,
         "fontFileName": "SourceSansVariable-Italic.woff2",
-        "cssCodeName": "Source Sans Italic Variable",
+        "cssCodeName": "Source Sans Italic",
         "previewText": {
           "isCustom": false,
           "customText": ""
@@ -9147,10 +9837,84 @@ var app = new Vue({
         }
       },
       {
+        "fontFamilyName": "Source Sans",
+        "isActive": false,
+        "fontFileName": "SourceSansVariable-Roman.woff2",
+        "cssCodeName": "Source Sans",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": 200,
+              "defaultValue": 200,
+              "maxValue": 900,
+              "isSelected": 1
+            }
+          ],
+          "instances": [
+            {
+              "name": "Black",
+              "isActive": false,
+              "coordinates": {
+                "wght": 900
+              }
+            },
+            {
+              "name": "Bold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 700
+              }
+            },
+            {
+              "name": "Semibold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 600
+              }
+            },
+            {
+              "name": "Regular",
+              "isActive": false,
+              "coordinates": {
+                "wght": 400
+              }
+            },
+            {
+              "name": "Light",
+              "isActive": false,
+              "coordinates": {
+                "wght": 300
+              }
+            },
+            {
+              "name": "ExtraLight",
+              "isActive": false,
+              "coordinates": {
+                "wght": 200
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Paul D. Hunt",
+          "publisher": "Adobe",
+          "urlText": "github.com",
+          "url": "https://github.com/adobe-fonts/source-sans-pro/releases/tag/variable-fonts",
+          "license": "Open source"
+        }
+      },
+      {
         "fontFamilyName": "Source Serif",
         "isActive": false,
         "fontFileName": "SourceSerifVariable-Roman.woff2",
-        "cssCodeName": "Source Serif Variable",
+        "cssCodeName": "Source Serif",
         "previewText": {
           "isCustom": false,
           "customText": ""
@@ -9218,6 +9982,45 @@ var app = new Vue({
           "urlText": "github.com",
           "url": "https://github.com/adobe-fonts/source-serif-pro/releases/tag/variable-fonts",
           "license": "Open source"
+        }
+      },
+      {
+        "fontFamilyName": "Spooky",
+        "isActive": false,
+        "fontFileName": "SpookyVariable.woff2",
+        "cssCodeName": "Spooky",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "CREE",
+              "name": "Creepiness",
+              "minValue": 0,
+              "defaultValue": 0,
+              "maxValue": 1000,
+              "isSelected": 1
+            },
+            {
+              "tag": "CURL",
+              "name": "curliness",
+              "minValue": 0,
+              "defaultValue": 0,
+              "maxValue": 1000,
+              "isSelected": 2
+            }
+          ],
+          "instances": []
+        },
+        "fontInfo": {
+          "designer": "Black Foundry",
+          "publisher": "Black Foundry",
+          "urlText": "black-foundry.com",
+          "url": "https://black-foundry.com/spookyvariable/",
+          "license": "Not released yet."
         }
       },
       {
@@ -9461,6 +10264,140 @@ var app = new Vue({
         }
       },
       {
+        "fontFamilyName": "Vesterbro",
+        "isActive": false,
+        "fontFileName": "VesterbroVariable.woff2",
+        "cssCodeName": "Vesterbro",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": 0,
+              "defaultValue": 210,
+              "maxValue": 1000,
+              "isSelected": 1
+            }
+          ],
+          "instances": [
+            {
+              "name": "Extrabold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000
+              }
+            },
+            {
+              "name": "Bold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 680
+              }
+            },
+            {
+              "name": "Medium",
+              "isActive": false,
+              "coordinates": {
+                "wght": 430
+              }
+            },
+            {
+              "name": "Regular",
+              "isActive": false,
+              "coordinates": {
+                "wght": 210
+              }
+            },
+            {
+              "name": "Light",
+              "isActive": false,
+              "coordinates": {
+                "wght": 0
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Jeremie Hornus, Alisa Nowak, Ilya Naumoff",
+          "publisher": "Black Foundry",
+          "urlText": "black-foundry.com",
+          "url": "http://www.black-foundry.com/vesterbro",
+          "license": "Paid/commercial"
+        }
+      },
+      {
+        "fontFamilyName": "Vesterbro Italic",
+        "isActive": false,
+        "fontFileName": "VesterbroItalicVariable.woff2",
+        "cssCodeName": "Vesterbro Italic",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": 0,
+              "defaultValue": 210,
+              "maxValue": 1000,
+              "isSelected": 1
+            }
+          ],
+          "instances": [
+            {
+              "name": "Extrabold Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000
+              }
+            },
+            {
+              "name": "Bold Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 680
+              }
+            },
+            {
+              "name": "Medium Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 430
+              }
+            },
+            {
+              "name": "Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 210
+              }
+            },
+            {
+              "name": "Light Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 0
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Jeremie Hornus, Alisa Nowak, Ilya Naumoff",
+          "publisher": "Black Foundry",
+          "urlText": "black-foundry.com",
+          "url": "http://www.black-foundry.com/vesterbro",
+          "license": "Paid/commercial"
+        }
+      },
+      {
         "fontFamilyName": "Voto Serif",
         "isActive": false,
         "fontFileName": "VotoSerifGX.woff2",
@@ -9536,6 +10473,66 @@ var app = new Vue({
           "urlText": "github.com",
           "url": "https://github.com/twardoch/varfonts-ofl/tree/master/ZinzinVF-OFL",
           "license": "Open source"
+        }
+      },
+      {
+        "fontFamilyName": "dT Jakob",
+        "isActive": false,
+        "fontFileName": "dTJakobVariableConceptGX.woff2",
+        "cssCodeName": "dT Jakob",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": 10,
+              "defaultValue": 10,
+              "maxValue": 40,
+              "isSelected": 1
+            }
+          ],
+          "instances": [
+            {
+              "name": "Weight 40",
+              "isActive": false,
+              "coordinates": {
+                "wght": 40
+              }
+            },
+            {
+              "name": "Weight 30",
+              "isActive": false,
+              "coordinates": {
+                "wght": 30
+              }
+            },
+            {
+              "name": "Weight 20",
+              "isActive": false,
+              "coordinates": {
+                "wght": 20
+              }
+            },
+            {
+              "name": "Weight 10",
+              "isActive": false,
+              "coordinates": {
+                "wght": 10
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Eduilson Coan, Gustavo Soares",
+          "publisher": "dooType",
+          "urlText": "dootype.com",
+          "url": "http://home.dootype.com/dt-jakob-variable-concept",
+          "license": "Free for personal and commercial use"
         }
       }
     ],
@@ -9961,7 +10958,8 @@ var app = new Vue({
       var fontFamilies = this.fontFamilies;
       // var assetAddress = 'https://s3.us-east-2.amazonaws.com/font-playground/';
       // var assetAddress = '../fonts/';
-      var assetAddress = 'https://fonts.typedetail.com/';
+      // var assetAddress = 'https://fonts.typedetail.com/';
+      var assetAddress = '#{$assetPath}';
       var cssString = '';
       for (var i = 0; i < this.fontFamilies.length; i++) {
         cssString += "@font-face {\n";

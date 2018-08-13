@@ -1037,6 +1037,8 @@ body {
       span.css-for-canvas-object {
         display: block;
         cursor: pointer;
+        width: max-content;
+        min-width: calc(100% + 6px);
         
         &.highlight {
           background-color: $G700;
