@@ -597,8 +597,9 @@ input[type="text"] {
 
 body {
   background-color: $textBackgroundColor;
-  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
   position: relative;
   font-family: $sans;
   display: flex;
@@ -733,11 +734,54 @@ body {
     position: absolute;
     left: 0;
   }
+  .menu {
+    position: absolute;
+    left: 140px;
+    
+    &:hover {
+      ul {
+        display: block;
+      }
+      span {
+        cursor: pointer;
+        background-color: $G500;
+        color: $G100;
+      }
+    }
+    span {
+      display: block;
+      padding: 0 15px;
+      line-height: 38px;
+      height: 37px;
+    }
+    ul {
+      display: none;
+      border-radius: 0 0 3px 3px;
+      width: max-content;
+      position: absolute;
+      padding-top: 2px;
+      left: 0;
+      box-shadow: 0 3px 10px rgba($G500, 0.5);
+      overflow: hidden;
+      z-index: 9;
+      li {
+        line-height: 30px;
+        padding: 0 15px;
+        background-color: $G200;
+
+        &:hover {
+          cursor: pointer;
+          background-color: $A100;
+          color: $G100;
+        }
+      }
+    }
+  }
   .tab {
     position: relative;
     color: $G500;
     padding: 0 10px;
-    line-height: 37px;
+    line-height: 38px;
     height: 39px;
     cursor: pointer;
     overflow: hidden;
@@ -1086,7 +1130,7 @@ body {
         }
       }
     }
-    .form-export {
+    #form-export {
       display: flex;
       flex-grow: 1;
     }

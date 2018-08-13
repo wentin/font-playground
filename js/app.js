@@ -10539,31 +10539,31 @@ var app = new Vue({
     canvasObjects: [
       {
         "type": "point type",
-        "isSelected": false,
+        "isSelected": true,
         "id": "text1",
         "properties": {
-          "left": 153,
-          "top": 110,
+          "left": 140,
+          "top": 116,
           "text": "Playground",
-          "fontSize": "119",
-          "cssCodeName": "Extraordinaire Shade",
+          "fontSize": "100",
+          "cssCodeName": "Spooky",
           "isVariableFont": true,
           "variableOptions": {
             "axes": [
               {
-                "tag": "wght",
-                "name": "Weight",
-                "minValue": 100,
-                "defaultValue": 400,
-                "maxValue": 400,
+                "tag": "CREE",
+                "name": "Creepiness",
+                "minValue": 0,
+                "defaultValue": "300.00",
+                "maxValue": 1000,
                 "isSelected": 1
               },
               {
-                "tag": "SHDW",
-                "name": "Shade Distance",
-                "minValue": 30,
-                "defaultValue": 30,
-                "maxValue": 60,
+                "tag": "CURL",
+                "name": "curliness",
+                "minValue": 0,
+                "defaultValue": "300.00",
+                "maxValue": 1000,
                 "isSelected": 2
               }
             ]
@@ -10575,22 +10575,22 @@ var app = new Vue({
         "isSelected": false,
         "id": "text2",
         "properties": {
-          "width": 458,
-          "height": 89,
-          "left": 162,
-          "top": 254,
-          "text": "The most fun place to experiment with layouts using variable fonts, and export front-end code right from this little web app.",
-          "fontSize": "27",
-          "cssCodeName": "Markazi Text",
+          "width": 560,
+          "height": 26,
+          "left": 148,
+          "top": 242,
+          "text": "Play with new fonts, designed by the Black Foundry.\n",
+          "fontSize": "22",
+          "cssCodeName": "Vesterbro Italic",
           "isVariableFont": true,
           "variableOptions": {
             "axes": [
               {
                 "tag": "wght",
                 "name": "Weight",
-                "minValue": 400,
-                "defaultValue": "450",
-                "maxValue": 700,
+                "minValue": 0,
+                "defaultValue": "800",
+                "maxValue": 1000,
                 "isSelected": 1
               }
             ]
@@ -10603,28 +10603,20 @@ var app = new Vue({
         "id": "text3",
         "properties": {
           "left": 23,
-          "top": 35,
-          "cssCodeName": "Cheee",
+          "top": 31,
+          "cssCodeName": "Bluu Suuperstar Italic",
           "isVariableFont": true,
           "text": "Font",
           "fontSize": 100,
           "variableOptions": {
             "axes": [
               {
-                "tag": "yest",
-                "name": "Yeast",
+                "tag": "wght",
+                "name": "Weight",
                 "minValue": 0,
-                "defaultValue": "100.00",
+                "defaultValue": "1000",
                 "maxValue": 1000,
                 "isSelected": 1
-              },
-              {
-                "tag": "gvty",
-                "name": "Gravity",
-                "minValue": 0,
-                "defaultValue": "355.00",
-                "maxValue": 1000,
-                "isSelected": 2
               }
             ]
           }
@@ -10635,73 +10627,21 @@ var app = new Vue({
         "isSelected": false,
         "id": "text4",
         "properties": {
-          "left": 29,
-          "top": 355,
-          "cssCodeName": "Merit Badge",
+          "left": 28,
+          "top": 307,
+          "cssCodeName": "Angus",
           "isVariableFont": true,
-          "text": "Come",
-          "fontSize": 100,
+          "text": "Angus\n",
+          "fontSize": "80",
           "variableOptions": {
             "axes": [
               {
-                "tag": "SANS",
-                "name": "Sans serif forms",
+                "tag": "wght",
+                "name": "Weight",
                 "minValue": 0,
-                "defaultValue": 0,
-                "maxValue": 1,
+                "defaultValue": "0",
+                "maxValue": 1000,
                 "isSelected": 1
-              },
-              {
-                "tag": "wght",
-                "name": "Weight",
-                "minValue": 200,
-                "defaultValue": 400,
-                "maxValue": 500,
-                "isSelected": 2
-              }
-            ]
-          }
-        }
-      },
-      {
-        "type": "point type",
-        "isSelected": true,
-        "id": "text5",
-        "properties": {
-          "left": 372,
-          "top": 441,
-          "cssCodeName": "Dunbar",
-          "isVariableFont": true,
-          "text": "Play",
-          "fontSize": 100,
-          "variableOptions": {
-            "axes": [
-              {
-                "tag": "wght",
-                "name": "Weight",
-                "minValue": 100,
-                "defaultValue": 500,
-                "maxValue": 900,
-                "isSelected": 1
-              },
-              {
-                "tag": "XHGT",
-                "name": "xHeight",
-                "minValue": 353,
-                "defaultValue": 500,
-                "maxValue": 574,
-                "isSelected": 2,
-                "minPositionY": 0.571,
-                "maxPositionY": 0.35,
-                "baselinePostionY": 0.924
-              },
-              {
-                "tag": "opsz",
-                "name": "Optical Size",
-                "minValue": 10,
-                "defaultValue": 36,
-                "maxValue": 36,
-                "isSelected": 0
               }
             ]
           }
@@ -10710,39 +10650,23 @@ var app = new Vue({
       {
         "type": "point type",
         "isSelected": false,
-        "id": "text6",
+        "id": "text9",
         "properties": {
-          "left": 261,
-          "top": 411,
-          "cssCodeName": "Louvette Italic Beta",
+          "left": 27,
+          "top": 410,
+          "cssCodeName": "Bluu Suuperstar Italic",
           "isVariableFont": true,
-          "text": "&",
-          "fontSize": 100,
+          "text": "Bluu Suuperstar\n",
+          "fontSize": "66",
           "variableOptions": {
             "axes": [
               {
                 "tag": "wght",
                 "name": "Weight",
-                "minValue": 300,
-                "defaultValue": 300,
+                "minValue": 0,
+                "defaultValue": "1000",
                 "maxValue": 1000,
                 "isSelected": 1
-              },
-              {
-                "tag": "yopq",
-                "name": "Hairline",
-                "minValue": 14,
-                "defaultValue": 100,
-                "maxValue": 100,
-                "isSelected": 2
-              },
-              {
-                "tag": "ytde",
-                "name": "Descender",
-                "minValue": 14,
-                "defaultValue": 100,
-                "maxValue": 100,
-                "isSelected": 0
               }
             ]
           }
@@ -10751,47 +10675,81 @@ var app = new Vue({
       {
         "type": "point type",
         "isSelected": false,
-        "id": "text7",
+        "id": "text10",
         "properties": {
-          "left": 576,
-          "top": 408,
-          "cssCodeName": "Lab",
+          "left": 27,
+          "top": 496,
+          "cssCodeName": "Drive",
           "isVariableFont": true,
-          "text": "!",
-          "fontSize": "95",
+          "text": "Drive\n",
+          "fontSize": "80",
           "variableOptions": {
             "axes": [
               {
-                "tag": "BEVL",
-                "name": "Bevel",
+                "tag": "wght",
+                "name": "Weight",
                 "minValue": 0,
-                "defaultValue": 0,
+                "defaultValue": "400",
+                "maxValue": 1000,
+                "isSelected": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "point type",
+        "isSelected": false,
+        "id": "text11",
+        "properties": {
+          "left": 27,
+          "top": 596,
+          "cssCodeName": "Spooky",
+          "isVariableFont": true,
+          "text": "Spooky\n",
+          "fontSize": "80",
+          "variableOptions": {
+            "axes": [
+              {
+                "tag": "CREE",
+                "name": "Creepiness",
+                "minValue": 0,
+                "defaultValue": "255.00",
                 "maxValue": 1000,
                 "isSelected": 1
               },
               {
-                "tag": "OVAL",
-                "name": "Oval",
+                "tag": "CURL",
+                "name": "curliness",
                 "minValue": 0,
-                "defaultValue": 0,
+                "defaultValue": "40.00",
                 "maxValue": 1000,
                 "isSelected": 2
-              },
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "point type",
+        "isSelected": false,
+        "id": "text12",
+        "properties": {
+          "left": 27,
+          "top": 704,
+          "cssCodeName": "Vesterbro",
+          "isVariableFont": true,
+          "text": "Vesterbro\n",
+          "fontSize": "80",
+          "variableOptions": {
+            "axes": [
               {
-                "tag": "QUAD",
-                "name": "Quad",
+                "tag": "wght",
+                "name": "Weight",
                 "minValue": 0,
-                "defaultValue": 0,
+                "defaultValue": "0",
                 "maxValue": 1000,
-                "isSelected": 0
-              },
-              {
-                "tag": "SIZE",
-                "name": "Size",
-                "minValue": 0,
-                "defaultValue": 0,
-                "maxValue": 1000,
-                "isSelected": 0
+                "isSelected": 1
               }
             ]
           }
@@ -10904,8 +10862,13 @@ var app = new Vue({
     },
     codepenJSON: function() {
       var tags = ["Variable_Font", "Font_Playground"];
-      var html = '<!-- This Codepen is created via Font Playground. After saving this codepen, you can use its URL to import this composition back to Font Playground. --> \n';
-      var css = '/* Fonts are embedded through external CSS and for testing purpose on Codepen only. Please consult each font’s licensing info for other usages. */ \n\n';
+      var html = '<!-- This pen is created via Font Playground. After saving this pen, you can use its URL to reopen this composition in Font Playground. This feature depends on this pen’s javascript, don’t edit or delete it. --> \n';
+      var css = '/* Fonts are embedded through external CSS and for testing purpose on Codepen only. Please consult each font’s licensing info for other usages. */ \n\n'
+                + 'body { \n'
+                + '  -webkit-font-smoothing: antialiased; \n'
+                + '  -moz-osx-font-smoothing: grayscale; \n'
+                + '  font-smoothing: antialiased; \n'
+                + '} \n';
       var js = JSON.stringify(this.canvasObjects);
 
       for (var i = 0; i < this.canvasObjects.length; i++) {
@@ -10942,15 +10905,15 @@ var app = new Vue({
       }
       
       var data = {
-        title                 : "Exported Composition via Font Playground",
-        description           : "Created via https://play.typedetail.com/.",
-        tags                  : tags,
-        editors               : "111", 
-        layout                : "right", // top | left | right
-        html                  : html,
-        css                   : css,
-        js                    : js,
-        css_external          : "https://fonts.typedetail.com/fonts.css"
+        title        : "Exported Composition via Font Playground",
+        description  : "Created via https://play.typedetail.com/.",
+        tags         : tags,
+        editors      : "111", 
+        layout       : "right", // top | left | right
+        html         : html,
+        css          : css,
+        js           : js,
+        css_external : "https://fonts.typedetail.com/fonts.css;https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css",
       }
       return JSON.stringify(data).replace(/"/g, "&​quot;").replace(/'/g, "&apos;");
     },
@@ -10998,17 +10961,6 @@ var app = new Vue({
       }
     });
 
-    var codepenURL = "https://codepen.io/wentin/pen/WKmxQx?&editors=111";
-    var jsURL = codepenURL.split('?')[0] + '.js';
-
-    var oReq = new XMLHttpRequest();
-    oReq.onload = function reqListener() {
-      var data = JSON.parse(this.responseText);
-      self.canvasObjects = data;
-    };
-    oReq.open('get', jsURL, true);
-    oReq.send();
-
     var allClipboard = new ClipboardJS('.button-copy-all', {
         text: function() {
           var copyString = document.querySelector('.section-code code').innerText;
@@ -11042,6 +10994,23 @@ var app = new Vue({
     });
   },
   methods: {
+    openFile: function() {
+      const self = this;
+      var codepenURL = prompt("Please enter CodePen URL", "https://codepen.io/wentin/pen/wxOoWN");
+      if (codepenURL != null) {
+        var jsURL = codepenURL.split('?')[0] + '.js';
+        var oReq = new XMLHttpRequest();
+        oReq.onload = function reqListener() {
+          var data = JSON.parse(this.responseText);
+          self.canvasObjects = data;
+        };
+        oReq.open('get', jsURL, true);
+        oReq.send();
+      }
+    },
+    saveFileToCodepen: function() {
+      document.getElementById("form-export").submit();
+    },
     activateTab: function(tab) {
       for (var key in this.appStates.tabs) {
         this.appStates.tabs[key].isActive = false;
@@ -11245,42 +11214,10 @@ var app = new Vue({
     unHighLightCanvasObject: function(cobject) {
       document.getElementById(cobject.id).classList.remove('highlight');
     },
-    copyCode: function(copyMode){
-      if (copyMode == "all") {
-        console.log('all');  
-
-        // var copyTarget = document.querySelectorAll('.section-code code');  
-        // // var copyTarget = document.querySelectorAll('.css-for-canvas-object.highlight'); 
-        // var range = document.createRange();  
-        // for (var i = 0; i < copyTarget.length; i++) {
-        //   range.selectNode(copyTarget[i]);  
-        // }
-        
-        // window.getSelection().removeAllRanges();    
-        // window.getSelection().addRange(range);  
-        // try {  
-        //   var successful = document.execCommand('copy');
-        // } catch(err) {  
-        //   console.log('Oops, unable to copy');  
-        // }  
-        // window.getSelection().removeAllRanges();
-        return 'all';
-      } else if (copyMode == "selected") { 
-        // var copyTarget = document.querySelectorAll('.css-for-canvas-object.highlight'); 
-        console.log('multiple');  
-        // var htmlClipboard = new Clipboard('.html.buttonCopy', {
-        //   text: function() {
-        //     return generateHTML($scope.selectedIcon);
-        //   }
-        // });
-        
-        // htmlClipboard.on('success', function(e) {
-        //   console.log("html", e.trigger);
-        //   angular.element(e.trigger).addClass('copied');
-        // });
-        return 'multiple';
-      }
-
+    captureKeydown: function(event) {
+      // this is to capture bubbling keydown event of Backspace or Delete in editing mode
+      event.stopPropagation();
+      event.target.removeEventListener('keydown', this.captureKeydown); 
     }
   }
 })
