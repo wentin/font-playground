@@ -10906,7 +10906,7 @@ var app = new Vue({
       
       var data = {
         title        : "Exported Composition via Font Playground",
-        description  : "Created via https://play.typedetail.com/.",
+        description  : "This composition is created via [Font Playground](https://play.typedetail.com/). \n\n In order to open this composition in Font Playground: go to https://play.typedetail.com/, go to `File` > `Open…`, copy & paste in the URL of this CodePen, click `OK`. \n\n Browse more compositions created via Font Playground, visit https://codepen.io/tag/font_playground/.",
         tags         : tags,
         editors      : "111", 
         layout       : "right", // top | left | right
