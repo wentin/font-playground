@@ -737,42 +737,54 @@ body {
   .menu {
     position: absolute;
     left: 140px;
+    display: flex;
     
-    &:hover {
-      ul {
-        display: block;
-      }
-      span {
-        cursor: pointer;
-        background-color: $G500;
-        color: $G100;
-      }
-    }
-    span {
-      display: block;
-      padding: 0 15px;
-      line-height: 38px;
-      height: 37px;
-    }
-    ul {
-      display: none;
-      border-radius: 0 0 3px 3px;
-      width: max-content;
-      position: absolute;
-      padding-top: 2px;
-      left: 0;
-      box-shadow: 0 3px 10px rgba($G500, 0.5);
-      overflow: hidden;
-      z-index: 9;
-      li {
-        line-height: 30px;
-        padding: 0 15px;
-        background-color: $G200;
+    & > li {
+      position: relative;
 
-        &:hover {
+      &:hover {
+        & > ul {
+          display: block;
+        }
+        & > span {
           cursor: pointer;
-          background-color: $A100;
+          background-color: $G500;
           color: $G100;
+        }
+      }
+      
+      & > span {
+        display: block;
+        padding: 0 15px;
+        line-height: 38px;
+        height: 37px;
+      }
+
+      & > ul {
+        display: none;
+        border-radius: 0 0 3px 3px;
+        width: max-content;
+        position: absolute;
+        padding-top: 2px;
+        left: 0;
+        box-shadow: 0 3px 10px rgba($G500, 0.5);
+        overflow: hidden;
+        z-index: 9;
+        li, a {
+          display: block;
+          line-height: 30px;
+          padding: 0 15px;
+          background-color: $G200;
+
+          &:hover {
+            cursor: pointer;
+            background-color: $A100;
+            color: $G100;
+          }
+        }
+        a {
+          text-decoration: none;
+          color: inherit;
         }
       }
     }

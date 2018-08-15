@@ -10994,6 +10994,9 @@ var app = new Vue({
     });
   },
   methods: {
+    newFile: function () {
+      this.canvasObjects = [];
+    },
     openFile: function() {
       const self = this;
       var codepenURL = prompt("Please enter CodePen URL", "https://codepen.io/wentin/pen/wxOoWN");

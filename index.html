@@ -42,13 +42,25 @@
   'font-menu-opened': appStates.drawer.fontMenu.isActive }">
   <div class="tabs select-disabled">
     <div class="logo-text"><span class="accent-text">Font</span> Playground</div>
-    <div class="menu label-text">
-      <span>File</span>
-      <ul>
-        <li @click="openFile">Open…</li>
-        <li @click="saveFileToCodepen">Save to CodePen</li>
-      </ul>
-    </div>
+    <ul class="menu label-text">
+      <li>
+        <span>File</span>
+        <ul>
+          <li @click="newFile">New</li>
+          <li @click="openFile">Open…</li>
+          <li @click="saveFileToCodepen">Save to CodePen</li>
+          <a href="https://codepen.io/tag/font_playground/" target="_blank">Online Gallery</a>
+        </ul>
+      </li>
+      <li>
+        <span>Help</span>
+        <ul>
+          <a href="https://www.youtube.com/watch?v=bfkt4Em_st0&list=PLjvaEvhJuIkyVP_jPw2HGN5jjjwKZrC13" target="_blank">Tutorial</a>
+          <a href="https://github.com/wentin/font-playground/releases/" target="_blank">What’s New</a>
+          <a href="https://github.com/wentin/font-playground/issues/new" target="_blank">Report Issue</a>
+        </ul>
+      </li>
+    </ul>
     <div class="tab label-text" :class="{ active: tab.isActive }" v-for="tab in appStates.tabs" @click="activateTab(tab)">{{ tab.name }}</div>
     <div class="social">
       <a href="http://eepurl.com/dCxipf" target="_blank" class="newsletter icon-button">
