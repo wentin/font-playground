@@ -104,7 +104,7 @@
         <div class="close-button" @click="search = ''"></div>
       </div>
       <div class="font-cards">
-        <div class="font-card" :class="{ active: fontFamily.isActive }" v-for="fontFamily in filteredFontFamilies" @click="activateFamily(fontFamily)">
+        <div class="font-card" :id="fontFamily.cssCodeName.replace(/ /g,'-')"  :class="{ active: fontFamily.isActive }" v-for="fontFamily in filteredFontFamilies" @click="activateFamily(fontFamily)">
           <h1 class="font-preview" 
             v-if="!fontFamily.previewText.isCustom"
             :style="{fontFamily: fontFamily.cssCodeName}">
@@ -121,6 +121,18 @@
     <div class="section section-font-info">
       <h4 class="subtitle-text">FONT INFO</h4>
       <div class="font-info label-text">
+        <div class="font-card active" @click="scrollIntoView(activeFont)">
+          <h1 class="font-preview" 
+            v-if="!activeFont.previewText.isCustom"
+            :style="{fontFamily: activeFont.cssCodeName}">
+            {{ activeFont.fontFamilyName }}
+          </h1>
+          <h1 class="font-preview" v-if="activeFont.previewText.isCustom">
+            {{ activeFont.previewText.customText }}
+          </h1>
+          <h4 class="label-text">{{ activeFont.fontFamilyName }}</h4>
+          <h4 class="badge-text">{{ activeFont.variableOptions.axes.length }}</h4>
+        </div>
         <table class="font-info__table">
           <tr>
             <th class="label-text">Designer</th>
@@ -168,7 +180,7 @@
         <div class="controls--vf-slantness" @mousedown="controlVFSlantInitDrag"
         @touchstart="controlVFSlantInitDrag">
           <div class="vf-slantness-handle" :style="{left: slantnessControlStyles.left}">
-            <div class="tip-text">font slantness</div>
+            <div class="tip-text">font slant</div>
           </div>
           <div class="vf-slantness-line" :style="{transform: slantnessControlStyles.skew}"></div>
         </div>

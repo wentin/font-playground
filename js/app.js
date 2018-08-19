@@ -11065,6 +11065,10 @@ var app = new Vue({
     toggleDrawer: function(drawer) {
       drawer.isActive = !drawer.isActive;
     },
+    scrollIntoView: function(activeFont) {
+      var id = activeFont.cssCodeName.replace(/ /g,'-');
+      document.getElementById(id).scrollIntoView({behavior: "smooth", block: "center"});
+    },
     activateFamily: function(fontFamily) {
       for (var i = 0; i < this.fontFamilies.length; i++) {
         this.fontFamilies[i].isActive = false;
@@ -11133,6 +11137,7 @@ var app = new Vue({
           this.fontFamilies[i].isActive = false;
         }
       }
+      this.scrollIntoView(this.activeFont);
     },
     handleActiveFontChange: function(){
       for (var i = 0; i < this.selectedCanvasObjects.length; i++) {
