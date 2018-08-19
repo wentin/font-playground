@@ -10989,6 +10989,8 @@ var app = new Vue({
         }
       }
     }
+    
+    this.scrollIntoView(this.activeFont);
 
     this.canvasObjectsCounter = this.canvasObjects.length;
 
