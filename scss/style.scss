@@ -919,6 +919,9 @@ body {
         height: 26px;
         line-height: 26px;
       }
+      input:invalid {
+        box-shadow: none;
+      }
       input:not(:valid) ~ .close-button {
         display: none;
       }

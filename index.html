@@ -99,7 +99,7 @@
     <div class="section section-font-cards">
       <h4 class="subtitle-text">FONT FAMILY</h4>
       <div class="search-box">
-        <input required class="value-text" type="text" v-model="search" placeholder="Search by name, axis, designer…"/>
+        <input required class="value-text" type="text" v-model="search" placeholder="Search by name, axis, designer…" @keydown="captureKeydown"/>
         <div class="search-icon"></div>
         <div class="close-button" @click="search = ''"></div>
       </div>
