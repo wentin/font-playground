@@ -1222,10 +1222,21 @@ body {
     height: 26px;
     overflow: hidden;
     white-space: nowrap;
-    margin-bottom: 2px;
     font-family: $sans;
     font-variation-settings: 'dfat' 0;
     color: $G600;
+    margin-right: -9px;
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 20px;
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 90%);
+    }
   }
   .label-text {
     line-height: 15px;
@@ -1233,14 +1244,15 @@ body {
     white-space: nowrap;
     overflow: hidden;
     margin-right: 30px;
+    margin-bottom: 2px;
     color: $G700;
   }
   .badge-text {
     line-height: 15px;
     height: 15px;
     position: absolute;
-    bottom: 5px;
-    right: 9px;
+    top: 5px;
+    right: 8px;
     
     &:before {
       content: '';

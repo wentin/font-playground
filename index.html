@@ -124,6 +124,8 @@
       <h4 class="subtitle-text">FONT INFO</h4>
       <div class="font-info label-text">
         <div class="font-card active" @click="scrollIntoView(activeFont)">
+          <h4 class="label-text">{{ activeFont.fontFamilyName }}</h4>
+          <h4 class="badge-text">{{ activeFont.variableOptions.axes.length }}</h4>
           <h1 class="font-preview" 
             v-if="!activeFont.previewText.isCustom"
             :style="{fontFamily: activeFont.cssCodeName}">
@@ -132,8 +134,6 @@
           <h1 class="font-preview" v-if="activeFont.previewText.isCustom">
             {{ activeFont.previewText.customText }}
           </h1>
-          <h4 class="label-text">{{ activeFont.fontFamilyName }}</h4>
-          <h4 class="badge-text">{{ activeFont.variableOptions.axes.length }}</h4>
         </div>
         <table class="font-info__table">
           <tr>
