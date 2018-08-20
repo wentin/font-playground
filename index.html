@@ -105,16 +105,18 @@
       </div>
       <div class="font-cards">
         <div class="font-card" :id="fontFamily.cssCodeName.replace(/ /g,'-')"  :class="{ active: fontFamily.isActive }" v-for="fontFamily in filteredFontFamilies" @click="activateFamily(fontFamily)">
+          <h4 class="label-text">{{ fontFamily.fontFamilyName }}</h4>
+          <h4 class="badge-text">{{ fontFamily.variableOptions.axes.length }}</h4>
           <h1 class="font-preview" 
             v-if="!fontFamily.previewText.isCustom"
             :style="{fontFamily: fontFamily.cssCodeName}">
             {{ fontFamily.fontFamilyName }}
           </h1>
-          <h1 class="font-preview" v-if="fontFamily.previewText.isCustom">
+          <h1 class="font-preview" 
+            v-if="fontFamily.previewText.isCustom"
+            :style="{fontFamily: fontFamily.cssCodeName}">
             {{ fontFamily.previewText.customText }}
           </h1>
-          <h4 class="label-text">{{ fontFamily.fontFamilyName }}</h4>
-          <h4 class="badge-text">{{ fontFamily.variableOptions.axes.length }}</h4>
         </div>
       </div>
     </div>

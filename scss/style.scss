@@ -148,25 +148,25 @@ input[type="text"] {
     color: $G400;
   }
 }
-.select-disabled {
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+// .select-disabled {
+//   -moz-user-select: none;
+//   -khtml-user-select: none;
+//   -webkit-user-select: none;
+//   -ms-user-select: none;
+//   user-select: none;
+// }
 
-.select-enabled {
-  -moz-user-select: text;
-  -khtml-user-select: text;
-  -webkit-user-select: text;
-  -ms-user-select: text;
-  user-select: text;
-}
+// .select-enabled {
+//   -moz-user-select: text;
+//   -khtml-user-select: text;
+//   -webkit-user-select: text;
+//   -ms-user-select: text;
+//   user-select: text;
+// }
 
-[contenteditable]:focus {
-  outline: none;
-}
+// [contenteditable]:focus {
+//   outline: none;
+// }
 
 .text-frame {
   display: inline-block;
@@ -1000,6 +1000,7 @@ body {
 
     table.font-info__table {
       margin-top: 15px;
+      margin-bottom: 10px;
       width: 100%;
       tr th, tr td {
         text-align: left;
