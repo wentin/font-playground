@@ -242,7 +242,7 @@
           <div class="contrast-value">2.0</div>
           <div class="contrast-bracket"></div>
         </div>
-        <div class="text":class="{ 'select-disabled': !states.isEditable }" :contenteditable="states.isEditable" :style="textStyles"
+        <div class="text":class="{ 'select-disabled': !states.isEditable, 'select-enabled': states.isEditable }" :contenteditable="states.isEditable" :style="textStyles"
            @blur="deactivateStates"
            @input="updateContent"
            @keydown="captureKeydown">
@@ -253,7 +253,7 @@
             </div>
             <div class="vf-base-line" :style="{top: xHeightControlStyles.baselineTop}"></div>
           </div>
-          <div class="text-span"></div>
+          <div class="text-span":contenteditable="states.isEditable"></div>
         </div>
       </div>
     </script>

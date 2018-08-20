@@ -10989,20 +10989,69 @@ var app = new Vue({
         }
       }
     }
-    
+
     this.scrollIntoView(this.activeFont);
 
     this.canvasObjectsCounter = this.canvasObjects.length;
 
+    // keyboard short-cuts
     const self = this;
     document.body.addEventListener('keydown', function(e){
-      if (e.key == "Backspace" || e.key == "Delete") {
-        for (var i = self.canvasObjects.length - 1; i >= 0; i--) {
-          if (self.canvasObjects[i].isSelected) {
-            self.canvasObjects.splice(i,1);
+      e.preventDefault();
+      switch(e.key) {
+        case "Backspace": 
+        case "Delete": 
+          for (var i = self.canvasObjects.length - 1; i >= 0; i--) {
+            if (self.canvasObjects[i].isSelected) {
+              self.canvasObjects.splice(i,1);
+            }
           }
-        }
-      }
+          break;
+        case "ArrowUp":
+          if (e.shiftKey) {
+            for (var i = 0; i < self.selectedCanvasObjects.length; i++) {
+              self.selectedCanvasObjects[i].properties.top = self.selectedCanvasObjects[i].properties.top - 10;
+            }
+          } else {
+            for (var i = 0; i < self.selectedCanvasObjects.length; i++) {
+              self.selectedCanvasObjects[i].properties.top--;
+            }
+          }
+          break;
+        case "ArrowDown":
+          if (e.shiftKey) {
+            for (var i = 0; i < self.selectedCanvasObjects.length; i++) {
+              self.selectedCanvasObjects[i].properties.top = self.selectedCanvasObjects[i].properties.top + 10;
+            }
+          } else {
+            for (var i = 0; i < self.selectedCanvasObjects.length; i++) {
+              self.selectedCanvasObjects[i].properties.top++;
+            }
+          }
+          break;
+        case "ArrowLeft":
+          if (e.shiftKey) {
+            for (var i = 0; i < self.selectedCanvasObjects.length; i++) {
+              self.selectedCanvasObjects[i].properties.left = self.selectedCanvasObjects[i].properties.left - 10;
+            }
+          } else {
+            for (var i = 0; i < self.selectedCanvasObjects.length; i++) {
+              self.selectedCanvasObjects[i].properties.left--;
+            }
+          }
+          break;
+        case "ArrowRight":
+          if (e.shiftKey) {
+            for (var i = 0; i < self.selectedCanvasObjects.length; i++) {
+              self.selectedCanvasObjects[i].properties.left = self.selectedCanvasObjects[i].properties.left + 10;
+            }
+          } else {
+            for (var i = 0; i < self.selectedCanvasObjects.length; i++) {
+              self.selectedCanvasObjects[i].properties.left++;
+            }
+          }
+          break;
+      } 
     });
 
     var allClipboard = new ClipboardJS('.button-copy-all', {
