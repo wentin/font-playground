@@ -340,7 +340,6 @@ Vue.component('point-type-frame', {
     moveTextFrameInitDrag: function (event) {
       event.stopPropagation();
       if(!this.states.isEditable) {
-        event.preventDefault();
         var e;
         if (event.type == 'mousedown') {
           e = event;
@@ -10997,10 +10996,10 @@ var app = new Vue({
     // keyboard short-cuts
     const self = this;
     document.body.addEventListener('keydown', function(e){
-      e.preventDefault();
       switch(e.key) {
         case "Backspace": 
         case "Delete": 
+          e.preventDefault();
           for (var i = self.canvasObjects.length - 1; i >= 0; i--) {
             if (self.canvasObjects[i].isSelected) {
               self.canvasObjects.splice(i,1);
@@ -11118,7 +11117,9 @@ var app = new Vue({
     },
     scrollIntoView: function(activeFont) {
       var id = activeFont.cssCodeName.replace(/ /g,'-');
-      document.getElementById(id).scrollIntoView({behavior: "smooth", block: "center"});
+      if (document.getElementById(id) != null) {
+        document.getElementById(id).scrollIntoView({behavior: "smooth", block: "center"});
+      }
     },
     activateFamily: function(fontFamily) {
       for (var i = 0; i < this.fontFamilies.length; i++) {
