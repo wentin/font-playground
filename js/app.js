@@ -8337,8 +8337,8 @@ var app = new Vue({
         "fontFileName": "MarkaziText-VF.woff2",
         "cssCodeName": "Markazi Text",
         "previewText": {
-          "isCustom": false,
-          "customText": ""
+          "isCustom": true,
+          "customText": "ابجد هوز حطي كلمن سعفص قرشت ثخذ ضظغ"
         },
         "isVariableFont": true,
         "variableOptions": {
