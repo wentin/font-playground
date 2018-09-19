@@ -10956,7 +10956,8 @@ var app = new Vue({
         js           : js,
         css_external : "https://fonts.typedetail.com/fonts.css;https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css",
       }
-      return JSON.stringify(data).replace(/"/g, "&​quot;").replace(/'/g, "&apos;");
+      // return JSON.stringify(data).replace(/"/g, "&​quot;").replace(/'/g, "&apos;");
+      return JSON.stringify(data);
     },
     allFontFacesDebugOnly: function() {
       var fontFamilies = this.fontFamilies;
