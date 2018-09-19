@@ -10818,7 +10818,8 @@ var app = new Vue({
           name: 'About',
           isActive: false
         },
-      }
+      },
+      recentFiles: [],
     }
   },
   computed: {
@@ -10977,6 +10978,12 @@ var app = new Vue({
     },
   },
   mounted: function() {
+    this.loadFileByURLSearchParams();
+
+    if("recentFiles" in localStorage){
+      this.appStates.recentFiles = JSON.parse(localStorage.recentFiles);
+    }
+
     if (this.selectedCanvasObjects.length > 0) {
       for (var i = 0; i < this.fontFamilies.length; i++) {
         if(this.fontFamilies[i].cssCodeName == this.selectedCanvasObjects[0].properties.cssCodeName) {
@@ -11087,22 +11094,49 @@ var app = new Vue({
     });
   },
   methods: {
-    newFile: function () {
-      this.canvasObjects = [];
-    },
-    openFile: function() {
+    loadFileByURLSearchParams: function () {
       const self = this;
-      var codepenURL = prompt("Please enter CodePen URL", "https://codepen.io/wentin/pen/wxOoWN");
-      if (codepenURL != null) {
-        var jsURL = codepenURL.split('?')[0] + '.js';
+      var searchParams = new URLSearchParams(window.location.search);
+      if (searchParams.has('openFile')) {
+        var pureUrl = searchParams.get('openFile');
+        jsURL = pureUrl + '.js';
         var oReq = new XMLHttpRequest();
         oReq.onload = function reqListener() {
           var data = JSON.parse(this.responseText);
           self.canvasObjects = data;
+
+          if(self.appStates.recentFiles.indexOf(pureUrl) == -1) {
+            self.appStates.recentFiles.unshift(pureUrl);
+            if (self.appStates.recentFiles.length > 10) {
+              self.appStates.recentFiles.pop();
+            }
+            localStorage.recentFiles = JSON.stringify(self.appStates.recentFiles);
+          }
         };
         oReq.open('get', jsURL, true);
         oReq.send();
       }
+
+    },
+    newFile: function () {
+      this.canvasObjects = [];
+    },
+    openFile: function(paramURL) {
+      var pureUrl;
+      if (paramURL == 'prompt') {
+        var codepenURL = prompt("Please enter CodePen URL", "https://codepen.io/wentin/pen/wxOoWN");
+        if (codepenURL != null) {
+          pureUrl = codepenURL.split('?')[0]
+          var jsURL = pureUrl + '.js';
+          var newPageUrl = window.location.href.split('?')[0] + '?openFile=' + pureUrl;
+        } else {
+          return;
+        }
+      } else {
+        pureUrl = paramURL;
+      }
+      var newPageUrl = window.location.href.split('?')[0] + '?openFile=' + pureUrl;
+      window.location.href = newPageUrl;
     },
     saveFileToCodepen: function() {
       document.getElementById("form-export").submit();

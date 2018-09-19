@@ -681,6 +681,7 @@ body {
   font-variation-settings: 'wght' 156; 
   color: $G500;
   font-size: 14px;
+  text-decoration: none;
   
   .accent-text {
     color: $A100;
@@ -770,18 +771,63 @@ body {
         padding-top: 2px;
         left: 0;
         box-shadow: 0 3px 10px rgba($G500, 0.5);
-        overflow: hidden;
         z-index: 9;
         li, a {
           display: block;
+          position: relative;
           line-height: 30px;
-          padding: 0 15px;
+          padding: 0 30px 0 15px;
           background-color: $G200;
 
           &:hover {
             cursor: pointer;
             background-color: $A100;
             color: $G100;
+          }
+
+          &:last-child {
+            border-radius: 0 0 3px 3px;
+          }
+        }
+        li.contains-sub-menu {
+          &:after {
+            content: "▶";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 8px;
+          }
+          ul {
+            display: none;
+            position: absolute;
+            z-index: 2;
+            left: 100%;
+            top: 0;
+            box-shadow: 0 3px 10px rgba($G500, 0.5);
+            li {
+              color: $G700;
+              padding: 0 15px;
+
+              &:hover {
+                color: $G100;
+              }
+
+              &:last-child {
+                border-radius: 0 0 3px 3px;
+              }
+            }
+          }
+          &:hover ul {
+            display: block;
+          }
+        }
+        a.offsite-link {
+          &:after {
+            content: "⸣";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 8px;
           }
         }
         a {

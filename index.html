@@ -41,23 +41,28 @@
   'about-view': appStates.tabs.about.isActive,
   'font-menu-opened': appStates.drawer.fontMenu.isActive }">
   <div class="tabs select-disabled">
-    <div class="logo-text"><span class="accent-text">Font</span> Playground</div>
+    <a class="logo-text" href="/"><span class="accent-text">Font</span> Playground</a>
     <ul class="menu label-text">
       <li>
         <span>File</span>
         <ul>
           <li @click="newFile">New</li>
-          <li @click="openFile">Open…</li>
+          <li @click="openFile('prompt')">Open…</li>
+          <li class="contains-sub-menu" v-if="appStates.recentFiles.length > 0">Open Recent
+            <ul>
+              <li v-for="file in appStates.recentFiles" @click="openFile(file)">{{file}}</li>
+            </ul>
+          </li>
           <li @click="saveFileToCodepen">Save to CodePen</li>
-          <a href="https://codepen.io/tag/font_playground/" target="_blank">Online Gallery</a>
+          <a class="offsite-link" href="https://codepen.io/tag/font_playground/" target="_blank">Online Gallery</a>
         </ul>
       </li>
       <li>
         <span>Help</span>
         <ul>
-          <a href="https://www.youtube.com/playlist?list=PLjvaEvhJuIkyVP_jPw2HGN5jjjwKZrC13" target="_blank">Tutorial</a>
-          <a href="https://github.com/wentin/font-playground/releases/" target="_blank">What’s New</a>
-          <a href="https://github.com/wentin/font-playground/issues/new" target="_blank">Report Issue</a>
+          <a class="offsite-link" href="https://www.youtube.com/playlist?list=PLjvaEvhJuIkyVP_jPw2HGN5jjjwKZrC13" target="_blank">Tutorial</a>
+          <a class="offsite-link" href="https://github.com/wentin/font-playground/releases/" target="_blank">What’s New</a>
+          <a class="offsite-link" href="https://github.com/wentin/font-playground/issues/new" target="_blank">Report Issue</a>
         </ul>
       </li>
     </ul>
