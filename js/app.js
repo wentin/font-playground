@@ -941,7 +941,7 @@ var app = new Vue({
   el: '#font-playground-app',
   data: {
     search: '',
-    fontFamilies:     [
+    fontFamilies:    [
       {
         "fontFamilyName": "Adobe VF Prototype",
         "isActive": true,
@@ -2272,7 +2272,7 @@ var app = new Vue({
           "designer": "Veronika Burian, José Scaglione",
           "publisher": "TypeTogether",
           "urlText": "type-together.com",
-          "url": "www.type-together.com",
+          "url": "https://www.type-together.com/",
           "license": "Paid/commercial"
         }
       },
@@ -2353,7 +2353,7 @@ var app = new Vue({
           "designer": "Veronika Burian, José Scaglione",
           "publisher": "TypeTogether",
           "urlText": "type-together.com",
-          "url": "www.type-together.com",
+          "url": "https://www.type-together.com/",
           "license": "Paid/commercial"
         }
       },
@@ -9327,7 +9327,7 @@ var app = new Vue({
           "designer": "Veronika Burian, José Scaglione",
           "publisher": "TypeTogether",
           "urlText": "type-together.com",
-          "url": "www.type-together.com",
+          "url": "https://www.type-together.com/",
           "license": "Paid/commercial"
         }
       },
@@ -9447,7 +9447,7 @@ var app = new Vue({
           "designer": "Veronika Burian, José Scaglione",
           "publisher": "TypeTogether",
           "urlText": "type-together.com",
-          "url": "www.type-together.com",
+          "url": "https://www.type-together.com/",
           "license": "Paid/commercial"
         }
       },
