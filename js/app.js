@@ -1,6 +1,6 @@
 Number.prototype.countDecimals = function () {
     if(Math.floor(this.valueOf()) === this.valueOf()) return 0;
-    return this.toString().split(".")[1].length || 0; 
+    return this.toString().split(".")[1].length || 0;
 }
 var roundValueByStep = function(value, step){
   var result;
@@ -150,12 +150,12 @@ Vue.component('point-type-frame', {
   data: function () {
     return {
       step: 0.01,
-      startX: 0, 
-      startY: 0, 
-      startWidth: 0, 
-      startHeight: 0, 
-      startFontSize: 0, 
-      startLeft: 0, 
+      startX: 0,
+      startY: 0,
+      startWidth: 0,
+      startHeight: 0,
+      startFontSize: 0,
+      startLeft: 0,
       startTop: 0,
       startSkewXHeight: 0,
       supportedTags: {
@@ -181,12 +181,12 @@ Vue.component('point-type-frame', {
         var textFrameStyles = {
           width: this.cobject.properties.width + 'px',
           height: this.cobject.properties.height + 'px',
-          left: this.cobject.properties.left + 'px', 
+          left: this.cobject.properties.left + 'px',
           top: this.cobject.properties.top + 'px'
         }
       } else if (this.cobject.type == "point type") {
         var textFrameStyles = {
-          left: this.cobject.properties.left + 'px', 
+          left: this.cobject.properties.left + 'px',
           top: this.cobject.properties.top + 'px'
         }
       }
@@ -292,7 +292,7 @@ Vue.component('point-type-frame', {
     captureKeydown: function(event) {
       // this is to capture bubbling keydown event of Backspace or Delete in editing mode
       event.stopPropagation();
-      event.target.removeEventListener('keydown', this.captureKeydown); 
+      event.target.removeEventListener('keydown', this.captureKeydown);
     },
     selectTextFrame: function (event) {
       event.preventDefault();
@@ -334,7 +334,7 @@ Vue.component('point-type-frame', {
     },
     captureClick: function(e) {
         e.stopPropagation();
-        document.body.removeEventListener('click', this.captureClick, true); 
+        document.body.removeEventListener('click', this.captureClick, true);
     },
     //  Event Handlers for moving text frame
     moveTextFrameInitDrag: function (event) {
@@ -580,7 +580,7 @@ Vue.component('point-type-frame', {
       }
 
       widthAxis.defaultValue = parseFloat(widthAxis.defaultValue);
-      var maxVFWidth = widthAxis.maxValue; 
+      var maxVFWidth = widthAxis.maxValue;
       var minVFWidth = widthAxis.minValue;
 
       var dupEl = el.cloneNode(true);
@@ -753,7 +753,7 @@ Vue.component('point-type-frame', {
       var maxLeft = Math.tan(this.slantAxis.maxAngle * Math.PI/180) * 50;
       var minLeft = Math.tan(this.slantAxis.minAngle * Math.PI/180) * 50;
       this.maxHandleSlantnessLeft = maxLeft>minLeft?maxLeft:minLeft;
-      this.minHandleSlantnessLeft = maxLeft>minLeft?minLeft:maxLeft; 
+      this.minHandleSlantnessLeft = maxLeft>minLeft?minLeft:maxLeft;
     },
     controlVFSlantDoDrag: function (event) {
       event.stopPropagation();
@@ -881,9 +881,9 @@ Vue.component('point-type-frame', {
       }
       // use handle array to decide which handle is being moved, [-1, 1] is top right for example
       this.cobject.properties.left = this.startLeft + (e.clientX - this.startX) * (1 - this.handle[0])/2;
-      this.cobject.properties.top = this.startTop + (e.clientY - this.startY) * (1 - this.handle[1])/2;  
+      this.cobject.properties.top = this.startTop + (e.clientY - this.startY) * (1 - this.handle[1])/2;
       this.cobject.properties.width = this.startWidth + (e.clientX - this.startX) * this.handle[0];
-      this.cobject.properties.height = this.startHeight + (e.clientY - this.startY) * this.handle[1];      
+      this.cobject.properties.height = this.startHeight + (e.clientY - this.startY) * this.handle[1];
     },
     controlAreaSizeStopDrag: function (event) {
       event.preventDefault();
@@ -941,7 +941,7 @@ var app = new Vue({
   el: '#font-playground-app',
   data: {
     search: '',
-    fontFamilies: [
+    fontFamilies:     [
       {
         "fontFamilyName": "Adobe VF Prototype",
         "isActive": true,
@@ -1206,73 +1206,6 @@ var app = new Vue({
         }
       },
       {
-        "fontFamilyName": "Angus Italic",
-        "isActive": true,
-        "fontFileName": "AngusVariableItalic.woff2",
-        "cssCodeName": "Angus Italic",
-        "previewText": {
-          "isCustom": false,
-          "customText": ""
-        },
-        "isVariableFont": true,
-        "variableOptions": {
-          "axes": [
-            {
-              "tag": "wght",
-              "name": "Weight",
-              "minValue": 0,
-              "defaultValue": 300,
-              "maxValue": 1000,
-              "isSelected": 1
-            }
-          ],
-          "instances": [
-            {
-              "name": "Extrabold Italic",
-              "isActive": false,
-              "coordinates": {
-                "wght": 1000
-              }
-            },
-            {
-              "name": "Bold Italic",
-              "isActive": false,
-              "coordinates": {
-                "wght": 820
-              }
-            },
-            {
-              "name": "Medium Italic",
-              "isActive": false,
-              "coordinates": {
-                "wght": 550
-              }
-            },
-            {
-              "name": "Italic",
-              "isActive": false,
-              "coordinates": {
-                "wght": 300
-              }
-            },
-            {
-              "name": "Light Italic",
-              "isActive": false,
-              "coordinates": {
-                "wght": 0
-              }
-            }
-          ]
-        },
-        "fontInfo": {
-          "designer": "Black Foundry",
-          "publisher": "Black Foundry",
-          "urlText": "black-foundry.com",
-          "url": "https://black-foundry.com/angus/",
-          "license": "Paid/commercial"
-        }
-      },
-      {
         "fontFamilyName": "Angus",
         "isActive": false,
         "fontFileName": "AngusVariable.woff2",
@@ -1324,6 +1257,73 @@ var app = new Vue({
             },
             {
               "name": "Light",
+              "isActive": false,
+              "coordinates": {
+                "wght": 0
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Black Foundry",
+          "publisher": "Black Foundry",
+          "urlText": "black-foundry.com",
+          "url": "https://black-foundry.com/angus/",
+          "license": "Paid/commercial"
+        }
+      },
+      {
+        "fontFamilyName": "Angus Italic",
+        "isActive": true,
+        "fontFileName": "AngusVariableItalic.woff2",
+        "cssCodeName": "Angus Italic",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": 0,
+              "defaultValue": 300,
+              "maxValue": 1000,
+              "isSelected": 1
+            }
+          ],
+          "instances": [
+            {
+              "name": "Extrabold Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000
+              }
+            },
+            {
+              "name": "Bold Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 820
+              }
+            },
+            {
+              "name": "Medium Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 550
+              }
+            },
+            {
+              "name": "Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 300
+              }
+            },
+            {
+              "name": "Light Italic",
               "isActive": false,
               "coordinates": {
                 "wght": 0
@@ -2076,6 +2076,66 @@ var app = new Vue({
         }
       },
       {
+        "fontFamilyName": "Bluu Suuperstar",
+        "isActive": false,
+        "fontFileName": "BluuSuuperstarVariable.woff2",
+        "cssCodeName": "Bluu Suuperstar",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": 0,
+              "defaultValue": 0,
+              "maxValue": 1000,
+              "isSelected": 1
+            }
+          ],
+          "instances": [
+            {
+              "name": "Black",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000
+              }
+            },
+            {
+              "name": "Bold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 666
+              }
+            },
+            {
+              "name": "Medium",
+              "isActive": false,
+              "coordinates": {
+                "wght": 333
+              }
+            },
+            {
+              "name": "Regular",
+              "isActive": false,
+              "coordinates": {
+                "wght": 0
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Jean-Baptiste Morizot, Gaetan Baer",
+          "publisher": "Black Foundry",
+          "urlText": "black-foundry.com",
+          "url": "https://black-foundry.com/bluusuuperstar/",
+          "license": "Paid/commercial"
+        }
+      },
+      {
         "fontFamilyName": "Bluu Suuperstar Italic",
         "isActive": false,
         "fontFileName": "BluuSuuperstarVariableItalic.woff2",
@@ -2136,10 +2196,10 @@ var app = new Vue({
         }
       },
       {
-        "fontFamilyName": "Bluu Suuperstar",
+        "fontFamilyName": "Bree",
         "isActive": false,
-        "fontFileName": "BluuSuuperstarVariable.woff2",
-        "cssCodeName": "Bluu Suuperstar",
+        "fontFileName": "Bree-VF.woff2",
+        "cssCodeName": "Bree",
         "previewText": {
           "isCustom": false,
           "customText": ""
@@ -2151,14 +2211,14 @@ var app = new Vue({
               "tag": "wght",
               "name": "Weight",
               "minValue": 0,
-              "defaultValue": 0,
+              "defaultValue": 455,
               "maxValue": 1000,
               "isSelected": 1
             }
           ],
           "instances": [
             {
-              "name": "Black",
+              "name": "Extrabold",
               "isActive": false,
               "coordinates": {
                 "wght": 1000
@@ -2168,18 +2228,39 @@ var app = new Vue({
               "name": "Bold",
               "isActive": false,
               "coordinates": {
-                "wght": 666
+                "wght": 770
               }
             },
             {
-              "name": "Medium",
+              "name": "Semibold",
               "isActive": false,
               "coordinates": {
-                "wght": 333
+                "wght": 590
               }
             },
             {
               "name": "Regular",
+              "isActive": false,
+              "coordinates": {
+                "wght": 455
+              }
+            },
+            {
+              "name": "Book",
+              "isActive": false,
+              "coordinates": {
+                "wght": 330
+              }
+            },
+            {
+              "name": "Light",
+              "isActive": false,
+              "coordinates": {
+                "wght": 185
+              }
+            },
+            {
+              "name": "Thin",
               "isActive": false,
               "coordinates": {
                 "wght": 0
@@ -2188,10 +2269,91 @@ var app = new Vue({
           ]
         },
         "fontInfo": {
-          "designer": "Jean-Baptiste Morizot, Gaetan Baer",
-          "publisher": "Black Foundry",
-          "urlText": "black-foundry.com",
-          "url": "https://black-foundry.com/bluusuuperstar/",
+          "designer": "Veronika Burian, José Scaglione",
+          "publisher": "TypeTogether",
+          "urlText": "type-together.com",
+          "url": "www.type-together.com",
+          "license": "Paid/commercial"
+        }
+      },
+      {
+        "fontFamilyName": "Bree Oblique",
+        "isActive": false,
+        "fontFileName": "BreeOblique-VF.woff2",
+        "cssCodeName": "Bree Oblique",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": 0,
+              "defaultValue": 455,
+              "maxValue": 1000,
+              "isSelected": 1
+            }
+          ],
+          "instances": [
+            {
+              "name": "Extrabold Oblique",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000
+              }
+            },
+            {
+              "name": "Bold Oblique",
+              "isActive": false,
+              "coordinates": {
+                "wght": 770
+              }
+            },
+            {
+              "name": "Semibold Oblique",
+              "isActive": false,
+              "coordinates": {
+                "wght": 590
+              }
+            },
+            {
+              "name": "Oblique",
+              "isActive": false,
+              "coordinates": {
+                "wght": 455
+              }
+            },
+            {
+              "name": "Book Oblique",
+              "isActive": false,
+              "coordinates": {
+                "wght": 330
+              }
+            },
+            {
+              "name": "Light Oblique",
+              "isActive": false,
+              "coordinates": {
+                "wght": 185
+              }
+            },
+            {
+              "name": "Thin Oblique",
+              "isActive": false,
+              "coordinates": {
+                "wght": 0
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Veronika Burian, José Scaglione",
+          "publisher": "TypeTogether",
+          "urlText": "type-together.com",
+          "url": "www.type-together.com",
           "license": "Paid/commercial"
         }
       },
@@ -3675,10 +3837,10 @@ var app = new Vue({
         }
       },
       {
-        "fontFamilyName": "Drive Italic",
+        "fontFamilyName": "Drive",
         "isActive": false,
-        "fontFileName": "DriveItalicVariable.woff2",
-        "cssCodeName": "Drive Italic",
+        "fontFileName": "DriveVariable.woff2",
+        "cssCodeName": "Drive",
         "previewText": {
           "isCustom": false,
           "customText": ""
@@ -3697,63 +3859,63 @@ var app = new Vue({
           ],
           "instances": [
             {
-              "name": "ExtraboldItalic",
+              "name": "Extrabold",
               "isActive": false,
               "coordinates": {
                 "wght": 1000
               }
             },
             {
-              "name": "BoldItalic",
+              "name": "Bold",
               "isActive": false,
               "coordinates": {
                 "wght": 861
               }
             },
             {
-              "name": "MediumItalic",
+              "name": "Medium",
               "isActive": false,
               "coordinates": {
                 "wght": 722
               }
             },
             {
-              "name": "BookItalic",
+              "name": "Book",
               "isActive": false,
               "coordinates": {
                 "wght": 583
               }
             },
             {
-              "name": "RegularItalic",
+              "name": "Regular",
               "isActive": false,
               "coordinates": {
                 "wght": 500
               }
             },
             {
-              "name": "LightItalic",
+              "name": "Light",
               "isActive": false,
               "coordinates": {
                 "wght": 390
               }
             },
             {
-              "name": "ExtraLightItalic",
+              "name": "ExtraLight",
               "isActive": false,
               "coordinates": {
                 "wght": 233
               }
             },
             {
-              "name": "ThinItalic",
+              "name": "Thin",
               "isActive": false,
               "coordinates": {
                 "wght": 116
               }
             },
             {
-              "name": "HairlineItalic",
+              "name": "Hairline",
               "isActive": false,
               "coordinates": {
                 "wght": 0
@@ -3770,10 +3932,10 @@ var app = new Vue({
         }
       },
       {
-        "fontFamilyName": "Drive Mono Italic",
+        "fontFamilyName": "Drive Italic",
         "isActive": false,
-        "fontFileName": "DriveMonoVariableItalic.woff2",
-        "cssCodeName": "Drive Mono Italic",
+        "fontFileName": "DriveItalicVariable.woff2",
+        "cssCodeName": "Drive Italic",
         "previewText": {
           "isCustom": false,
           "customText": ""
@@ -3960,10 +4122,10 @@ var app = new Vue({
         }
       },
       {
-        "fontFamilyName": "Drive Prop Italic",
+        "fontFamilyName": "Drive Mono Italic",
         "isActive": false,
-        "fontFileName": "DrivePropItalicVariable.woff2",
-        "cssCodeName": "Drive Prop Italic",
+        "fontFileName": "DriveMonoVariableItalic.woff2",
+        "cssCodeName": "Drive Mono Italic",
         "previewText": {
           "isCustom": false,
           "customText": ""
@@ -4150,10 +4312,10 @@ var app = new Vue({
         }
       },
       {
-        "fontFamilyName": "Drive",
+        "fontFamilyName": "Drive Prop Italic",
         "isActive": false,
-        "fontFileName": "DriveVariable.woff2",
-        "cssCodeName": "Drive",
+        "fontFileName": "DrivePropItalicVariable.woff2",
+        "cssCodeName": "Drive Prop Italic",
         "previewText": {
           "isCustom": false,
           "customText": ""
@@ -4172,63 +4334,63 @@ var app = new Vue({
           ],
           "instances": [
             {
-              "name": "Extrabold",
+              "name": "ExtraboldItalic",
               "isActive": false,
               "coordinates": {
                 "wght": 1000
               }
             },
             {
-              "name": "Bold",
+              "name": "BoldItalic",
               "isActive": false,
               "coordinates": {
                 "wght": 861
               }
             },
             {
-              "name": "Medium",
+              "name": "MediumItalic",
               "isActive": false,
               "coordinates": {
                 "wght": 722
               }
             },
             {
-              "name": "Book",
+              "name": "BookItalic",
               "isActive": false,
               "coordinates": {
                 "wght": 583
               }
             },
             {
-              "name": "Regular",
+              "name": "RegularItalic",
               "isActive": false,
               "coordinates": {
                 "wght": 500
               }
             },
             {
-              "name": "Light",
+              "name": "LightItalic",
               "isActive": false,
               "coordinates": {
                 "wght": 390
               }
             },
             {
-              "name": "ExtraLight",
+              "name": "ExtraLightItalic",
               "isActive": false,
               "coordinates": {
                 "wght": 233
               }
             },
             {
-              "name": "Thin",
+              "name": "ThinItalic",
               "isActive": false,
               "coordinates": {
                 "wght": 116
               }
             },
             {
-              "name": "Hairline",
+              "name": "HairlineItalic",
               "isActive": false,
               "coordinates": {
                 "wght": 0
@@ -8337,8 +8499,8 @@ var app = new Vue({
         "fontFileName": "MarkaziText-VF.woff2",
         "cssCodeName": "Markazi Text",
         "previewText": {
-          "isCustom": true,
-          "customText": "ابجد هوز حطي كلمن سعفص قرشت ثخذ ضظغ"
+          "isCustom": false,
+          "customText": ""
         },
         "isVariableFont": true,
         "variableOptions": {
@@ -9050,6 +9212,750 @@ var app = new Vue({
         }
       },
       {
+        "fontFamilyName": "Portada",
+        "isActive": false,
+        "fontFileName": "Portada-VF.woff2",
+        "cssCodeName": "Portada",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": 100,
+              "defaultValue": 400,
+              "maxValue": 1000,
+              "isSelected": 1
+            },
+            {
+              "tag": "opsz",
+              "name": "Optical Size",
+              "minValue": 14,
+              "defaultValue": 14,
+              "maxValue": 36,
+              "isSelected": 2
+            }
+          ],
+          "instances": [
+            {
+              "name": "ExtraBold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000,
+                "opsz": 36
+              }
+            },
+            {
+              "name": "Text Bold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000,
+                "opsz": 14
+              }
+            },
+            {
+              "name": "Text SemiBold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 825,
+                "opsz": 14
+              }
+            },
+            {
+              "name": "Bold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 807,
+                "opsz": 36
+              }
+            },
+            {
+              "name": "SemiBold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 607,
+                "opsz": 36
+              }
+            },
+            {
+              "name": "Text Book",
+              "isActive": false,
+              "coordinates": {
+                "wght": 577,
+                "opsz": 14
+              }
+            },
+            {
+              "name": "Regular",
+              "isActive": false,
+              "coordinates": {
+                "wght": 400,
+                "opsz": 36
+              }
+            },
+            {
+              "name": "Text Regular",
+              "isActive": false,
+              "coordinates": {
+                "wght": 400,
+                "opsz": 14
+              }
+            },
+            {
+              "name": "Light",
+              "isActive": false,
+              "coordinates": {
+                "wght": 250,
+                "opsz": 36
+              }
+            },
+            {
+              "name": "Thin",
+              "isActive": false,
+              "coordinates": {
+                "wght": 100,
+                "opsz": 36
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Veronika Burian, José Scaglione",
+          "publisher": "TypeTogether",
+          "urlText": "type-together.com",
+          "url": "www.type-together.com",
+          "license": "Paid/commercial"
+        }
+      },
+      {
+        "fontFamilyName": "Portada Italic",
+        "isActive": false,
+        "fontFileName": "PortadaItalic-VF.woff2",
+        "cssCodeName": "Portada Italic",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": 100,
+              "defaultValue": 400,
+              "maxValue": 1000,
+              "isSelected": 1
+            },
+            {
+              "tag": "opsz",
+              "name": "Optical Size",
+              "minValue": 14,
+              "defaultValue": 14,
+              "maxValue": 36,
+              "isSelected": 2
+            }
+          ],
+          "instances": [
+            {
+              "name": "ExtraBold Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000,
+                "opsz": 36
+              }
+            },
+            {
+              "name": "Text Bold Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000,
+                "opsz": 14
+              }
+            },
+            {
+              "name": "Text SemiBold Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 825,
+                "opsz": 14
+              }
+            },
+            {
+              "name": "Bold Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 807,
+                "opsz": 36
+              }
+            },
+            {
+              "name": "SemiBold Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 607,
+                "opsz": 36
+              }
+            },
+            {
+              "name": "Text Book Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 577,
+                "opsz": 14
+              }
+            },
+            {
+              "name": "Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 400,
+                "opsz": 36
+              }
+            },
+            {
+              "name": "Default",
+              "isActive": false,
+              "coordinates": {
+                "wght": 400,
+                "opsz": 14
+              }
+            },
+            {
+              "name": "Light Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 250,
+                "opsz": 36
+              }
+            },
+            {
+              "name": "Thin Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 100,
+                "opsz": 36
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Veronika Burian, José Scaglione",
+          "publisher": "TypeTogether",
+          "urlText": "type-together.com",
+          "url": "www.type-together.com",
+          "license": "Paid/commercial"
+        }
+      },
+      {
+        "fontFamilyName": "Protipo",
+        "isActive": false,
+        "fontFileName": "Protipo-VF.woff2",
+        "cssCodeName": "Protipo",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": 0,
+              "defaultValue": 325,
+              "maxValue": 1000,
+              "isSelected": 1
+            },
+            {
+              "tag": "wdth",
+              "name": "Width",
+              "minValue": 0,
+              "defaultValue": 500,
+              "maxValue": 650,
+              "isSelected": 2
+            }
+          ],
+          "instances": [
+            {
+              "name": "Wide Black",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000,
+                "wdth": 650
+              }
+            },
+            {
+              "name": "Black",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000,
+                "wdth": 450
+              }
+            },
+            {
+              "name": "Narrow Black",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000,
+                "wdth": 320
+              }
+            },
+            {
+              "name": "Wide Extrabold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 800,
+                "wdth": 650
+              }
+            },
+            {
+              "name": "Extrabold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 800,
+                "wdth": 450
+              }
+            },
+            {
+              "name": "Narrow Extrabold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 800,
+                "wdth": 320
+              }
+            },
+            {
+              "name": "Wide Bold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 600,
+                "wdth": 650
+              }
+            },
+            {
+              "name": "Bold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 600,
+                "wdth": 450
+              }
+            },
+            {
+              "name": "Narrow Bold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 600,
+                "wdth": 320
+              }
+            },
+            {
+              "name": "Wide Semibold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 450,
+                "wdth": 650
+              }
+            },
+            {
+              "name": "Semibold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 450,
+                "wdth": 450
+              }
+            },
+            {
+              "name": "Narrow Semibold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 450,
+                "wdth": 320
+              }
+            },
+            {
+              "name": "Wide Medium",
+              "isActive": false,
+              "coordinates": {
+                "wght": 325,
+                "wdth": 650
+              }
+            },
+            {
+              "name": "Medium",
+              "isActive": false,
+              "coordinates": {
+                "wght": 325,
+                "wdth": 450
+              }
+            },
+            {
+              "name": "Narrow Medium",
+              "isActive": false,
+              "coordinates": {
+                "wght": 325,
+                "wdth": 320
+              }
+            },
+            {
+              "name": "Wide Regular",
+              "isActive": false,
+              "coordinates": {
+                "wght": 175,
+                "wdth": 650
+              }
+            },
+            {
+              "name": "Regular",
+              "isActive": false,
+              "coordinates": {
+                "wght": 175,
+                "wdth": 450
+              }
+            },
+            {
+              "name": "Narrow Regular",
+              "isActive": false,
+              "coordinates": {
+                "wght": 175,
+                "wdth": 320
+              }
+            },
+            {
+              "name": "Wide Light",
+              "isActive": false,
+              "coordinates": {
+                "wght": 0,
+                "wdth": 650
+              }
+            },
+            {
+              "name": "Light",
+              "isActive": false,
+              "coordinates": {
+                "wght": 0,
+                "wdth": 450
+              }
+            },
+            {
+              "name": "Narrow Light",
+              "isActive": false,
+              "coordinates": {
+                "wght": 0,
+                "wdth": 320
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Veronika Burian, José Scaglione",
+          "publisher": "TypeTogether",
+          "urlText": "type-together.com",
+          "url": "http://www.type-together.com",
+          "license": "Paid/commercial"
+        }
+      },
+      {
+        "fontFamilyName": "Protipo Compact",
+        "isActive": false,
+        "fontFileName": "ProtipoCompact-VF.woff2",
+        "cssCodeName": "Protipo Compact",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": -300,
+              "defaultValue": 0,
+              "maxValue": 1000,
+              "isSelected": 1
+            }
+          ],
+          "instances": [
+            {
+              "name": "Black",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000
+              }
+            },
+            {
+              "name": "Extrabold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 840
+              }
+            },
+            {
+              "name": "Bold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 750
+              }
+            },
+            {
+              "name": "Semibold",
+              "isActive": false,
+              "coordinates": {
+                "wght": 520
+              }
+            },
+            {
+              "name": "Regular",
+              "isActive": false,
+              "coordinates": {
+                "wght": 300
+              }
+            },
+            {
+              "name": "Light",
+              "isActive": false,
+              "coordinates": {
+                "wght": 100
+              }
+            },
+            {
+              "name": "Thin",
+              "isActive": false,
+              "coordinates": {
+                "wght": -90
+              }
+            },
+            {
+              "name": "Hairline",
+              "isActive": false,
+              "coordinates": {
+                "wght": -300
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Veronika Burian, José Scaglione",
+          "publisher": "TypeTogether",
+          "urlText": "type-together.com",
+          "url": "http://www.type-together.com",
+          "license": "Paid/commercial"
+        }
+      },
+      {
+        "fontFamilyName": "Protipo Italic",
+        "isActive": false,
+        "fontFileName": "ProtipoItalic-VF.woff2",
+        "cssCodeName": "Protipo Italic",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": 0,
+              "defaultValue": 325,
+              "maxValue": 1000,
+              "isSelected": 1
+            },
+            {
+              "tag": "wdth",
+              "name": "Width",
+              "minValue": 0,
+              "defaultValue": 500,
+              "maxValue": 650,
+              "isSelected": 2
+            }
+          ],
+          "instances": [
+            {
+              "name": "Wide Black Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000,
+                "wdth": 650
+              }
+            },
+            {
+              "name": "Black Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000,
+                "wdth": 450
+              }
+            },
+            {
+              "name": "Narrow Black Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 1000,
+                "wdth": 320
+              }
+            },
+            {
+              "name": "Wide Extrabold Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 800,
+                "wdth": 650
+              }
+            },
+            {
+              "name": "Extrabold Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 800,
+                "wdth": 450
+              }
+            },
+            {
+              "name": "Narrow Extrabold Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 800,
+                "wdth": 320
+              }
+            },
+            {
+              "name": "Wide Bold Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 600,
+                "wdth": 650
+              }
+            },
+            {
+              "name": "Bold Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 600,
+                "wdth": 450
+              }
+            },
+            {
+              "name": "Narrow Bold Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 600,
+                "wdth": 320
+              }
+            },
+            {
+              "name": "Wide Semibold Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 450,
+                "wdth": 650
+              }
+            },
+            {
+              "name": "Semibold Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 450,
+                "wdth": 450
+              }
+            },
+            {
+              "name": "Narrow Semibold Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 450,
+                "wdth": 320
+              }
+            },
+            {
+              "name": "Wide Medium Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 325,
+                "wdth": 650
+              }
+            },
+            {
+              "name": "Medium Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 325,
+                "wdth": 450
+              }
+            },
+            {
+              "name": "Narrow Medium Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 325,
+                "wdth": 320
+              }
+            },
+            {
+              "name": "Wide Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 175,
+                "wdth": 650
+              }
+            },
+            {
+              "name": "Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 175,
+                "wdth": 450
+              }
+            },
+            {
+              "name": "Narrow Regular Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 175,
+                "wdth": 320
+              }
+            },
+            {
+              "name": "Wide Light Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 0,
+                "wdth": 650
+              }
+            },
+            {
+              "name": "Light Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 0,
+                "wdth": 450
+              }
+            },
+            {
+              "name": "Narrow Light Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 0,
+                "wdth": 320
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Veronika Burian, José Scaglione",
+          "publisher": "TypeTogether",
+          "urlText": "type-together.com",
+          "url": "http://www.type-together.com",
+          "license": "Paid/commercial"
+        }
+      },
+      {
         "fontFamilyName": "Renner*",
         "isActive": false,
         "fontFileName": "renner-VF.woff2",
@@ -9600,87 +10506,6 @@ var app = new Vue({
         }
       },
       {
-        "fontFamilyName": "Source Code Italic",
-        "isActive": false,
-        "fontFileName": "SourceCodeVariable-Italic.woff2",
-        "cssCodeName": "Source Code Italic",
-        "previewText": {
-          "isCustom": false,
-          "customText": ""
-        },
-        "isVariableFont": true,
-        "variableOptions": {
-          "axes": [
-            {
-              "tag": "wght",
-              "name": "Weight",
-              "minValue": 200,
-              "defaultValue": 400,
-              "maxValue": 900,
-              "isSelected": 1
-            }
-          ],
-          "instances": [
-            {
-              "name": "Black Italic",
-              "isActive": false,
-              "coordinates": {
-                "wght": 900
-              }
-            },
-            {
-              "name": "Bold Italic",
-              "isActive": false,
-              "coordinates": {
-                "wght": 700
-              }
-            },
-            {
-              "name": "Semibold Italic",
-              "isActive": false,
-              "coordinates": {
-                "wght": 600
-              }
-            },
-            {
-              "name": "Medium Italic",
-              "isActive": false,
-              "coordinates": {
-                "wght": 500
-              }
-            },
-            {
-              "name": "Italic",
-              "isActive": false,
-              "coordinates": {
-                "wght": 400
-              }
-            },
-            {
-              "name": "Light Italic",
-              "isActive": false,
-              "coordinates": {
-                "wght": 300
-              }
-            },
-            {
-              "name": "ExtraLight Italic",
-              "isActive": false,
-              "coordinates": {
-                "wght": 200
-              }
-            }
-          ]
-        },
-        "fontInfo": {
-          "designer": "Paul D. Hunt, Teo Tuominen",
-          "publisher": "Adobe",
-          "urlText": "github.com",
-          "url": "https://github.com/adobe-fonts/source-code-pro/releases/tag/variable-fonts",
-          "license": "Open source"
-        }
-      },
-      {
         "fontFamilyName": "Source Code",
         "isActive": false,
         "fontFileName": "SourceCodeVariable-Roman.woff2",
@@ -9762,10 +10587,10 @@ var app = new Vue({
         }
       },
       {
-        "fontFamilyName": "Source Sans Italic",
+        "fontFamilyName": "Source Code Italic",
         "isActive": false,
-        "fontFileName": "SourceSansVariable-Italic.woff2",
-        "cssCodeName": "Source Sans Italic",
+        "fontFileName": "SourceCodeVariable-Italic.woff2",
+        "cssCodeName": "Source Code Italic",
         "previewText": {
           "isCustom": false,
           "customText": ""
@@ -9777,7 +10602,7 @@ var app = new Vue({
               "tag": "wght",
               "name": "Weight",
               "minValue": 200,
-              "defaultValue": 200,
+              "defaultValue": 400,
               "maxValue": 900,
               "isSelected": 1
             }
@@ -9805,6 +10630,13 @@ var app = new Vue({
               }
             },
             {
+              "name": "Medium Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 500
+              }
+            },
+            {
               "name": "Italic",
               "isActive": false,
               "coordinates": {
@@ -9828,10 +10660,10 @@ var app = new Vue({
           ]
         },
         "fontInfo": {
-          "designer": "Paul D. Hunt",
+          "designer": "Paul D. Hunt, Teo Tuominen",
           "publisher": "Adobe",
           "urlText": "github.com",
-          "url": "https://github.com/adobe-fonts/source-sans-pro/releases/tag/variable-fonts",
+          "url": "https://github.com/adobe-fonts/source-code-pro/releases/tag/variable-fonts",
           "license": "Open source"
         }
       },
@@ -9894,6 +10726,80 @@ var app = new Vue({
             },
             {
               "name": "ExtraLight",
+              "isActive": false,
+              "coordinates": {
+                "wght": 200
+              }
+            }
+          ]
+        },
+        "fontInfo": {
+          "designer": "Paul D. Hunt",
+          "publisher": "Adobe",
+          "urlText": "github.com",
+          "url": "https://github.com/adobe-fonts/source-sans-pro/releases/tag/variable-fonts",
+          "license": "Open source"
+        }
+      },
+      {
+        "fontFamilyName": "Source Sans Italic",
+        "isActive": false,
+        "fontFileName": "SourceSansVariable-Italic.woff2",
+        "cssCodeName": "Source Sans Italic",
+        "previewText": {
+          "isCustom": false,
+          "customText": ""
+        },
+        "isVariableFont": true,
+        "variableOptions": {
+          "axes": [
+            {
+              "tag": "wght",
+              "name": "Weight",
+              "minValue": 200,
+              "defaultValue": 200,
+              "maxValue": 900,
+              "isSelected": 1
+            }
+          ],
+          "instances": [
+            {
+              "name": "Black Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 900
+              }
+            },
+            {
+              "name": "Bold Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 700
+              }
+            },
+            {
+              "name": "Semibold Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 600
+              }
+            },
+            {
+              "name": "Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 400
+              }
+            },
+            {
+              "name": "Light Italic",
+              "isActive": false,
+              "coordinates": {
+                "wght": 300
+              }
+            },
+            {
+              "name": "ExtraLight Italic",
               "isActive": false,
               "coordinates": {
                 "wght": 200
@@ -10950,7 +11856,7 @@ var app = new Vue({
         title        : "Exported Composition via Font Playground",
         description  : "This composition is created via [Font Playground](https://play.typedetail.com/). \n\n In order to open this composition in Font Playground: go to https://play.typedetail.com/, go to `File` > `Open…`, copy & paste in the URL of this CodePen, click `OK`. \n\n Browse more compositions created via Font Playground, visit https://codepen.io/tag/font_playground/.",
         tags         : tags,
-        editors      : "111", 
+        editors      : "111",
         layout       : "right", // top | left | right
         html         : html,
         css          : css,
@@ -11005,8 +11911,8 @@ var app = new Vue({
     const self = this;
     document.body.addEventListener('keydown', function(e){
       switch(e.key) {
-        case "Backspace": 
-        case "Delete": 
+        case "Backspace":
+        case "Delete":
           e.preventDefault();
           for (var i = self.canvasObjects.length - 1; i >= 0; i--) {
             if (self.canvasObjects[i].isSelected) {
@@ -11058,7 +11964,7 @@ var app = new Vue({
             }
           }
           break;
-      } 
+      }
     });
 
     var allClipboard = new ClipboardJS('.button-copy-all', {
@@ -11192,7 +12098,7 @@ var app = new Vue({
               axes[i]['defaultValue'] = instance.coordinates[tag];
             }
           }
-        } 
+        }
       }
       var instances = this.activeFont.variableOptions.instances;
       for (var i = 0; i < instances.length; i++) {
@@ -11354,7 +12260,7 @@ var app = new Vue({
     captureKeydown: function(event) {
       // this is to capture bubbling keydown event of Backspace or Delete in editing mode
       event.stopPropagation();
-      event.target.removeEventListener('keydown', this.captureKeydown); 
+      event.target.removeEventListener('keydown', this.captureKeydown);
     }
   }
 })

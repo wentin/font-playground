@@ -35,7 +35,7 @@
 </head>
 
 <body class="select-disabled">
-<div id="font-playground-app" :class="{ 
+<div id="font-playground-app" :class="{
   'design-view': appStates.tabs.design.isActive,
   'code-view': appStates.tabs.code.isActive,
   'about-view': appStates.tabs.about.isActive,
@@ -112,12 +112,12 @@
         <div class="font-card" :id="fontFamily.cssCodeName.replace(/ /g,'-')"  :class="{ active: fontFamily.isActive }" v-for="fontFamily in filteredFontFamilies" @click="activateFamily(fontFamily)">
           <h4 class="label-text">{{ fontFamily.fontFamilyName }}</h4>
           <h4 class="badge-text">{{ fontFamily.variableOptions.axes.length }}</h4>
-          <h1 class="font-preview" 
+          <h1 class="font-preview"
             v-if="!fontFamily.previewText.isCustom"
             :style="{fontFamily: fontFamily.cssCodeName}">
             {{ fontFamily.fontFamilyName }}
           </h1>
-          <h1 class="font-preview" 
+          <h1 class="font-preview"
             v-if="fontFamily.previewText.isCustom"
             :style="{fontFamily: fontFamily.cssCodeName}">
             {{ fontFamily.previewText.customText }}
@@ -131,7 +131,7 @@
         <div class="font-card active" @click="scrollIntoView(activeFont)">
           <h4 class="label-text">{{ activeFont.fontFamilyName }}</h4>
           <h4 class="badge-text">{{ activeFont.variableOptions.axes.length }}</h4>
-          <h1 class="font-preview" 
+          <h1 class="font-preview"
             v-if="!activeFont.previewText.isCustom"
             :style="{fontFamily: activeFont.cssCodeName}">
             {{ activeFont.fontFamilyName }}
@@ -163,14 +163,14 @@
   </div>
   <div class="canvas" @click="deselectAllCanvasObject">
     <script type="text/x-template" id="point-type-frame-template">
-      <div class="text-frame" 
-           :class="{ 
+      <div class="text-frame"
+           :class="{
             'area-type': cobject.type == 'area type',
             'point-type': cobject.type == 'point type',
-            'selected': cobject.isSelected, 
-            'vf-optical-size-on': isVFOpticalSizeSupported, 
-            'vf-width-on': isVFWidthSupported, 
-            'vf-slant-on': isVFSlantSupported, 
+            'selected': cobject.isSelected,
+            'vf-optical-size-on': isVFOpticalSizeSupported,
+            'vf-width-on': isVFWidthSupported,
+            'vf-slant-on': isVFSlantSupported,
             'vf-xheight-on': isVFXHeightSupported }"
            :style="textFrameStyles"
            @dblclick="editTextFrame"
@@ -205,7 +205,7 @@
             <div class="tip-text">font width</div>
           </div>
         </div>
-        <div class="controls--vf-width" 
+        <div class="controls--vf-width"
         @mousedown="controlVFWidthInitDrag"
         @touchstart="controlVFWidthInitDrag">
           <div class="vf-width-line"></div>
@@ -245,7 +245,7 @@
             <div class="tip-text">font size</div>
           </div>
         </div>
-        <div class="controls--contrast"> 
+        <div class="controls--contrast">
           <div class="contrast-value">2.0</div>
           <div class="contrast-bracket"></div>
         </div>
@@ -264,12 +264,12 @@
         </div>
       </div>
     </script>
-    <point-type-frame 
-      :id="canvasObject.id" 
-      :cobject="canvasObject" 
-      v-for="canvasObject in canvasObjects" 
-      @change="handleCanvasObjectChange" 
-      @click.native.stop="selectCanvasObject(canvasObject)" 
+    <point-type-frame
+      :id="canvasObject.id"
+      :cobject="canvasObject"
+      v-for="canvasObject in canvasObjects"
+      @change="handleCanvasObjectChange"
+      @click.native.stop="selectCanvasObject(canvasObject)"
       @touchstart.native.stop="selectCanvasObject(canvasObject)"
       @update="canvasObject.properties.text = $event"></point-type-frame>
       <!-- <pre>{{canvasObjects}}</pre> -->
@@ -317,7 +317,7 @@
       <code id="code" class="select-enabled">
         <span>{{cssFontFaces}}</span>
         <span class="css-for-canvas-object"
-          :class="{highlight: canvasObject.isSelected}" 
+          :class="{highlight: canvasObject.isSelected}"
           v-for="canvasObject in canvasObjects"
           @click="handleCSSCanvasObjectClick(canvasObject)"
           @mouseover="highLightCanvasObject(canvasObject)"

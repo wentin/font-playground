@@ -1,5 +1,5 @@
-$assetPath : "https://fonts.typedetail.com/";
-// $assetPath : "../fonts/";
+// $assetPath : "https://fonts.typedetail.com/";
+$assetPath : "../fonts/";
 
 @font-face {
   src: url('#{$assetPath}AdobeVFPrototype.woff2');
@@ -12,13 +12,13 @@ $assetPath : "https://fonts.typedetail.com/";
   font-style: normal;
 }
 @font-face {
-  src: url('#{$assetPath}AngusVariableItalic.woff2');
-  font-family:'Angus Italic';
+  src: url('#{$assetPath}AngusVariable.woff2');
+  font-family:'Angus';
   font-style: normal;
 }
 @font-face {
-  src: url('#{$assetPath}AngusVariable.woff2');
-  font-family:'Angus';
+  src: url('#{$assetPath}AngusVariableItalic.woff2');
+  font-family:'Angus Italic';
   font-style: normal;
 }
 @font-face {
@@ -37,13 +37,23 @@ $assetPath : "https://fonts.typedetail.com/";
   font-style: normal;
 }
 @font-face {
+  src: url('#{$assetPath}BluuSuuperstarVariable.woff2');
+  font-family:'Bluu Suuperstar';
+  font-style: normal;
+}
+@font-face {
   src: url('#{$assetPath}BluuSuuperstarVariableItalic.woff2');
   font-family:'Bluu Suuperstar Italic';
   font-style: normal;
 }
 @font-face {
-  src: url('#{$assetPath}BluuSuuperstarVariable.woff2');
-  font-family:'Bluu Suuperstar';
+  src: url('#{$assetPath}Bree-VF.woff2');
+  font-family:'Bree';
+  font-style: normal;
+}
+@font-face {
+  src: url('#{$assetPath}BreeOblique-VF.woff2');
+  font-family:'Bree Oblique';
   font-style: normal;
 }
 @font-face {
@@ -67,13 +77,13 @@ $assetPath : "https://fonts.typedetail.com/";
   font-style: normal;
 }
 @font-face {
-  src: url('#{$assetPath}DriveItalicVariable.woff2');
-  font-family:'Drive Italic';
+  src: url('#{$assetPath}DriveVariable.woff2');
+  font-family:'Drive';
   font-style: normal;
 }
 @font-face {
-  src: url('#{$assetPath}DriveMonoVariableItalic.woff2');
-  font-family:'Drive Mono Italic';
+  src: url('#{$assetPath}DriveItalicVariable.woff2');
+  font-family:'Drive Italic';
   font-style: normal;
 }
 @font-face {
@@ -82,8 +92,8 @@ $assetPath : "https://fonts.typedetail.com/";
   font-style: normal;
 }
 @font-face {
-  src: url('#{$assetPath}DrivePropItalicVariable.woff2');
-  font-family:'Drive Prop Italic';
+  src: url('#{$assetPath}DriveMonoVariableItalic.woff2');
+  font-family:'Drive Mono Italic';
   font-style: normal;
 }
 @font-face {
@@ -92,8 +102,8 @@ $assetPath : "https://fonts.typedetail.com/";
   font-style: normal;
 }
 @font-face {
-  src: url('#{$assetPath}DriveVariable.woff2');
-  font-family:'Drive';
+  src: url('#{$assetPath}DrivePropItalicVariable.woff2');
+  font-family:'Drive Prop Italic';
   font-style: normal;
 }
 @font-face {
@@ -217,6 +227,31 @@ $assetPath : "https://fonts.typedetail.com/";
   font-style: normal;
 }
 @font-face {
+  src: url('#{$assetPath}Portada-VF.woff2');
+  font-family:'Portada';
+  font-style: normal;
+}
+@font-face {
+  src: url('#{$assetPath}PortadaItalic-VF.woff2');
+  font-family:'Portada Italic';
+  font-style: normal;
+}
+@font-face {
+  src: url('#{$assetPath}Protipo-VF.woff2');
+  font-family:'Protipo';
+  font-style: normal;
+}
+@font-face {
+  src: url('#{$assetPath}ProtipoCompact-VF.woff2');
+  font-family:'Protipo Compact';
+  font-style: normal;
+}
+@font-face {
+  src: url('#{$assetPath}ProtipoItalic-VF.woff2');
+  font-family:'Protipo Italic';
+  font-style: normal;
+}
+@font-face {
   src: url('#{$assetPath}renner-VF.woff2');
   font-family:'Renner';
   font-style: normal;
@@ -257,23 +292,23 @@ $assetPath : "https://fonts.typedetail.com/";
   font-style: normal;
 }
 @font-face {
-  src: url('#{$assetPath}SourceCodeVariable-Italic.woff2');
-  font-family:'Source Code Italic';
-  font-style: normal;
-}
-@font-face {
   src: url('#{$assetPath}SourceCodeVariable-Roman.woff2');
   font-family:'Source Code';
   font-style: normal;
 }
 @font-face {
-  src: url('#{$assetPath}SourceSansVariable-Italic.woff2');
-  font-family:'Source Sans Italic';
+  src: url('#{$assetPath}SourceCodeVariable-Italic.woff2');
+  font-family:'Source Code Italic';
   font-style: normal;
 }
 @font-face {
   src: url('#{$assetPath}SourceSansVariable-Roman.woff2');
   font-family:'Source Sans';
+  font-style: normal;
+}
+@font-face {
+  src: url('#{$assetPath}SourceSansVariable-Italic.woff2');
+  font-family:'Source Sans Italic';
   font-style: normal;
 }
 @font-face {
