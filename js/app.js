@@ -11441,61 +11441,51 @@ var app = new Vue({
         }
       }
     ],
-    canvasObjects: [
+    canvasObjects:    [
       {
         "type": "point type",
         "isSelected": false,
         "id": "text1",
         "properties": {
-          "left": 153,
-          "top": 110,
-          "text": "Playground",
-          "fontSize": "119",
-          "cssCodeName": "Extraordinaire Shade",
+          "left": 31,
+          "top": 387,
+          "cssCodeName": "Bree",
           "isVariableFont": true,
+          "text": "Bree",
+          "fontSize": "62",
           "variableOptions": {
             "axes": [
               {
                 "tag": "wght",
                 "name": "Weight",
-                "minValue": 100,
-                "defaultValue": 400,
-                "maxValue": 400,
+                "minValue": 0,
+                "defaultValue": "0",
+                "maxValue": 1000,
                 "isSelected": 1
-              },
-              {
-                "tag": "SHDW",
-                "name": "Shade Distance",
-                "minValue": 30,
-                "defaultValue": 30,
-                "maxValue": 60,
-                "isSelected": 2
               }
             ]
           }
         }
       },
       {
-        "type": "area type",
+        "type": "point type",
         "isSelected": false,
         "id": "text2",
         "properties": {
-          "width": 458,
-          "height": 89,
-          "left": 162,
-          "top": 254,
-          "text": "The most fun place to experiment with layouts using variable fonts, and export front-end code right from this little web app.",
-          "fontSize": "27",
-          "cssCodeName": "Markazi Text",
+          "left": 192,
+          "top": 386,
+          "cssCodeName": "Bree Oblique",
           "isVariableFont": true,
+          "text": "Bree Oblique",
+          "fontSize": "62",
           "variableOptions": {
             "axes": [
               {
                 "tag": "wght",
                 "name": "Weight",
-                "minValue": 400,
-                "defaultValue": "450",
-                "maxValue": 700,
+                "minValue": 0,
+                "defaultValue": "1000",
+                "maxValue": 1000,
                 "isSelected": 1
               }
             ]
@@ -11507,28 +11497,28 @@ var app = new Vue({
         "isSelected": false,
         "id": "text3",
         "properties": {
-          "left": 23,
-          "top": 35,
-          "cssCodeName": "Cheee",
+          "left": 30,
+          "top": 498,
+          "cssCodeName": "Portada",
           "isVariableFont": true,
-          "text": "Font",
-          "fontSize": 100,
+          "text": "Portada",
+          "fontSize": "62",
           "variableOptions": {
             "axes": [
               {
-                "tag": "yest",
-                "name": "Yeast",
-                "minValue": 0,
-                "defaultValue": "100.00",
+                "tag": "wght",
+                "name": "Weight",
+                "minValue": 100,
+                "defaultValue": "1000",
                 "maxValue": 1000,
                 "isSelected": 1
               },
               {
-                "tag": "gvty",
-                "name": "Gravity",
-                "minValue": 0,
-                "defaultValue": "355.00",
-                "maxValue": 1000,
+                "tag": "opsz",
+                "name": "Optical Size",
+                "minValue": 14,
+                "defaultValue": "36",
+                "maxValue": 36,
                 "isSelected": 2
               }
             ]
@@ -11537,31 +11527,31 @@ var app = new Vue({
       },
       {
         "type": "point type",
-        "isSelected": true,
+        "isSelected": false,
         "id": "text4",
         "properties": {
-          "left": 29,
-          "top": 355,
-          "cssCodeName": "Merit Badge",
+          "left": 303,
+          "top": 497,
+          "cssCodeName": "Portada Italic",
           "isVariableFont": true,
-          "text": "Come",
-          "fontSize": 100,
+          "text": "Portada Italic",
+          "fontSize": "62",
           "variableOptions": {
             "axes": [
               {
-                "tag": "SANS",
-                "name": "Sans serif forms",
-                "minValue": 0,
-                "defaultValue": 0,
-                "maxValue": 1,
+                "tag": "wght",
+                "name": "Weight",
+                "minValue": 100,
+                "defaultValue": "100",
+                "maxValue": 1000,
                 "isSelected": 1
               },
               {
-                "tag": "wght",
-                "name": "Weight",
-                "minValue": 200,
-                "defaultValue": 400,
-                "maxValue": 500,
+                "tag": "opsz",
+                "name": "Optical Size",
+                "minValue": 14,
+                "defaultValue": "36",
+                "maxValue": 36,
                 "isSelected": 2
               }
             ]
@@ -11573,40 +11563,29 @@ var app = new Vue({
         "isSelected": false,
         "id": "text5",
         "properties": {
-          "left": 372,
-          "top": 441,
-          "cssCodeName": "Dunbar",
+          "left": 29,
+          "top": 594,
+          "cssCodeName": "Protipo",
           "isVariableFont": true,
-          "text": "Play",
-          "fontSize": 100,
+          "text": "Protipo",
+          "fontSize": "62",
           "variableOptions": {
             "axes": [
               {
                 "tag": "wght",
                 "name": "Weight",
-                "minValue": 100,
-                "defaultValue": 500,
-                "maxValue": 900,
+                "minValue": 0,
+                "defaultValue": "1000",
+                "maxValue": 1000,
                 "isSelected": 1
               },
               {
-                "tag": "XHGT",
-                "name": "xHeight",
-                "minValue": 353,
+                "tag": "wdth",
+                "name": "Width",
+                "minValue": 0,
                 "defaultValue": 500,
-                "maxValue": 574,
-                "isSelected": 2,
-                "minPositionY": 0.571,
-                "maxPositionY": 0.35,
-                "baselinePostionY": 0.924
-              },
-              {
-                "tag": "opsz",
-                "name": "Optical Size",
-                "minValue": 10,
-                "defaultValue": 36,
-                "maxValue": 36,
-                "isSelected": 0
+                "maxValue": 650,
+                "isSelected": 2
               }
             ]
           }
@@ -11617,37 +11596,21 @@ var app = new Vue({
         "isSelected": false,
         "id": "text6",
         "properties": {
-          "left": 261,
-          "top": 411,
-          "cssCodeName": "Louvette Italic Beta",
+          "left": 305,
+          "top": 595,
+          "cssCodeName": "Protipo Compact",
           "isVariableFont": true,
-          "text": "&",
-          "fontSize": 100,
+          "text": "Protipo Compact",
+          "fontSize": "62",
           "variableOptions": {
             "axes": [
               {
                 "tag": "wght",
                 "name": "Weight",
-                "minValue": 300,
-                "defaultValue": 300,
+                "minValue": -300,
+                "defaultValue": "-300",
                 "maxValue": 1000,
                 "isSelected": 1
-              },
-              {
-                "tag": "yopq",
-                "name": "Hairline",
-                "minValue": 14,
-                "defaultValue": 100,
-                "maxValue": 100,
-                "isSelected": 2
-              },
-              {
-                "tag": "ytde",
-                "name": "Descender",
-                "minValue": 14,
-                "defaultValue": 100,
-                "maxValue": 100,
-                "isSelected": 0
               }
             ]
           }
@@ -11656,47 +11619,114 @@ var app = new Vue({
       {
         "type": "point type",
         "isSelected": false,
-        "id": "text7",
+        "id": "text8",
         "properties": {
-          "left": 576,
-          "top": 408,
-          "cssCodeName": "Lab",
+          "left": 731,
+          "top": 597,
+          "cssCodeName": "Protipo Italic",
           "isVariableFont": true,
-          "text": "!",
-          "fontSize": "95",
+          "text": "Protipo Italic",
+          "fontSize": "62",
           "variableOptions": {
             "axes": [
               {
-                "tag": "BEVL",
-                "name": "Bevel",
+                "tag": "wght",
+                "name": "Weight",
                 "minValue": 0,
-                "defaultValue": 0,
+                "defaultValue": "0",
                 "maxValue": 1000,
                 "isSelected": 1
               },
               {
-                "tag": "OVAL",
-                "name": "Oval",
+                "tag": "wdth",
+                "name": "Width",
                 "minValue": 0,
-                "defaultValue": 0,
-                "maxValue": 1000,
+                "defaultValue": "650",
+                "maxValue": 650,
                 "isSelected": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "point type",
+        "isSelected": false,
+        "id": "text9",
+        "properties": {
+          "left": 102,
+          "top": 51,
+          "cssCodeName": "Portada",
+          "isVariableFont": true,
+          "text": "Let’s",
+          "fontSize": "56",
+          "variableOptions": {
+            "axes": [
+              {
+                "tag": "wght",
+                "name": "Weight",
+                "minValue": 100,
+                "defaultValue": "1000",
+                "maxValue": 1000,
+                "isSelected": 1
               },
               {
-                "tag": "QUAD",
-                "name": "Quad",
-                "minValue": 0,
-                "defaultValue": 0,
-                "maxValue": 1000,
-                "isSelected": 0
-              },
+                "tag": "opsz",
+                "name": "Optical Size",
+                "minValue": 14,
+                "defaultValue": 14,
+                "maxValue": 36,
+                "isSelected": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "point type",
+        "isSelected": true,
+        "id": "text10",
+        "properties": {
+          "left": 23,
+          "top": 106,
+          "cssCodeName": "Bree Oblique",
+          "isVariableFont": true,
+          "text": "TypeTogether!",
+          "fontSize": "118",
+          "variableOptions": {
+            "axes": [
               {
-                "tag": "SIZE",
-                "name": "Size",
+                "tag": "wght",
+                "name": "Weight",
                 "minValue": 0,
-                "defaultValue": 0,
+                "defaultValue": "1000",
                 "maxValue": 1000,
-                "isSelected": 0
+                "isSelected": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "point type",
+        "isSelected": false,
+        "id": "text11",
+        "properties": {
+          "left": 35,
+          "top": 317,
+          "cssCodeName": "Protipo Compact",
+          "isVariableFont": true,
+          "text": "Play with new fonts, designed by TypeTogether:",
+          "fontSize": "23",
+          "variableOptions": {
+            "axes": [
+              {
+                "tag": "wght",
+                "name": "Weight",
+                "minValue": -300,
+                "defaultValue": 300,
+                "maxValue": 1000,
+                "isSelected": 1
               }
             ]
           }
