@@ -12025,6 +12025,7 @@ var app = new Vue({
 
     },
     newFile: function () {
+      this.canvasObjectsCounter = 0;
       this.canvasObjects = [];
     },
     openFile: function(paramURL) {
