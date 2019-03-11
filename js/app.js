@@ -12555,47 +12555,6 @@ var app = new Vue({
       {
         "type": "point type",
         "isSelected": false,
-        "id": "text7",
-        "properties": {
-          "left": 1257,
-          "top": 360,
-          "cssCodeName": "Jabin",
-          "isVariableFont": true,
-          "text": "‡\n",
-          "fontSize": "166",
-          "variableOptions": {
-            "axes": [
-              {
-                "tag": "wght",
-                "name": "Weight",
-                "minValue": 40,
-                "defaultValue": 40,
-                "maxValue": 120,
-                "isSelected": 1
-              },
-              {
-                "tag": "wdth",
-                "name": "Width",
-                "minValue": 0,
-                "defaultValue": 0,
-                "maxValue": 100,
-                "isSelected": 2
-              },
-              {
-                "tag": "XXXX",
-                "name": "Custom",
-                "minValue": 1,
-                "defaultValue": 1,
-                "maxValue": 100,
-                "isSelected": 0
-              }
-            ]
-          }
-        }
-      },
-      {
-        "type": "point type",
-        "isSelected": false,
         "id": "text8",
         "properties": {
           "left": 183,
