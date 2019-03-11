@@ -47,6 +47,11 @@ $assetPath : "https://fonts.typedetail.com/";
   font-style: normal;
 }
 @font-face {
+  src: url('#{$assetPath}BradleyDJR-VF.woff2');
+  font-family:'Bradley DJR Variable';
+  font-style: normal;
+}
+@font-face {
   src: url('#{$assetPath}Bree-VF.woff2');
   font-family:'Bree';
   font-style: normal;
@@ -69,6 +74,11 @@ $assetPath : "https://fonts.typedetail.com/";
 @font-face {
   src: url('#{$assetPath}CompressaPRO-GX.woff2');
   font-family:'Compressa';
+  font-style: normal;
+}
+@font-face {
+  src: url('#{$assetPath}Condor-VF.woff2');
+  font-family:'Condor';
   font-style: normal;
 }
 @font-face {
@@ -192,6 +202,11 @@ $assetPath : "https://fonts.typedetail.com/";
   font-style: normal;
 }
 @font-face {
+  src: url('#{$assetPath}MapRoman-VF.woff2');
+  font-family:'Map Roman Variable';
+  font-style: normal;
+}
+@font-face {
   src: url('#{$assetPath}MarkaziText-VF.woff2');
   font-family:'Markazi Text';
   font-style: normal;
@@ -224,6 +239,11 @@ $assetPath : "https://fonts.typedetail.com/";
 @font-face {
   src: url('#{$assetPath}Pappardelle-VF.woff2');
   font-family:'Pappardelle';
+  font-style: normal;
+}
+@font-face {
+  src: url('#{$assetPath}PappardelleParty-VF.woff2');
+  font-family:'Pappardelle Party Regular';
   font-style: normal;
 }
 @font-face {
@@ -264,6 +284,11 @@ $assetPath : "https://fonts.typedetail.com/";
 @font-face {
   src: url('#{$assetPath}RoslindaleVariableBeta-VF.woff2');
   font-family:'Roslindale Beta';
+  font-style: normal;
+}
+@font-face {
+  src: url('#{$assetPath}RoslindaleBetaItalic-VF.woff2');
+  font-family:'Roslindale Variable Italic Beta';
   font-style: normal;
 }
 @font-face {
@@ -319,6 +344,16 @@ $assetPath : "https://fonts.typedetail.com/";
 @font-face {
   src: url('#{$assetPath}SpookyVariable.woff2');
   font-family:'Spooky';
+  font-style: normal;
+}
+@font-face {
+  src: url('#{$assetPath}Trilby-VF.woff2');
+  font-family:'Trilby';
+  font-style: normal;
+}
+@font-face {
+  src: url('#{$assetPath}TrilbyItalic-VF.woff2');
+  font-family:'Trilby Italic';
   font-style: normal;
 }
 @font-face {

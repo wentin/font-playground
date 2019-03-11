@@ -1253,6 +1253,66 @@
     }
   },
   {
+    "fontFamilyName": "Bradley DJR",
+    "isActive": false,
+    "fontFileName": "BradleyDJR-VF.woff2",
+    "cssCodeName": "Bradley DJR Variable",
+    "previewText": {
+      "isCustom": false,
+      "customText": ""
+    },
+    "isVariableFont": true,
+    "variableOptions": {
+      "axes": [
+        {
+          "tag": "opsz",
+          "name": "Optical Size",
+          "minValue": 6,
+          "defaultValue": 24,
+          "maxValue": 60,
+          "isSelected": 1
+        }
+      ],
+      "instances": [
+        {
+          "name": "Display",
+          "isActive": false,
+          "coordinates": {
+            "opsz": 60
+          }
+        },
+        {
+          "name": "Regular",
+          "isActive": false,
+          "coordinates": {
+            "opsz": 24
+          }
+        },
+        {
+          "name": "Small",
+          "isActive": false,
+          "coordinates": {
+            "opsz": 9.600015259021896
+          }
+        },
+        {
+          "name": "Micro",
+          "isActive": false,
+          "coordinates": {
+            "opsz": 6
+          }
+        }
+      ]
+    },
+    "fontInfo": {
+      "designer": "David Jonathan Ross",
+      "publisher": "DJR",
+      "urlText": "djr.com",
+      "url": "https://djr.com",
+      "license": "Paid/commercial"
+    }
+  },
+  {
     "fontFamilyName": "Bree",
     "isActive": false,
     "fontFileName": "Bree-VF.woff2",
@@ -2390,6 +2450,596 @@
       "urlText": "preusstype.com",
       "url": "https://compressa.preusstype.com/",
       "license": "Paid/commercial, Trial"
+    }
+  },
+  {
+    "fontFamilyName": "Condor",
+    "isActive": false,
+    "fontFileName": "Condor-VF.woff2",
+    "cssCodeName": "Condor",
+    "previewText": {
+      "isCustom": false,
+      "customText": ""
+    },
+    "isVariableFont": true,
+    "variableOptions": {
+      "axes": [
+        {
+          "tag": "wght",
+          "name": "Weight",
+          "minValue": 200,
+          "defaultValue": 400,
+          "maxValue": 900,
+          "isSelected": 1
+        },
+        {
+          "tag": "wdth",
+          "name": "Width",
+          "minValue": 50,
+          "defaultValue": 100,
+          "maxValue": 175,
+          "isSelected": 2
+        },
+        {
+          "tag": "ital",
+          "name": "Italic",
+          "minValue": 0,
+          "defaultValue": 0,
+          "maxValue": 1,
+          "isSelected": 0,
+          "minAngle": 0,
+          "maxAngle": 10
+        }
+      ],
+      "instances": [
+        {
+          "name": "Extended Black Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 900,
+            "wdth": 175,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Extended Black",
+          "isActive": false,
+          "coordinates": {
+            "wght": 900,
+            "wdth": 175,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Wide Black Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 900,
+            "wdth": 140,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Wide Black",
+          "isActive": false,
+          "coordinates": {
+            "wght": 900,
+            "wdth": 140,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Black Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 900,
+            "wdth": 100,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Black",
+          "isActive": false,
+          "coordinates": {
+            "wght": 900,
+            "wdth": 100,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Condensed Black Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 900,
+            "wdth": 75,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Condensed Black",
+          "isActive": false,
+          "coordinates": {
+            "wght": 900,
+            "wdth": 75,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Compressed Black Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 900,
+            "wdth": 50,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Compressed Black",
+          "isActive": false,
+          "coordinates": {
+            "wght": 900,
+            "wdth": 50,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Extended Bold Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 758.8800183108262,
+            "wdth": 175,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Extended Bold",
+          "isActive": false,
+          "coordinates": {
+            "wght": 758.8800183108262,
+            "wdth": 175,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Wide Bold Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 758.8800183108262,
+            "wdth": 140,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Wide Bold",
+          "isActive": false,
+          "coordinates": {
+            "wght": 758.8800183108262,
+            "wdth": 140,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Bold Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 758.8800183108262,
+            "wdth": 100,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Bold",
+          "isActive": false,
+          "coordinates": {
+            "wght": 758.8800183108262,
+            "wdth": 100,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Condensed Bold Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 758.8800183108262,
+            "wdth": 75,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Condensed Bold",
+          "isActive": false,
+          "coordinates": {
+            "wght": 758.8800183108262,
+            "wdth": 75,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Compressed Bold Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 758.8800183108262,
+            "wdth": 50,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Compressed Bold",
+          "isActive": false,
+          "coordinates": {
+            "wght": 758.8800183108262,
+            "wdth": 50,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Extended Medium Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 567.6600137331197,
+            "wdth": 175,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Extended Medium",
+          "isActive": false,
+          "coordinates": {
+            "wght": 567.6600137331197,
+            "wdth": 175,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Wide Medium Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 567.6600137331197,
+            "wdth": 140,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Wide Medium",
+          "isActive": false,
+          "coordinates": {
+            "wght": 567.6600137331197,
+            "wdth": 140,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Medium Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 567.6600137331197,
+            "wdth": 100,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Medium",
+          "isActive": false,
+          "coordinates": {
+            "wght": 567.6600137331197,
+            "wdth": 100,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Condensed Medium Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 567.6600137331197,
+            "wdth": 75,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Condensed Medium",
+          "isActive": false,
+          "coordinates": {
+            "wght": 567.6600137331197,
+            "wdth": 75,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Compressed Medium Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 567.6600137331197,
+            "wdth": 50,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Compressed Medium",
+          "isActive": false,
+          "coordinates": {
+            "wght": 567.6600137331197,
+            "wdth": 50,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Extended Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 400,
+            "wdth": 175,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Extended",
+          "isActive": false,
+          "coordinates": {
+            "wght": 400,
+            "wdth": 175,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Wide Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 400,
+            "wdth": 140,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Wide",
+          "isActive": false,
+          "coordinates": {
+            "wght": 400,
+            "wdth": 140,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 400,
+            "wdth": 100,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Regular",
+          "isActive": false,
+          "coordinates": {
+            "wght": 400,
+            "wdth": 100,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Condensed Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 400,
+            "wdth": 75,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Condensed",
+          "isActive": false,
+          "coordinates": {
+            "wght": 400,
+            "wdth": 75,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Compressed Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 400,
+            "wdth": 50,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Compressed",
+          "isActive": false,
+          "coordinates": {
+            "wght": 400,
+            "wdth": 50,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Extended Light Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 267.24000915541313,
+            "wdth": 175,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Extended Light",
+          "isActive": false,
+          "coordinates": {
+            "wght": 267.24000915541313,
+            "wdth": 175,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Wide Light Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 267.24000915541313,
+            "wdth": 140,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Wide Light",
+          "isActive": false,
+          "coordinates": {
+            "wght": 267.24000915541313,
+            "wdth": 140,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Light Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 267.24000915541313,
+            "wdth": 100,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Light",
+          "isActive": false,
+          "coordinates": {
+            "wght": 267.24000915541313,
+            "wdth": 100,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Condensed Light Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 267.24000915541313,
+            "wdth": 75,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Condensed Light",
+          "isActive": false,
+          "coordinates": {
+            "wght": 267.24000915541313,
+            "wdth": 75,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Compressed Light Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 267.24000915541313,
+            "wdth": 50,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Compressed Light",
+          "isActive": false,
+          "coordinates": {
+            "wght": 267.24000915541313,
+            "wdth": 50,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Extended Extra Light Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 200,
+            "wdth": 175,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Extended Extra Light",
+          "isActive": false,
+          "coordinates": {
+            "wght": 200,
+            "wdth": 175,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Wide Extra Light Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 200,
+            "wdth": 140,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Wide Extra Light",
+          "isActive": false,
+          "coordinates": {
+            "wght": 200,
+            "wdth": 140,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Extra Light Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 200,
+            "wdth": 100,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Extra Light",
+          "isActive": false,
+          "coordinates": {
+            "wght": 200,
+            "wdth": 100,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Condensed Extra Light Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 200,
+            "wdth": 75,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Condensed Extra Light",
+          "isActive": false,
+          "coordinates": {
+            "wght": 200,
+            "wdth": 75,
+            "ital": 0
+          }
+        },
+        {
+          "name": "Compressed Extra Light Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 200,
+            "wdth": 50,
+            "ital": 1
+          }
+        },
+        {
+          "name": "Compressed Extra Light",
+          "isActive": false,
+          "coordinates": {
+            "wght": 200,
+            "wdth": 50,
+            "ital": 0
+          }
+        }
+      ]
+    },
+    "fontInfo": {
+      "designer": "David Jonathan Ross",
+      "publisher": "The Font Bureau Inc.",
+      "urlText": "fontbureau.com",
+      "url": "http://www.fontbureau.com/people/DavidJonathanRoss",
+      "license": "Paid/commercial"
     }
   },
   {
@@ -7551,6 +8201,59 @@
     }
   },
   {
+    "fontFamilyName": "Map Roman",
+    "isActive": false,
+    "fontFileName": "MapRoman-VF.woff2",
+    "cssCodeName": "Map Roman Variable",
+    "previewText": {
+      "isCustom": false,
+      "customText": ""
+    },
+    "isVariableFont": true,
+    "variableOptions": {
+      "axes": [
+        {
+          "tag": "wdth",
+          "name": "Width",
+          "minValue": 75,
+          "defaultValue": 100,
+          "maxValue": 100,
+          "isSelected": 1
+        }
+      ],
+      "instances": [
+        {
+          "name": "Normal",
+          "isActive": false,
+          "coordinates": {
+            "wdth": 100
+          }
+        },
+        {
+          "name": "Narrow",
+          "isActive": false,
+          "coordinates": {
+            "wdth": 87.50000762951095
+          }
+        },
+        {
+          "name": "Condensed",
+          "isActive": false,
+          "coordinates": {
+            "wdth": 75
+          }
+        }
+      ]
+    },
+    "fontInfo": {
+      "designer": "David Jonathan Ross",
+      "publisher": "DJR",
+      "urlText": "djr.com",
+      "url": "http://www.djr.com",
+      "license": "Paid/commercial"
+    }
+  },
+  {
     "fontFamilyName": "Markazi Text",
     "isActive": false,
     "fontFileName": "MarkaziText-VF.woff2",
@@ -7644,64 +8347,64 @@
           "name": "Sans Bold",
           "isActive": false,
           "coordinates": {
-            "SANS": 1,
-            "wght": 500
+            "wght": 500,
+            "SANS": 1
           }
         },
         {
           "name": "Sans Regular",
           "isActive": false,
           "coordinates": {
-            "SANS": 1,
-            "wght": 400
+            "wght": 400,
+            "SANS": 1
           }
         },
         {
           "name": "Sans Light",
           "isActive": false,
           "coordinates": {
-            "SANS": 1,
-            "wght": 300
+            "wght": 300,
+            "SANS": 1
           }
         },
         {
           "name": "Sans Thin",
           "isActive": false,
           "coordinates": {
-            "SANS": 1,
-            "wght": 200
+            "wght": 200,
+            "SANS": 1
           }
         },
         {
           "name": "Bold",
           "isActive": false,
           "coordinates": {
-            "SANS": 0,
-            "wght": 500
+            "wght": 500,
+            "SANS": 0
           }
         },
         {
           "name": "Regular",
           "isActive": false,
           "coordinates": {
-            "SANS": 0,
-            "wght": 400
+            "wght": 400,
+            "SANS": 0
           }
         },
         {
           "name": "Light",
           "isActive": false,
           "coordinates": {
-            "SANS": 0,
-            "wght": 300
+            "wght": 300,
+            "SANS": 0
           }
         },
         {
           "name": "Thin",
           "isActive": false,
           "coordinates": {
-            "SANS": 0,
-            "wght": 200
+            "wght": 200,
+            "SANS": 0
           }
         }
       ]
@@ -8265,6 +8968,66 @@
       "publisher": "DJR",
       "urlText": "djr.com",
       "url": "https://djr.com/notes/pappardelle-font-of-the-month/",
+      "license": "Paid/commercial"
+    }
+  },
+  {
+    "fontFamilyName": "Pappardelle Party",
+    "isActive": false,
+    "fontFileName": "PappardelleParty-VF.woff2",
+    "cssCodeName": "Pappardelle Party Regular",
+    "previewText": {
+      "isCustom": false,
+      "customText": ""
+    },
+    "isVariableFont": true,
+    "variableOptions": {
+      "axes": [
+        {
+          "tag": "SPIN",
+          "name": "Color Spinner",
+          "minValue": 0,
+          "defaultValue": 0,
+          "maxValue": 4,
+          "isSelected": 1
+        }
+      ],
+      "instances": [
+        {
+          "name": "Color Spinner 3",
+          "isActive": false,
+          "coordinates": {
+            "SPIN": 3
+          }
+        },
+        {
+          "name": "Color Spinner 2",
+          "isActive": false,
+          "coordinates": {
+            "SPIN": 2
+          }
+        },
+        {
+          "name": "Color Spinner 1",
+          "isActive": false,
+          "coordinates": {
+            "SPIN": 1
+          }
+        },
+        {
+          "name": "Regular",
+          "isActive": false,
+          "coordinates": {
+            "SPIN": 0
+          }
+        }
+      ]
+    },
+    "fontInfo": {
+      "designer": "David Jonathan Ross",
+      "publisher": "DJR",
+      "urlText": "djr.com",
+      "url": "https://djr.com",
       "license": "Paid/commercial"
     }
   },
@@ -9095,45 +9858,45 @@
           "name": "Black",
           "isActive": false,
           "coordinates": {
+            "wght": 800,
             "DESC": 0,
-            "ASCN": 0,
-            "wght": 800
+            "ASCN": 0
           }
         },
         {
           "name": "Bold",
           "isActive": false,
           "coordinates": {
+            "wght": 700,
             "DESC": 0,
-            "ASCN": 0,
-            "wght": 700
+            "ASCN": 0
           }
         },
         {
           "name": "Medium",
           "isActive": false,
           "coordinates": {
+            "wght": 500,
             "DESC": 0,
-            "ASCN": 0,
-            "wght": 500
+            "ASCN": 0
           }
         },
         {
           "name": "Regular",
           "isActive": false,
           "coordinates": {
+            "wght": 400,
             "DESC": 0,
-            "ASCN": 0,
-            "wght": 400
+            "ASCN": 0
           }
         },
         {
           "name": "Light",
           "isActive": false,
           "coordinates": {
+            "wght": 300,
             "DESC": 0,
-            "ASCN": 0,
-            "wght": 300
+            "ASCN": 0
           }
         }
       ]
@@ -9182,6 +9945,82 @@
       "publisher": "DJR",
       "urlText": "djr.com",
       "url": "https://djr.com/notes/roslindale-font-of-the-month/",
+      "license": "Paid/commercial"
+    }
+  },
+  {
+    "fontFamilyName": "Roslindale Beta Italic",
+    "isActive": false,
+    "fontFileName": "RoslindaleBetaItalic-VF.woff2",
+    "cssCodeName": "Roslindale Variable Italic Beta",
+    "previewText": {
+      "isCustom": false,
+      "customText": ""
+    },
+    "isVariableFont": true,
+    "variableOptions": {
+      "axes": [
+        {
+          "tag": "ital",
+          "name": "Italic",
+          "minValue": 0,
+          "defaultValue": 0,
+          "maxValue": 1,
+          "isSelected": 1,
+          "minAngle": 0,
+          "maxAngle": 10
+        },
+        {
+          "tag": "slnt",
+          "name": "Slant",
+          "minValue": -8,
+          "defaultValue": 0,
+          "maxValue": 0,
+          "isSelected": 2,
+          "minAngle": -8,
+          "maxAngle": 0
+        }
+      ],
+      "instances": [
+        {
+          "name": "Bold Upright Italic",
+          "isActive": false,
+          "coordinates": {
+            "ital": 1,
+            "slnt": 0
+          }
+        },
+        {
+          "name": "Bold Italic",
+          "isActive": false,
+          "coordinates": {
+            "ital": 1,
+            "slnt": -8
+          }
+        },
+        {
+          "name": "Bold",
+          "isActive": false,
+          "coordinates": {
+            "ital": 0,
+            "slnt": 0
+          }
+        },
+        {
+          "name": "Bold Oblique",
+          "isActive": false,
+          "coordinates": {
+            "ital": 0,
+            "slnt": -8
+          }
+        }
+      ]
+    },
+    "fontInfo": {
+      "designer": "David Jonathan Ross",
+      "publisher": "DJR",
+      "urlText": "djr.com",
+      "url": "http://www.djr.com",
       "license": "Paid/commercial"
     }
   },
@@ -9983,6 +10822,126 @@
       "urlText": "black-foundry.com",
       "url": "https://black-foundry.com/spookyvariable/",
       "license": "Not released yet."
+    }
+  },
+  {
+    "fontFamilyName": "Trilby",
+    "isActive": false,
+    "fontFileName": "Trilby-VF.woff2",
+    "cssCodeName": "Trilby",
+    "previewText": {
+      "isCustom": false,
+      "customText": ""
+    },
+    "isVariableFont": true,
+    "variableOptions": {
+      "axes": [
+        {
+          "tag": "wght",
+          "name": "Weight",
+          "minValue": 400,
+          "defaultValue": 400,
+          "maxValue": 800,
+          "isSelected": 1
+        }
+      ],
+      "instances": [
+        {
+          "name": "Black",
+          "isActive": false,
+          "coordinates": {
+            "wght": 800
+          }
+        },
+        {
+          "name": "Bold",
+          "isActive": false,
+          "coordinates": {
+            "wght": 667
+          }
+        },
+        {
+          "name": "Medium",
+          "isActive": false,
+          "coordinates": {
+            "wght": 533
+          }
+        },
+        {
+          "name": "Regular",
+          "isActive": false,
+          "coordinates": {
+            "wght": 400
+          }
+        }
+      ]
+    },
+    "fontInfo": {
+      "designer": "David Jonathan Ross",
+      "publisher": "DJR / The Font Bureau, Inc.",
+      "urlText": "djr.com",
+      "url": "https://djr.com",
+      "license": "Paid/commercial"
+    }
+  },
+  {
+    "fontFamilyName": "Trilby Italic",
+    "isActive": false,
+    "fontFileName": "TrilbyItalic-VF.woff2",
+    "cssCodeName": "Trilby Italic",
+    "previewText": {
+      "isCustom": false,
+      "customText": ""
+    },
+    "isVariableFont": true,
+    "variableOptions": {
+      "axes": [
+        {
+          "tag": "wght",
+          "name": "Weight",
+          "minValue": 400,
+          "defaultValue": 400,
+          "maxValue": 800,
+          "isSelected": 1
+        }
+      ],
+      "instances": [
+        {
+          "name": "Black Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 800
+          }
+        },
+        {
+          "name": "Bold Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 667
+          }
+        },
+        {
+          "name": "Medium Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 533
+          }
+        },
+        {
+          "name": "Italic",
+          "isActive": false,
+          "coordinates": {
+            "wght": 400
+          }
+        }
+      ]
+    },
+    "fontInfo": {
+      "designer": "David Jonathan Ross",
+      "publisher": "DJR / The Font Bureau, Inc.",
+      "urlText": "djr.com",
+      "url": "https://djr.com",
+      "license": "Paid/commercial"
     }
   },
   {
