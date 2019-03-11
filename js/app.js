@@ -11,6 +11,7 @@ var roundValueByStep = function(value, step){
   } else {
     result = step * Math.ceil(value / step);
   }
+  
   return result.toFixed(step.countDecimals());
 }
 
@@ -221,8 +222,13 @@ Vue.component('point-type-frame', {
           defaultValue =  parseFloat(axes[i].defaultValue);
         }
       }
-      skew = - (defaultValue - minValue)/(maxValue - minValue) * (maxAngle - minAngle);
-      left = Math.round(Math.tan((defaultValue - minValue) / (maxValue - minValue) * (maxAngle - minAngle) * Math.PI / 180) * 50);
+      if (maxValue >  0) {
+        skew = - (defaultValue - minValue)/(maxValue - minValue) * (maxAngle - minAngle);
+        left = Math.round(Math.tan((defaultValue - minValue) / (maxValue - minValue) * (maxAngle - minAngle) * Math.PI / 180) * 50);
+      } else {
+        skew = - (defaultValue - maxValue)/(minValue - maxValue) * (maxAngle - minAngle);
+        left = Math.round(Math.tan((defaultValue - maxValue) / (minValue - maxValue) * (maxAngle - minAngle) * Math.PI / 180) * 50);
+      }
 
       return {
         left: left + 'px',
@@ -772,7 +778,11 @@ Vue.component('point-type-frame', {
         targetLeft = this.minHandleSlantnessLeft;
       }
       var targetAngle = Math.atan(targetLeft/50)/Math.PI * 180;
-      this.slantAxis.defaultValue = roundValueByStep(targetAngle/this.slantAxis.maxAngle*this.slantAxis.maxValue, this.step);
+      if (this.slantAxis.maxValue > 0) {
+        this.slantAxis.defaultValue = roundValueByStep(targetAngle/this.slantAxis.maxAngle*this.slantAxis.maxValue, this.step);
+      } else {
+        this.slantAxis.defaultValue = roundValueByStep(targetAngle/this.slantAxis.maxAngle*this.slantAxis.minValue, this.step);
+      }
       this.emitValueChangeEvent();
     },
     controlVFSlantStopDrag: function (event) {
@@ -10916,9 +10926,9 @@ var app = new Vue({
             {
               "tag": "slnt",
               "name": "Slant",
-              "minValue": 0,
+              "minValue": -8,
               "defaultValue": 0,
-              "maxValue": -8,
+              "maxValue": 0,
               "isSelected": 2,
               "minAngle": 0,
               "maxAngle": 8
@@ -12665,8 +12675,8 @@ var app = new Vue({
                 "defaultValue": "-8",
                 "maxValue": 0,
                 "isSelected": 2,
-                "minAngle": -8,
-                "maxAngle": 0
+                "minAngle": 0,
+                "maxAngle": 8
               }
             ]
           }
