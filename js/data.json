@@ -1,4 +1,4 @@
-    [
+[
       {
         "fontFamilyName": "Adobe VF Prototype",
         "isActive": true,
@@ -9973,9 +9973,9 @@
             {
               "tag": "slnt",
               "name": "Slant",
-              "minValue": 0,
+              "minValue": -8,
               "defaultValue": 0,
-              "maxValue": -8,
+              "maxValue": 0,
               "isSelected": 2,
               "minAngle": 0,
               "maxAngle": 8
