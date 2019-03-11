@@ -3979,9 +3979,9 @@ var app = new Vue({
         },
         "fontInfo": {
           "designer": "David Jonathan Ross",
-          "publisher": "The Font Bureau Inc.",
-          "urlText": "fontbureau.com",
-          "url": "http://www.fontbureau.com/people/DavidJonathanRoss",
+          "publisher": "DJR / The Font Bureau, Inc.",
+          "urlText": "djr.com",
+          "url": "https://djr.com",
           "license": "Paid/commercial"
         }
       },
@@ -10916,12 +10916,12 @@ var app = new Vue({
             {
               "tag": "slnt",
               "name": "Slant",
-              "minValue": -8,
+              "minValue": 0,
               "defaultValue": 0,
-              "maxValue": 0,
+              "maxValue": -8,
               "isSelected": 2,
-              "minAngle": -8,
-              "maxAngle": 0
+              "minAngle": 0,
+              "maxAngle": 8
             }
           ],
           "instances": [
@@ -12400,52 +12400,35 @@ var app = new Vue({
         }
       }
     ],
-    canvasObjects:    [
-      {
-        "type": "point type",
-        "isSelected": false,
-        "id": "text1",
-        "properties": {
-          "left": 31,
-          "top": 387,
-          "cssCodeName": "Bree",
-          "isVariableFont": true,
-          "text": "Bree",
-          "fontSize": "62",
-          "variableOptions": {
-            "axes": [
-              {
-                "tag": "wght",
-                "name": "Weight",
-                "minValue": 0,
-                "defaultValue": "0",
-                "maxValue": 1000,
-                "isSelected": 1
-              }
-            ]
-          }
-        }
-      },
+    canvasObjects: [
       {
         "type": "point type",
         "isSelected": false,
         "id": "text2",
         "properties": {
-          "left": 192,
-          "top": 386,
-          "cssCodeName": "Bree Oblique",
+          "left": 478,
+          "top": 449,
+          "cssCodeName": "Merit Badge",
           "isVariableFont": true,
-          "text": "Bree Oblique",
-          "fontSize": "62",
+          "text": "A",
+          "fontSize": 100,
           "variableOptions": {
             "axes": [
               {
+                "tag": "SANS",
+                "name": "Sans serif forms",
+                "minValue": 0,
+                "defaultValue": 0,
+                "maxValue": 1,
+                "isSelected": 1
+              },
+              {
                 "tag": "wght",
                 "name": "Weight",
-                "minValue": 0,
-                "defaultValue": "1000",
-                "maxValue": 1000,
-                "isSelected": 1
+                "minValue": 200,
+                "defaultValue": 300,
+                "maxValue": 500,
+                "isSelected": 2
               }
             ]
           }
@@ -12456,29 +12439,21 @@ var app = new Vue({
         "isSelected": false,
         "id": "text3",
         "properties": {
-          "left": 30,
-          "top": 498,
-          "cssCodeName": "Portada",
+          "left": 453,
+          "top": 76,
+          "cssCodeName": "Bradley DJR Variable",
           "isVariableFont": true,
-          "text": "Portada",
-          "fontSize": "62",
+          "text": "Font Playground Presents:\n",
+          "fontSize": "34",
           "variableOptions": {
             "axes": [
               {
-                "tag": "wght",
-                "name": "Weight",
-                "minValue": 100,
-                "defaultValue": "1000",
-                "maxValue": 1000,
-                "isSelected": 1
-              },
-              {
                 "tag": "opsz",
                 "name": "Optical Size",
-                "minValue": 14,
-                "defaultValue": "36",
-                "maxValue": 36,
-                "isSelected": 2
+                "minValue": 6,
+                "defaultValue": "34",
+                "maxValue": 60,
+                "isSelected": 1
               }
             ]
           }
@@ -12489,29 +12464,39 @@ var app = new Vue({
         "isSelected": false,
         "id": "text4",
         "properties": {
-          "left": 303,
-          "top": 497,
-          "cssCodeName": "Portada Italic",
+          "left": 66,
+          "top": 356,
+          "cssCodeName": "Condor",
           "isVariableFont": true,
-          "text": "Portada Italic",
-          "fontSize": "62",
+          "text": "§\n",
+          "fontSize": 100,
           "variableOptions": {
             "axes": [
               {
                 "tag": "wght",
                 "name": "Weight",
-                "minValue": 100,
-                "defaultValue": "100",
-                "maxValue": 1000,
+                "minValue": 200,
+                "defaultValue": 400,
+                "maxValue": 900,
                 "isSelected": 1
               },
               {
-                "tag": "opsz",
-                "name": "Optical Size",
-                "minValue": 14,
-                "defaultValue": "36",
-                "maxValue": 36,
+                "tag": "wdth",
+                "name": "Width",
+                "minValue": 50,
+                "defaultValue": 100,
+                "maxValue": 175,
                 "isSelected": 2
+              },
+              {
+                "tag": "ital",
+                "name": "Italic",
+                "minValue": 0,
+                "defaultValue": 0,
+                "maxValue": 1,
+                "isSelected": 0,
+                "minAngle": 0,
+                "maxAngle": 10
               }
             ]
           }
@@ -12522,29 +12507,21 @@ var app = new Vue({
         "isSelected": false,
         "id": "text5",
         "properties": {
-          "left": 29,
-          "top": 594,
-          "cssCodeName": "Protipo",
+          "left": 382,
+          "top": 651,
+          "cssCodeName": "Map Roman Variable",
           "isVariableFont": true,
-          "text": "Protipo",
-          "fontSize": "62",
+          "text": "¶MAP\n",
+          "fontSize": 100,
           "variableOptions": {
             "axes": [
               {
-                "tag": "wght",
-                "name": "Weight",
-                "minValue": 0,
-                "defaultValue": "1000",
-                "maxValue": 1000,
-                "isSelected": 1
-              },
-              {
                 "tag": "wdth",
                 "name": "Width",
-                "minValue": 0,
-                "defaultValue": 500,
-                "maxValue": 650,
-                "isSelected": 2
+                "minValue": 75,
+                "defaultValue": "75",
+                "maxValue": 100,
+                "isSelected": 1
               }
             ]
           }
@@ -12555,21 +12532,62 @@ var app = new Vue({
         "isSelected": false,
         "id": "text6",
         "properties": {
-          "left": 305,
-          "top": 595,
-          "cssCodeName": "Protipo Compact",
+          "left": 212,
+          "top": 483,
+          "cssCodeName": "Bradley DJR Variable",
           "isVariableFont": true,
-          "text": "Protipo Compact",
-          "fontSize": "62",
+          "text": "&",
+          "fontSize": "129",
+          "variableOptions": {
+            "axes": [
+              {
+                "tag": "opsz",
+                "name": "Optical Size",
+                "minValue": 6,
+                "defaultValue": "60",
+                "maxValue": 60,
+                "isSelected": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "point type",
+        "isSelected": false,
+        "id": "text7",
+        "properties": {
+          "left": 1257,
+          "top": 360,
+          "cssCodeName": "Jabin",
+          "isVariableFont": true,
+          "text": "‡\n",
+          "fontSize": "166",
           "variableOptions": {
             "axes": [
               {
                 "tag": "wght",
                 "name": "Weight",
-                "minValue": -300,
-                "defaultValue": "-300",
-                "maxValue": 1000,
+                "minValue": 40,
+                "defaultValue": 40,
+                "maxValue": 120,
                 "isSelected": 1
+              },
+              {
+                "tag": "wdth",
+                "name": "Width",
+                "minValue": 0,
+                "defaultValue": 0,
+                "maxValue": 100,
+                "isSelected": 2
+              },
+              {
+                "tag": "XXXX",
+                "name": "Custom",
+                "minValue": 1,
+                "defaultValue": 1,
+                "maxValue": 100,
+                "isSelected": 0
               }
             ]
           }
@@ -12580,28 +12598,53 @@ var app = new Vue({
         "isSelected": false,
         "id": "text8",
         "properties": {
-          "left": 731,
-          "top": 597,
-          "cssCodeName": "Protipo Italic",
+          "left": 183,
+          "top": 131,
+          "cssCodeName": "Extraordinaire",
           "isVariableFont": true,
-          "text": "Protipo Italic",
-          "fontSize": "62",
+          "text": "Fonts by DJR\n",
+          "fontSize": "185",
           "variableOptions": {
             "axes": [
               {
                 "tag": "wght",
                 "name": "Weight",
-                "minValue": 0,
-                "defaultValue": "0",
-                "maxValue": 1000,
+                "minValue": 100,
+                "defaultValue": "219.3",
+                "maxValue": 700,
+                "isSelected": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "point type",
+        "isSelected": true,
+        "id": "text9",
+        "properties": {
+          "left": 186,
+          "top": 129,
+          "cssCodeName": "Extraordinaire Shade",
+          "isVariableFont": true,
+          "text": "Fonts by DJR\n",
+          "fontSize": "185",
+          "variableOptions": {
+            "axes": [
+              {
+                "tag": "wght",
+                "name": "Weight",
+                "minValue": 100,
+                "defaultValue": "100",
+                "maxValue": 400,
                 "isSelected": 1
               },
               {
-                "tag": "wdth",
-                "name": "Width",
-                "minValue": 0,
-                "defaultValue": "650",
-                "maxValue": 650,
+                "tag": "SHDW",
+                "name": "Shade Distance",
+                "minValue": 30,
+                "defaultValue": "60",
+                "maxValue": 60,
                 "isSelected": 2
               }
             ]
@@ -12611,55 +12654,22 @@ var app = new Vue({
       {
         "type": "point type",
         "isSelected": false,
-        "id": "text9",
-        "properties": {
-          "left": 102,
-          "top": 51,
-          "cssCodeName": "Portada",
-          "isVariableFont": true,
-          "text": "Let’s",
-          "fontSize": "56",
-          "variableOptions": {
-            "axes": [
-              {
-                "tag": "wght",
-                "name": "Weight",
-                "minValue": 100,
-                "defaultValue": "1000",
-                "maxValue": 1000,
-                "isSelected": 1
-              },
-              {
-                "tag": "opsz",
-                "name": "Optical Size",
-                "minValue": 14,
-                "defaultValue": 14,
-                "maxValue": 36,
-                "isSelected": 2
-              }
-            ]
-          }
-        }
-      },
-      {
-        "type": "point type",
-        "isSelected": true,
         "id": "text10",
         "properties": {
-          "left": 23,
-          "top": 106,
-          "cssCodeName": "Bree Oblique",
+          "left": 933,
+          "top": 742,
+          "cssCodeName": "Trilby Italic",
           "isVariableFont": true,
-          "text": "TypeTogether!",
-          "fontSize": "118",
+          "text": "Italic\n",
+          "fontSize": "54",
           "variableOptions": {
             "axes": [
               {
                 "tag": "wght",
                 "name": "Weight",
-                "minValue": 0,
-                "defaultValue": "1000",
-                "maxValue": 1000,
+                "minValue": 400,
+                "defaultValue": "800",
+                "maxValue": 800,
                 "isSelected": 1
               }
             ]
@@ -12671,19 +12681,106 @@ var app = new Vue({
         "isSelected": false,
         "id": "text11",
         "properties": {
-          "left": 35,
-          "top": 317,
-          "cssCodeName": "Protipo Compact",
+          "left": 994,
+          "top": 487,
+          "cssCodeName": "Roslindale Variable Italic Beta",
           "isVariableFont": true,
-          "text": "Play with new fonts, designed by TypeTogether:",
-          "fontSize": "23",
+          "text": "abc\n",
+          "fontSize": "117",
+          "variableOptions": {
+            "axes": [
+              {
+                "tag": "ital",
+                "name": "Italic",
+                "minValue": 0,
+                "defaultValue": "1",
+                "maxValue": 1,
+                "isSelected": 1,
+                "minAngle": 0,
+                "maxAngle": 10
+              },
+              {
+                "tag": "slnt",
+                "name": "Slant",
+                "minValue": -8,
+                "defaultValue": "-8",
+                "maxValue": 0,
+                "isSelected": 2,
+                "minAngle": -8,
+                "maxAngle": 0
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "point type",
+        "isSelected": false,
+        "id": "text12",
+        "properties": {
+          "left": 663,
+          "top": 851,
+          "cssCodeName": "Trilby",
+          "isVariableFont": true,
+          "text": "Trilby",
+          "fontSize": "70",
           "variableOptions": {
             "axes": [
               {
                 "tag": "wght",
                 "name": "Weight",
-                "minValue": -300,
-                "defaultValue": 300,
+                "minValue": 400,
+                "defaultValue": "400",
+                "maxValue": 800,
+                "isSelected": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "point type",
+        "isSelected": false,
+        "id": "text13",
+        "properties": {
+          "left": 720,
+          "top": 544,
+          "cssCodeName": "Pappardelle Party Regular",
+          "isVariableFont": true,
+          "text": "PARTY\n",
+          "fontSize": 100,
+          "variableOptions": {
+            "axes": [
+              {
+                "tag": "SPIN",
+                "name": "Color Spinner",
+                "minValue": 0,
+                "defaultValue": 0,
+                "maxValue": 4,
+                "isSelected": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "point type",
+        "isSelected": false,
+        "id": "text14",
+        "properties": {
+          "left": 72,
+          "top": 743,
+          "cssCodeName": "Fit",
+          "isVariableFont": true,
+          "text": "“quote”\n",
+          "fontSize": "198",
+          "variableOptions": {
+            "axes": [
+              {
+                "tag": "wdth",
+                "name": "Width",
+                "minValue": 0,
+                "defaultValue": "56.33",
                 "maxValue": 1000,
                 "isSelected": 1
               }
