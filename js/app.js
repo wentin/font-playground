@@ -5577,7 +5577,7 @@ var app = new Vue({
           ]
         },
         "fontInfo": {
-          "designer": "David Jonathan Ross, Oded Ezer",
+          "designer": "David Jonathan Ross, Oded Ezer, Gor Jihanian",
           "publisher": "DJR",
           "urlText": "djr.com",
           "url": "https://djr.com/fit/",
