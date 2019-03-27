@@ -12413,32 +12413,84 @@ var app = new Vue({
     canvasObjects: [
       {
         "type": "point type",
-        "isSelected": false,
-        "id": "text2",
+        "isSelected": true,
+        "id": "text1",
         "properties": {
-          "left": 478,
-          "top": 463,
-          "cssCodeName": "Merit Badge",
+          "left": 73,
+          "top": 48,
+          "cssCodeName": "Dunbar",
           "isVariableFont": true,
-          "text": "A",
-          "fontSize": 100,
+          "text": "Font Playground",
+          "fontSize": "85",
           "variableOptions": {
             "axes": [
               {
-                "tag": "SANS",
-                "name": "Sans serif forms",
-                "minValue": 0,
-                "defaultValue": 0,
-                "maxValue": 1,
+                "tag": "wght",
+                "name": "Weight",
+                "minValue": 100,
+                "defaultValue": "712.00",
+                "maxValue": 900,
                 "isSelected": 1
               },
               {
+                "tag": "XHGT",
+                "name": "xHeight",
+                "minValue": 353,
+                "defaultValue": "432.83",
+                "maxValue": 574,
+                "isSelected": 2,
+                "minPositionY": 0.571,
+                "maxPositionY": 0.35,
+                "baselinePostionY": 0.924
+              },
+              {
+                "tag": "opsz",
+                "name": "Optical Size",
+                "minValue": 10,
+                "defaultValue": 36,
+                "maxValue": 36,
+                "isSelected": 0
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "point type",
+        "isSelected": false,
+        "id": "text2",
+        "properties": {
+          "left": 78,
+          "top": 193,
+          "cssCodeName": "Louvette Beta",
+          "isVariableFont": true,
+          "text": "is",
+          "fontSize": "95",
+          "variableOptions": {
+            "axes": [
+              {
                 "tag": "wght",
                 "name": "Weight",
-                "minValue": 200,
-                "defaultValue": 300,
-                "maxValue": 500,
+                "minValue": 300,
+                "defaultValue": "300.00",
+                "maxValue": 1000,
+                "isSelected": 1
+              },
+              {
+                "tag": "yopq",
+                "name": "Hairline",
+                "minValue": 14,
+                "defaultValue": "100.00",
+                "maxValue": 100,
                 "isSelected": 2
+              },
+              {
+                "tag": "ytde",
+                "name": "Descender",
+                "minValue": 14,
+                "defaultValue": 100,
+                "maxValue": 100,
+                "isSelected": 0
               }
             ]
           }
@@ -12449,20 +12501,20 @@ var app = new Vue({
         "isSelected": false,
         "id": "text3",
         "properties": {
-          "left": 453,
-          "top": 76,
-          "cssCodeName": "Bradley DJR Variable",
+          "left": 76,
+          "top": 361,
+          "cssCodeName": "Fit",
           "isVariableFont": true,
-          "text": "Font Playground Presents:\n",
-          "fontSize": "34",
+          "text": "very",
+          "fontSize": "103",
           "variableOptions": {
             "axes": [
               {
-                "tag": "opsz",
-                "name": "Optical Size",
-                "minValue": 6,
-                "defaultValue": "34",
-                "maxValue": 60,
+                "tag": "wdth",
+                "name": "Width",
+                "minValue": 0,
+                "defaultValue": "186.07",
+                "maxValue": 1000,
                 "isSelected": 1
               }
             ]
@@ -12474,188 +12526,12 @@ var app = new Vue({
         "isSelected": false,
         "id": "text4",
         "properties": {
-          "left": 66,
-          "top": 356,
-          "cssCodeName": "Condor",
-          "isVariableFont": true,
-          "text": "§\n",
-          "fontSize": 100,
-          "variableOptions": {
-            "axes": [
-              {
-                "tag": "wght",
-                "name": "Weight",
-                "minValue": 200,
-                "defaultValue": 400,
-                "maxValue": 900,
-                "isSelected": 1
-              },
-              {
-                "tag": "wdth",
-                "name": "Width",
-                "minValue": 50,
-                "defaultValue": 100,
-                "maxValue": 175,
-                "isSelected": 2
-              },
-              {
-                "tag": "ital",
-                "name": "Italic",
-                "minValue": 0,
-                "defaultValue": 0,
-                "maxValue": 1,
-                "isSelected": 0,
-                "minAngle": 0,
-                "maxAngle": 10
-              }
-            ]
-          }
-        }
-      },
-      {
-        "type": "point type",
-        "isSelected": false,
-        "id": "text5",
-        "properties": {
-          "left": 345,
-          "top": 627,
-          "cssCodeName": "Map Roman Variable",
-          "isVariableFont": true,
-          "text": "¶MAP\n",
-          "fontSize": 100,
-          "variableOptions": {
-            "axes": [
-              {
-                "tag": "wdth",
-                "name": "Width",
-                "minValue": 75,
-                "defaultValue": "75",
-                "maxValue": 100,
-                "isSelected": 1
-              }
-            ]
-          }
-        }
-      },
-      {
-        "type": "point type",
-        "isSelected": false,
-        "id": "text6",
-        "properties": {
-          "left": 212,
-          "top": 483,
-          "cssCodeName": "Bradley DJR Variable",
-          "isVariableFont": true,
-          "text": "&",
-          "fontSize": "129",
-          "variableOptions": {
-            "axes": [
-              {
-                "tag": "opsz",
-                "name": "Optical Size",
-                "minValue": 6,
-                "defaultValue": "60",
-                "maxValue": 60,
-                "isSelected": 1
-              }
-            ]
-          }
-        }
-      },
-      {
-        "type": "point type",
-        "isSelected": false,
-        "id": "text8",
-        "properties": {
-          "left": 183,
-          "top": 131,
-          "cssCodeName": "Extraordinaire",
-          "isVariableFont": true,
-          "text": "Fonts by DJR\n",
-          "fontSize": "185",
-          "variableOptions": {
-            "axes": [
-              {
-                "tag": "wght",
-                "name": "Weight",
-                "minValue": 100,
-                "defaultValue": "219.3",
-                "maxValue": 700,
-                "isSelected": 1
-              }
-            ]
-          }
-        }
-      },
-      {
-        "type": "point type",
-        "isSelected": false,
-        "id": "text9",
-        "properties": {
-          "left": 186,
-          "top": 129,
-          "cssCodeName": "Extraordinaire Shade",
-          "isVariableFont": true,
-          "text": "Fonts by DJR\n",
-          "fontSize": "185",
-          "variableOptions": {
-            "axes": [
-              {
-                "tag": "wght",
-                "name": "Weight",
-                "minValue": 100,
-                "defaultValue": "100",
-                "maxValue": 400,
-                "isSelected": 1
-              },
-              {
-                "tag": "SHDW",
-                "name": "Shade Distance",
-                "minValue": 30,
-                "defaultValue": "60",
-                "maxValue": 60,
-                "isSelected": 2
-              }
-            ]
-          }
-        }
-      },
-      {
-        "type": "point type",
-        "isSelected": false,
-        "id": "text10",
-        "properties": {
-          "left": 821,
-          "top": 665,
-          "cssCodeName": "Trilby Italic",
-          "isVariableFont": true,
-          "text": "Italic\n",
-          "fontSize": "54",
-          "variableOptions": {
-            "axes": [
-              {
-                "tag": "wght",
-                "name": "Weight",
-                "minValue": 400,
-                "defaultValue": "800",
-                "maxValue": 800,
-                "isSelected": 1
-              }
-            ]
-          }
-        }
-      },
-      {
-        "type": "point type",
-        "isSelected": false,
-        "id": "text11",
-        "properties": {
-          "left": 983,
-          "top": 483,
+          "left": 78,
+          "top": 537,
           "cssCodeName": "Roslindale Variable Italic Beta",
           "isVariableFont": true,
-          "text": "abc\n",
-          "fontSize": "117",
+          "text": "Awesome",
+          "fontSize": 100,
           "variableOptions": {
             "axes": [
               {
@@ -12672,279 +12548,11 @@ var app = new Vue({
                 "tag": "slnt",
                 "name": "Slant",
                 "minValue": -8,
-                "defaultValue": "-8",
+                "defaultValue": "-8.00",
                 "maxValue": 0,
                 "isSelected": 2,
                 "minAngle": 0,
                 "maxAngle": 8
-              }
-            ]
-          }
-        }
-      },
-      {
-        "type": "point type",
-        "isSelected": false,
-        "id": "text12",
-        "properties": {
-          "left": 582,
-          "top": 816,
-          "cssCodeName": "Trilby",
-          "isVariableFont": true,
-          "text": "Trilby",
-          "fontSize": "70",
-          "variableOptions": {
-            "axes": [
-              {
-                "tag": "wght",
-                "name": "Weight",
-                "minValue": 400,
-                "defaultValue": "400",
-                "maxValue": 800,
-                "isSelected": 1
-              }
-            ]
-          }
-        }
-      },
-      {
-        "type": "point type",
-        "isSelected": false,
-        "id": "text13",
-        "properties": {
-          "left": 715,
-          "top": 521,
-          "cssCodeName": "Pappardelle Party Regular",
-          "isVariableFont": true,
-          "text": "PARTY\n",
-          "fontSize": "117",
-          "variableOptions": {
-            "axes": [
-              {
-                "tag": "SPIN",
-                "name": "Color Spinner",
-                "minValue": 0,
-                "defaultValue": 0,
-                "maxValue": 4,
-                "isSelected": 1
-              }
-            ]
-          }
-        }
-      },
-      {
-        "type": "point type",
-        "isSelected": false,
-        "id": "text14",
-        "properties": {
-          "left": 72,
-          "top": 743,
-          "cssCodeName": "Fit",
-          "isVariableFont": true,
-          "text": "“quote”\n",
-          "fontSize": "198",
-          "variableOptions": {
-            "axes": [
-              {
-                "tag": "wdth",
-                "name": "Width",
-                "minValue": 0,
-                "defaultValue": "56.33",
-                "maxValue": 1000,
-                "isSelected": 1
-              }
-            ]
-          }
-        }
-      },
-      {
-        "type": "point type",
-        "isSelected": true,
-        "id": "text15",
-        "properties": {
-          "left": 278,
-          "top": 373,
-          "cssCodeName": "Roslindale Variable Italic Beta",
-          "isVariableFont": true,
-          "text": "*Tip: try search by designer name or foundry name, eg. DJR",
-          "fontSize": "28",
-          "variableOptions": {
-            "axes": [
-              {
-                "tag": "ital",
-                "name": "Italic",
-                "minValue": 0,
-                "defaultValue": "1",
-                "maxValue": 1,
-                "isSelected": 1,
-                "minAngle": 0,
-                "maxAngle": 10
-              },
-              {
-                "tag": "slnt",
-                "name": "Slant",
-                "minValue": -8,
-                "defaultValue": "0.00",
-                "maxValue": 0,
-                "isSelected": 2,
-                "minAngle": 0,
-                "maxAngle": 8
-              }
-            ]
-          }
-        }
-      },
-      {
-        "type": "point type",
-        "isSelected": false,
-        "id": "text16",
-        "properties": {
-          "left": 1151,
-          "top": 356,
-          "cssCodeName": "Gimlet Italic Beta",
-          "isVariableFont": true,
-          "text": "D",
-          "fontSize": 100,
-          "variableOptions": {
-            "axes": [
-              {
-                "tag": "wght",
-                "name": "Weight",
-                "minValue": 300,
-                "defaultValue": "800",
-                "maxValue": 800,
-                "isSelected": 1
-              },
-              {
-                "tag": "wdth",
-                "name": "Width",
-                "minValue": 64,
-                "defaultValue": "64",
-                "maxValue": 100,
-                "isSelected": 2
-              },
-              {
-                "tag": "opsz",
-                "name": "Optical Size",
-                "minValue": 8,
-                "defaultValue": 48,
-                "maxValue": 48,
-                "isSelected": 0
-              }
-            ]
-          }
-        }
-      },
-      {
-        "type": "point type",
-        "isSelected": false,
-        "id": "text17",
-        "properties": {
-          "left": 1228,
-          "top": 584,
-          "cssCodeName": "Rhody",
-          "isVariableFont": true,
-          "text": "J",
-          "fontSize": 100,
-          "variableOptions": {
-            "axes": [
-              {
-                "tag": "DESC",
-                "name": "Descenders",
-                "minValue": 0,
-                "defaultValue": 0,
-                "maxValue": 300,
-                "isSelected": 1
-              },
-              {
-                "tag": "ASCN",
-                "name": "Ascenders",
-                "minValue": 0,
-                "defaultValue": 0,
-                "maxValue": 300,
-                "isSelected": 2
-              },
-              {
-                "tag": "wght",
-                "name": "Weight",
-                "minValue": 300,
-                "defaultValue": 400,
-                "maxValue": 800,
-                "isSelected": 0
-              }
-            ]
-          }
-        }
-      },
-      {
-        "type": "point type",
-        "isSelected": false,
-        "id": "text18",
-        "properties": {
-          "left": 1174,
-          "top": 790,
-          "cssCodeName": "Lab",
-          "isVariableFont": true,
-          "text": "R",
-          "fontSize": 100,
-          "variableOptions": {
-            "axes": [
-              {
-                "tag": "BEVL",
-                "name": "Bevel",
-                "minValue": 0,
-                "defaultValue": 0,
-                "maxValue": 1000,
-                "isSelected": 1
-              },
-              {
-                "tag": "OVAL",
-                "name": "Oval",
-                "minValue": 0,
-                "defaultValue": 0,
-                "maxValue": 1000,
-                "isSelected": 2
-              },
-              {
-                "tag": "QUAD",
-                "name": "Quad",
-                "minValue": 0,
-                "defaultValue": 0,
-                "maxValue": 1000,
-                "isSelected": 0
-              },
-              {
-                "tag": "SIZE",
-                "name": "Size",
-                "minValue": 0,
-                "defaultValue": 0,
-                "maxValue": 1000,
-                "isSelected": 0
-              }
-            ]
-          }
-        }
-      },
-      {
-        "type": "point type",
-        "isSelected": false,
-        "id": "text19",
-        "properties": {
-          "left": 880,
-          "top": 777,
-          "cssCodeName": "Output Sans Hairlines",
-          "isVariableFont": true,
-          "text": "Hairline",
-          "fontSize": "63",
-          "variableOptions": {
-            "axes": [
-              {
-                "tag": "opsz",
-                "name": "Optical Size",
-                "minValue": 34,
-                "defaultValue": "63",
-                "maxValue": 166,
-                "isSelected": 1
               }
             ]
           }
