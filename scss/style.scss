@@ -599,8 +599,8 @@ input[type="text"] {
 
 body {
   background-color: $textBackgroundColor;
-  -moz-osx-font-smoothing: grayscale;
   font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   position: relative;
   font-family: $sans;
@@ -608,8 +608,9 @@ body {
 }
 
 #font-playground-app {
-  width: 100%;
-
+  width: 100vw;
+  height: 100vh;
+  
   &.design-view {
     .panel .section.section-font-size,
     .panel .section.section-preset-variations {
